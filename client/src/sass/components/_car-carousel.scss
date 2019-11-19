@@ -1,0 +1,77 @@
+.images-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__top {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-top: 4rem;
+    box-shadow: 0rem 5rem 5rem rgba(0, 0, 0, 0.25);
+
+    .main-image {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+
+    .arrow {
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      font-size: 5rem;
+      color: white;
+      transform: translateY(-50%);
+      transition: all 0.3s;
+
+      &-left {
+        top: 30%;
+        left: 0.7rem;
+      }
+
+      &-right {
+        top: 30%;
+        right: 0.5rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        font-size: 5.5rem;
+        color: $primary-color-dark;
+      }
+
+      &:active {
+        transform: translateY(-50%) translateY(-2px);
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 6rem;
+
+    .secondary-image {
+      width: 15%;
+      margin: 0 1rem;
+      transition: 0.2s;
+      border-radius: 3px;
+      overflow: hidden;
+
+      &__img {
+        width: 100%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        filter: contrast(60%);
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  border: 1rem groove $secondary-color;
+  animation: spin 2s infinite ease-in;
+}
+
+@keyframes spin {
+  25% {
+    border-right-color: $primary-color-dark;
+  }
+  45% {
+    border-right-color: $secondary-color;
+  }
+  50% {
+    border-top-color: $secondary-color;
+    border-bottom-color: $primary-color-dark;
+  }
+  70% {
+    border-bottom-color: $secondary-color;
+  }
+  75% {
+    border-left-color: $primary-color-dark;
+  }
+  85% {
+    border-left-color: $secondary-color;
+  }
+
+  99% {
+    border-top-color: $primary-color-dark;
+  }
+}

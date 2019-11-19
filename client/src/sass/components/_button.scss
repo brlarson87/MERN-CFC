@@ -1,0 +1,175 @@
+.btn {
+  &:link,
+  &:visited {
+    position: relative;
+    display: inline-block;
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    width: 10rem;
+    font-weight: 400;
+    z-index: 1;
+    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  &--primary {
+    &:link,
+    &:visited {
+      background-image: linear-gradient($primary-color, $primary-color-dark);
+      color: white;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      background-image: linear-gradient($primary-color-dark, $primary-color);
+      box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &--submit--primary {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2rem;
+    background-image: radial-gradient(
+      $primary-color,
+      darken($primary-color, 30%)
+    );
+    padding: 1.2rem 2rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3);
+    margin-top: 2.2rem;
+    letter-spacing: 2px;
+    backface-visibility: hidden;
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-2px);
+      box-shadow: 0rem 2.2rem 2rem rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &--link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: $primary-color;
+      letter-spacing: 1px;
+      padding: 1rem;
+      text-transform: uppercase;
+      border-radius: 0.5rem;
+      transition: all 0.5s;
+    }
+
+    &:hover,
+    &:active {
+      background-image: radial-gradient($primary-color, $primary-color-dark);
+      color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
+    }
+
+    &-2 {
+      display: inline-block;
+      transition: all 0.4s;
+      backface-visibility: hidden;
+      &:link,
+      &:visited {
+        background-color: none;
+        font-size: 7.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration-color: transparent;
+        border-radius: 1rem;
+      }
+
+      &:hover {
+        color: $secondary-color;
+        text-decoration-color: $secondary-color;
+      }
+    }
+  }
+  &__input--secondary {
+    padding: 1rem;
+    background-image: radial-gradient(
+      $secondary-color,
+      darken($secondary-color, 40%)
+    );
+    border: none;
+    border-radius: 3px;
+    color: $primary-color-dark;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-3px);
+      box-shadow: 0.8rem 1.2rem 1rem rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &--block {
+    &:link,
+    &:visited {
+      display: block;
+      font-size: 1rem;
+      background-image: radial-gradient($primary-color, $primary-color-dark);
+      color: white;
+      transition: 0.3s;
+      text-decoration: none;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 1rem 0.8rem rgba(0, 0, 0, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    &:hover,
+    &:active {
+      transform: translateY(-2px);
+      box-shadow: 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.btn-abs-bottom {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+
+  &:link,
+  &:visited {
+    display: block;
+    width: 80%;
+    color: $primary-color;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateX(-50%) translateY(-1px);
+    box-shadow: 1.5rem 1.5rem 1rem rgba(0, 0, 0, 0.3);
+  }
+}

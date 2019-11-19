@@ -1,0 +1,94 @@
+.footer {
+  background-image: linear-gradient(
+      to top right,
+      $color-grey 0%,
+      lighten($color-grey, 50%) 50%,
+      transparent 51%
+    ),
+    radial-gradient($color-grey, lighten($color-grey, 50%));
+  border-radius: 3px;
+
+  &__title {
+    display: inline-block;
+    margin-left: 40%;
+    margin-top: 1rem;
+    padding: 3rem;
+    color: $primary-color-dark;
+    font-family: "Rock Salt", cursive;
+    font-size: 4.5rem;
+    text-align: center;
+    border-top: 2px dotted darken($secondary-color, 20%);
+    border-bottom: 4px dotted darken($secondary-color, 25%);
+    border-radius: 50%;
+  }
+
+  &__social-header {
+    margin-left: 10%;
+    padding: 2rem;
+    font-size: 2rem;
+    letter-spacing: 1.8rem;
+    color: $secondary-color;
+  }
+
+  &__container {
+    width: 99%;
+    margin: 0 auto;
+
+    &::after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+  }
+
+  &__nav {
+    list-style: none;
+
+    &--left {
+      float: left;
+      font-size: 1.8rem;
+    }
+
+    &--right {
+      float: right;
+      font-size: 1.4rem;
+      transform: translateY(0.5rem);
+    }
+
+    &--item {
+      display: inline-block;
+      padding: 1rem;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.03) translateY(-2px);
+      }
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: $primary-color-dark;
+        padding: 0.8rem;
+        transition: all 0.3s;
+        text-transform: uppercase;
+      }
+
+      &:hover,
+      &:active {
+        background-color: $primary-color-dark;
+        color: #fff;
+      }
+    }
+  }
+
+  &__copyright-tag {
+    font-size: 1.6rem;
+    margin-left: 40%;
+    margin-top: 2rem;
+    font-weight: 400;
+    padding-bottom: 4rem;
+    color: #000;
+  }
+}

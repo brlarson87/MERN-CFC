@@ -1,0 +1,70 @@
+.details {
+  text-align: center;
+  padding: 4rem;
+
+  &__heading--1 {
+    color: $primary-color;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__heading--2 {
+    color: $secondary-color;
+    font-size: 1.8rem;
+    letter-spacing: 0.4rem;
+    margin: 1.8rem 0;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e3e3e3;
+
+    &--left {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &--right {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    &--text {
+      line-height: 2.5rem;
+    }
+  }
+
+  &__ticket-form {
+    margin-top: 4rem;
+
+    &--title {
+      color: $primary-color-dark;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    &--input {
+      display: block;
+      font-family: Quicksand, sans-serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin: 1.5rem auto;
+      padding: 1rem 1rem;
+      border-radius: 3px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+[class^="details__group--"] {
+  padding: 2rem;
+}

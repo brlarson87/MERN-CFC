@@ -1,0 +1,119 @@
+.dashboard {
+  text-align: center;
+
+  &__title {
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+    padding: 3rem 0;
+    font-size: 3.2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+
+    &--pool {
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      padding: 3rem 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
+      color: #000;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .cover-title {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
+    color: #000;
+  }
+
+  .info {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 1.5em 0;
+    text-transform: uppercase;
+
+    .number {
+      font-size: 1.8rem;
+      font-weight: 600;
+
+      &-live {
+        color: green;
+      }
+
+      &-active {
+        color: $primary-color;
+      }
+
+      &-pools {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .ticket-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 40rem;
+    overflow-y: scroll;
+    margin-bottom: 12rem;
+    padding: 1rem;
+    border-radius: 5px;
+    // outline: 0.5rem solid $secondary-color;
+    // outline-offset: 1rem;
+    box-shadow: 0rem -1rem 0 #fff, 0rem -2rem 0 #fff,
+      0rem -3rem 1.2rem rgba(0, 0, 0, 0.55), 0rem -4rem 0 $secondary-color,
+      0rem 1rem 0 #fff, 0rem 2rem 0 #fff, 0rem 3rem 1.2rem rgba(0, 0, 0, 0.35),
+      0rem 4rem 0 $secondary-color, -1px -1px 2rem rgba(0, 0, 0, 0.2),
+      1.2rem -2.1rem 0 $secondary-color, -1.2rem 2.1rem 0 $secondary-color;
+
+    @include scroller;
+
+    &__single-ticket {
+      position: relative;
+      font-size: 14rem;
+      width: 20%;
+      margin: 1rem 0;
+      color: $primary-color-dark;
+
+      &--number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 1.4rem;
+        color: white;
+        transform: translate(-50%, -50%);
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .breaker {
+    background-image: linear-gradient(
+      $secondary-color,
+      darken($secondary-color, 30%)
+    );
+    height: 0.5rem;
+    width: 65%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.empty-pools {
+  margin: 10rem 0 2rem 0;
+}

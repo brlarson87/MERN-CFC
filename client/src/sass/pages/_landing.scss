@@ -1,0 +1,109 @@
+.car-bg {
+  background: url("./img/lambo-main.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.landing-info {
+  background-color: #fff;
+  text-align: center;
+  padding: 5rem 0 15rem 0;
+
+  &--title {
+    font-size: 2.8rem;
+    margin-bottom: 10rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: $primary-color-dark;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 2px #000;
+
+    &:hover {
+      cursor: pointer;
+      //transform: scale(1.03);
+      color: lighten($primary-color-dark, 10%);
+    }
+  }
+
+  &--grid {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 15rem;
+  }
+
+  &--box {
+    position: relative;
+    width: 25%;
+    background-image: linear-gradient(
+      to bottom right,
+      $primary-color,
+      $primary-color-dark
+    );
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    padding-bottom: 5rem;
+    box-shadow: 1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.35);
+
+    &--heading {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #fff;
+    }
+
+    &--text {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 4rem;
+      line-height: 2.5rem;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.see-through {
+  &--top {
+    transform: translateY(12vh);
+    margin-bottom: 10rem;
+    height: 60vh;
+  }
+
+  &--bottom {
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+
+    &__box {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      text-align: center;
+      opacity: 0;
+      will-change: opacity transform;
+    }
+
+    &__title {
+      color: white;
+      font-size: 3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.arrow {
+  margin-top: 10rem;
+  font-size: 4rem;
+  color: $primary-color;
+}
+
+.is-visible {
+  animation: show 1.4s 0.85s cubic-bezier(0.45, 0.86, 0.45, 0.94) forwards;
+}

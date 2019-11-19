@@ -1,0 +1,101 @@
+.full-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  //background-image: radial-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.88));
+  background-color: #eee;
+  filter: grayscale(40%);
+
+  .form-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    //background-image: url("./img/paper-bg.jpg");
+    background-size: cover;
+    transform: translateX(-50%);
+    padding: 5rem 8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
+    border: solid 1px #ddd;
+
+    &__title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      color: $primary-color;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+      text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.7);
+    }
+
+    &__form {
+      position: relative;
+
+      &--group {
+        padding: 0.8rem;
+        text-align: center;
+        &--title {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          margin-left: 1rem;
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #000;
+          text-shadow: 1px 1px 1px rgba(256, 256, 256, 0.85);
+        }
+
+        &--input {
+          display: block;
+          width: 70%;
+          margin: 0 auto;
+          padding: 0.5rem 0.6rem;
+          border-radius: 3px;
+          font-family: Quicksand, sans-serif;
+          font-weight: bold;
+
+          &--login {
+            width: 100%;
+          }
+        }
+      }
+
+      &--password-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+      }
+    }
+
+    .secondary--title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin: 1rem 0;
+      text-shadow: 1px 2px 2px rgba(256, 256, 256, 0.85);
+    }
+
+    &__link--forgot--password {
+      display: inline-block;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: $primary-color;
+      font-weight: 600;
+      margin-top: 4.5rem;
+      margin-bottom: 1rem;
+    }
+
+    &__link-title {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+
+      &--link {
+        text-decoration: none;
+        color: $primary-color;
+      }
+    }
+  }
+}

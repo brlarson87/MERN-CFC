@@ -1,0 +1,19 @@
+@mixin scroller {
+  &::-webkit-scrollbar {
+    width: 1.1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: lighten($color-grey, 35%);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-color-dark,
+      lighten($primary-color-dark, 10%)
+    );
+    border-radius: 5px;
+  }
+}

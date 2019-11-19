@@ -1,0 +1,39 @@
+.about-us {
+  margin: 0 auto;
+  margin-bottom: 17rem;
+  margin-top: 8rem;
+  background-image: linear-gradient(
+      115deg,
+      rgba(256, 256, 256, 0.8) 0%,
+      rgba(256, 256, 256, 0.8) 53%,
+      transparent 53.1%
+    ),
+    url("https://i.ibb.co/8KLY68g/amg-5.jpg");
+  background-size: cover;
+  background-position: right;
+  border-radius: 3px;
+  box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.2);
+
+  &__text-box {
+    width: 50%;
+    text-align: center;
+
+    &--title {
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8rem;
+      font-size: 3rem;
+      font-weight: 400;
+      color: $primary-color-dark;
+      padding-top: 2rem;
+    }
+
+    &--text {
+      line-height: 2.5rem;
+      column-count: 2;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 2.5rem 2.5rem 4.5rem 2.5rem;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.charity-table {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 80%;
+  border-bottom: solid 1px $primary-color;
+  padding-bottom: 3rem;
+
+  &__row {
+    text-align: center;
+
+    &:hover {
+      background-color: darken(#f6f6f6, 10%);
+      cursor: pointer;
+    }
+  }
+
+  &__head {
+    background-image: linear-gradient($primary-color, $primary-color-dark);
+    color: #fff;
+    width: 27%;
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+
+    &--lg {
+      width: 43%;
+    }
+
+    &--sm {
+      width: 15%;
+    }
+  }
+
+  &__data {
+    padding: 3rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    &--title {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: $secondary-color;
+    }
+
+    &--desc {
+      line-height: 2.2rem;
+      font-weight: 600;
+      padding: 0 1rem;
+    }
+  }
+
+  &__link {
+    transition: all 0.4s;
+    &:link,
+    &:visited {
+      padding: 1rem;
+      border-radius: 2px;
+      background-color: darken(#f6f6f6, 25%);
+      color: $primary-color;
+      text-decoration: none;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: darken(#f6f6f6, 38%);
+    }
+  }
+}
