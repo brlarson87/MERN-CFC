@@ -669,20 +669,11 @@ body {
 
 .menu-icon {
   position: absolute;
-  top: 9%;
+  top: 8%;
   left: 20%;
   font-size: 2.5rem;
   color: white;
   transition: all 0.8s cubic-bezier(0.6, 0.04, 0.98, 0.335); }
-
-.menu-btn__checkbox:checked ~ .menu-btn {
-  transform: translateX(-19vw) scale(1.2); }
-
-.menu-btn__checkbox:checked ~ .menu-btn > .menu-icon {
-  transform: rotate(180deg);
-  font-size: 3rem;
-  top: 17%;
-  left: 16%; }
 
 .pop-out-left {
   opacity: 0;
@@ -697,17 +688,29 @@ body {
   transition: all 0.8s cubic-bezier(0.17, -0.15, 1, 0.18);
   text-align: center; }
 
-.menu-btn__checkbox:checked ~ .pop-out-left {
-  opacity: 1;
-  width: 20%; }
-
-.menu-btn__checkbox:checked ~ .pop-out-left > .main-nav__menu {
+.nav-showing {
   animation: moveUp;
   animation-duration: 1s;
   animation-delay: 0.8s;
+  animation-fill-mode: forwards;
   opacity: 1; }
 
-.menu-btn__checkbox:checked ~ .header__icon-ticket {
+.overlay-all {
+  position: fixed;
+  z-index: 199;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  width: 0; }
+
+.show-overlay {
+  opacity: 1;
+  width: 100%; }
+
+.move-ticket {
   transform: translateX(-19vw); }
 
 .flex-row {

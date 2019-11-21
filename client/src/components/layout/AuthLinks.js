@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -8,8 +8,61 @@ import { logout } from "../../actions/auth";
 import ticketStatus from "../../utils/ticketStatus";
 
 const AuthLinks = ({ user, loading, logout }) => {
+  useEffect(() => {
+    let open = false;
+    let menuBtn = document.querySelector(".menu-btn");
+    let ticket = document.querySelector(".header__icon-ticket");
+    let popOut = document.querySelector(".pop-out-left");
+    let navs = document.querySelector(".main-nav__menu");
+    let overlay = document.querySelector(".overlay-all");
+    let body = document.getElementsByTagName("body")[0];
+    let navLinks = document.querySelectorAll(".main-nav__menu--item-link");
+
+    overlay.addEventListener("click", () => {
+      close();
+    });
+
+    for (let i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener("click", () => {
+        close();
+      });
+    }
+    menuBtn.addEventListener("click", () => {
+      if (!open) {
+        openMenu();
+      } else {
+        close();
+      }
+      open = !open;
+    });
+
+    function openMenu() {
+      popOut.style.opacity = "1";
+      popOut.style.width = "20%";
+      menuBtn.style.transform = "translateX(-19vw) rotate(180deg)";
+      navs.classList.add("nav-showing");
+      overlay.classList.add("show-overlay");
+      body.style.overflow = "hidden";
+      ticket.classList.add("move-ticket");
+    }
+
+    function close() {
+      popOut.style.opacity = "0";
+      popOut.style.width = "0";
+      menuBtn.style.transform = "translateX(0)";
+      navs.classList.remove("nav-showing");
+      overlay.classList.remove("show-overlay");
+      body.style.overflow = "auto";
+      ticket.classList.remove("move-ticket");
+    }
+  }, []);
+
   return (
     <Fragment>
+      <div className='overlay-all'></div>
+      <label for='navi-toggle' class='menu-btn'>
+        <span class='menu-icon'>&larr;</span>
+      </label>
       <div class='header__icon-ticket'>
         <i class='fas fa-ticket-alt'>
           &nbsp; x {!loading && user && ticketStatus(user.tickets).active}
@@ -61,7 +114,4 @@ const mapStateToProps = state => ({
   loading: state.auth.loading
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(AuthLinks);
+export default connect(mapStateToProps, { logout })(AuthLinks);

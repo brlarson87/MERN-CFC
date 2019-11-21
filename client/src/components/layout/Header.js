@@ -18,11 +18,7 @@ const Header = ({ loading, isAuthenticated }) => {
             </Link>
           </div>
         </nav>
-        <input type='checkbox' class='menu-btn__checkbox' id='navi-toggle' />
-
-        <label for='navi-toggle' class='menu-btn'>
-          <span class='menu-icon'>&larr;</span>
-        </label>
+        {/*<input type='checkbox' class='menu-btn__checkbox' id='navi-toggle' />*/}
 
         {!loading && isAuthenticated ? <AuthLinks /> : <GuestLinks />}
       </header>
