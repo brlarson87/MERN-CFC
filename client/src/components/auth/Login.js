@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 
-const Login = ({ isAuthenticated, login, user }) => {
+const Login = ({ isAuthenticated, login, user, history }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -17,7 +17,7 @@ const Login = ({ isAuthenticated, login, user }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    login(email, password);
+    login(email, password, history);
   };
 
   if (user !== null && isAuthenticated) {
@@ -85,7 +85,4 @@ const mapStateToProps = state => ({
   user: state.auth.user
 });
 
-export default connect(
-  mapStateToProps,
-  { login }
-)(Login);
+export default connect(mapStateToProps, { login })(Login);

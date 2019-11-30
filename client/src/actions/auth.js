@@ -36,7 +36,7 @@ export const loadUser = () => async dispatch => {
 ///
 /// Login existing user
 ///
-export const login = (email, password) => async dispatch => {
+export const login = (email, password, history) => async dispatch => {
   const config = setConfigHeader();
 
   const body = JSON.stringify({ email, password });
@@ -49,6 +49,7 @@ export const login = (email, password) => async dispatch => {
       payload: res.data
     });
     dispatch(loadUser());
+    history.push("/cars");
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL

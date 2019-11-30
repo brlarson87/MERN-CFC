@@ -65,8 +65,14 @@
   .details-container .right-col {
     width: 68%; }
 
+.u-color-primary {
+  color: #ca1111; }
+
+.u-color-secondary {
+  color: #b8a37b; }
+
 .u-margin-bottom-sm {
-  margin-bottom: 1rem; }
+  margin-bottom: 2.8rem; }
 
 .u-margin-top-sm {
   margin-top: 1rem; }
@@ -142,11 +148,35 @@ body {
   z-index: 1;
   box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3); }
 
-.btn--primary:link, .btn--primary:visited {
-  background-image: linear-gradient(#ca1111, #520d0d);
+.btn--quick:link, .btn--quick:visited {
+  display: block;
   color: white;
   letter-spacing: 1px;
-  transition: 0.3s; }
+  transition: 0.3s;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #b8a37b;
+  transition: background-color 0.2s; }
+
+.btn--quick:hover {
+  background-color: #af976a;
+  box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3); }
+
+.btn--primary:link, .btn--primary:visited {
+  display: block;
+  color: white;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 0.8rem;
+  background-image: linear-gradient(#ca1111, #520d0d); }
 
 .btn--primary:hover {
   background-image: linear-gradient(#520d0d, #ca1111);
@@ -230,10 +260,11 @@ body {
   border-radius: 5px;
   box-shadow: 0 1rem 0.8rem rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  will-change: transform; }
 
 .btn--block:hover, .btn--block:active {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.4); }
 
 .btn-abs-bottom {
@@ -280,10 +311,10 @@ body {
     margin-bottom: 1rem; }
   .car-card__image {
     width: 80%;
-    height: 58%;
+    height: 32.5rem;
     border-radius: 5px;
     box-shadow: 0rem 2rem 3rem rgba(0, 0, 0, 0.2);
-    margin-bottom: 3rem; }
+    margin-bottom: 2.5rem; }
   .car-card__bg-overlay {
     position: absolute;
     top: 0;
@@ -302,11 +333,31 @@ body {
     .car-card__details--right {
       float: right;
       margin-right: 2rem;
-      text-shadow: 2px 1px 2px #b8a37b; }
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #af976a;
+      letter-spacing: -1px;
+      text-shadow: 0 1px 0 #d2cec6, 0 2px 0 #c7c2b8; }
     .car-card__details--left {
       float: left;
       margin-left: 2rem;
-      color: #b8a37b; }
+      font-size: 1.8rem; }
+  .car-card__progress-bar {
+    position: relative;
+    width: 50%;
+    height: 1rem;
+    border-radius: 1rem;
+    border: solid 2px #606060;
+    margin: 0 auto;
+    margin-bottom: 1.2rem; }
+    .car-card__progress-bar__filler {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 1rem;
+      background-color: #ca1111;
+      box-shadow: inset 3px -3px 1rem #520d0d; }
 
 .details {
   text-align: center;
@@ -631,7 +682,7 @@ body {
           color: #ca1111;
           padding: 1.5rem;
           display: block;
-          transition: all 0.8s;
+          transition: all 0.6s;
           backface-visibility: hidden;
           text-transform: uppercase;
           background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #520d0d 51%);
@@ -648,7 +699,7 @@ body {
     z-index: 2000;
     font-size: 2rem;
     color: #b8a37b;
-    transition: all 0.8s cubic-bezier(0.17, -0.15, 1, 0.18); }
+    transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18); }
 
 .menu-btn {
   position: fixed;
@@ -660,12 +711,10 @@ body {
   border: 1px solid #b8a37b;
   border-radius: 50%;
   background-image: linear-gradient(#ca1111, #520d0d);
-  transition: all 0.8s cubic-bezier(0.17, -0.15, 1, 0.18); }
+  transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18); }
   .menu-btn:hover {
     cursor: pointer;
     background-image: linear-gradient(#520d0d, #ca1111); }
-  .menu-btn__checkbox {
-    display: none; }
 
 .menu-icon {
   position: absolute;
@@ -673,7 +722,8 @@ body {
   left: 20%;
   font-size: 2.5rem;
   color: white;
-  transition: all 0.8s cubic-bezier(0.6, 0.04, 0.98, 0.335); }
+  transition: all 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  user-select: none; }
 
 .pop-out-left {
   opacity: 0;
@@ -685,13 +735,13 @@ body {
   z-index: 200;
   right: 0rem;
   height: 100vh;
-  transition: all 0.8s cubic-bezier(0.17, -0.15, 1, 0.18);
+  transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18);
   text-align: center; }
 
 .nav-showing {
   animation: moveUp;
   animation-duration: 1s;
-  animation-delay: 0.8s;
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
   opacity: 1; }
 
@@ -716,7 +766,7 @@ body {
 .flex-row {
   display: flex;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 15rem; }
 
 .footer {

@@ -69,17 +69,17 @@ const GuestLinks = () => {
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/cars' className='main-nav__menu--item-link'>
-              Cars
+              <i class='fas fa-car'></i>&nbsp; Cars
             </Link>
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/charities' className='main-nav__menu--item-link'>
-              Charities
+              <i class='fas fa-ribbon'></i>&nbsp; Charities
             </Link>
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/login' className='main-nav__menu--item-link'>
-              Login
+              <i class='fas fa-sign-in-alt'></i>&nbsp; Login
             </Link>
           </li>
           <li className='main-nav__menu--item'>

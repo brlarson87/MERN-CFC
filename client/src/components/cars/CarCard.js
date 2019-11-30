@@ -15,20 +15,25 @@ const CarCard = props => {
           alt='2020-c8-1'
           className='car-card__image'
         />
+
         <div className='car-card__bg-overlay'>&nbsp;</div>
         <div className='car-card__details'>
           {props.user ? (
-            <div className='car-card__details--left'>
+            <div className='car-card__details--left u-color-secondary'>
               <i className='fas fa-ticket-alt'>
                 &nbsp; x {userTickets(props.user.tickets, props.prize._id)}
               </i>
-              <div className='u-color-blue u-margin-top-sm'>
-                <i className='fas fa-ribbon'>&nbsp; x 5</i>
+              <div className='u-color-primary u-margin-top-sm'>
+                <i className='fas fa-ribbon'>
+                  &nbsp; x {props.prize.charityPool.length}
+                </i>
               </div>
             </div>
           ) : (
-            <div className='car-card__details--left'>
-              <i className='fas fa-ribbon'>&nbsp; x 5</i>
+            <div className='car-card__details--left u-color-primary u-margin-top-sm'>
+              <i className='fas fa-ribbon'>
+                &nbsp; x {props.prize.charityPool.length}
+              </i>
             </div>
           )}
           <div className='car-card__details--right'>
@@ -41,6 +46,20 @@ const CarCard = props => {
             </span>
           </div>
         </div>
+        <div className='car-card__progress-bar'>
+          <span
+            className='car-card__progress-bar__filler'
+            style={{ width: "40%" }}
+          ></span>
+        </div>
+        <Link
+          to={`/cardetails/${props.prize._id}`}
+          className='btn btn--quick'
+          onClick={() => window.scrollTo(0, 0)}
+          style={{ marginBottom: "3px" }}
+        >
+          Quick Enter
+        </Link>
         <Link
           to={`/cardetails/${props.prize._id}`}
           className='btn btn--primary u-margin-bottom-sm'
