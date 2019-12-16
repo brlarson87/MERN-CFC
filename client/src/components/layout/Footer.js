@@ -31,28 +31,28 @@ const Footer = () => {
           </li>
         </ul>
 
-        <ul class='footer__nav footer__nav--right'>
-          <li class='footer__nav--item'>
+        <ul class='footer__nav footer__nav--right u-margin-top-sm'>
+          <li class='footer__nav--item footer__nav--item--sub'>
             <Link to='/' class='footer__nav--link'>
               Support the site
             </Link>
           </li>
-          <li class='footer__nav--item'>
+          <li class='footer__nav--item footer__nav--item--sub'>
             <Link to='/' class='footer__nav--link'>
               Contact Us
             </Link>
           </li>
-          <li class='footer__nav--item'>
+          <li class='footer__nav--item footer__nav--item--sub'>
             <Link to='/' class='footer__nav--link'>
               Submit a charity
             </Link>
           </li>
-          <li class='footer__nav--item'>
+          <li class='footer__nav--item footer__nav--item--sub'>
             <Link to='/' class='footer__nav--link'>
               Archived cars
             </Link>
           </li>
-          <li class='footer__nav--item'>
+          <li class='footer__nav--item footer__nav--item--sub'>
             <Link to='/' class='footer__nav--link'>
               Archived charity winners
             </Link>

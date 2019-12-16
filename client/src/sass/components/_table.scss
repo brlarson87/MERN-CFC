@@ -34,6 +34,10 @@
     }
   }
 
+  &__body {
+    position: relative;
+  }
+
   &__data {
     padding: 3rem 0;
     font-size: 1.3rem;

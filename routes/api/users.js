@@ -116,9 +116,8 @@ router.post(
 
       for (let i = 0; i < ticketAmount; i++) {
         user.tickets.unshift(setTicket(user._id));
+        await user.save();
       }
-
-      await user.save();
 
       res.json(user);
     } catch (error) {

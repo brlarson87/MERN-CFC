@@ -1,7 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Charities = () => {
+import TableRow from "./TableRow";
+import Spinner from "./Spinner";
+
+import { loadCharities } from "../../actions/charities";
+
+const Charities = ({ loadCharities, charities, loading }) => {
+  useEffect(() => {
+    loadCharities();
+  }, [loadCharities]);
+
   return (
     <Fragment>
       <div class='container'>
@@ -31,127 +41,17 @@ const Charities = () => {
             </tr>
           </thead>
           <tbody class='charity-table__body'>
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                Secondhand Hounds
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Minnesota Dog Rescue saving a bunch of dogs
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                Wounded Warriors Project
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Helping Wounded Veterans
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                Marie Curie
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Provides care and support for people with terminal illness
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                One atta time
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Providing clean water to those in need
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                St. Judes
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Pediatric treatment and research facility focused on children's
-                catastrophic diseases
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                Habitat for Humanity
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Musters donations and volunteer help to build actual homes for
-                people that need them
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                Nature Conservancy
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Works to preserve land and water
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
-
-            <tr class='charity-table__row'>
-              <td class='charity-table__data charity-table__data--title'>
-                American Heart Association
-              </td>
-              <td class='charity-table__data charity-table__data--desc'>
-                Organization dedicated to fighting cardiovascular diseases
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Visit</Link>
-              </td>
-              <td class='charity-table__data'>
-                <Link class='charity-table__link'>Enter</Link>
-              </td>
-            </tr>
+            {charities && !loading ? (
+              charities.map(charity => (
+                <TableRow
+                  name={charity.name}
+                  desc={charity.desc}
+                  url={charity.url}
+                />
+              ))
+            ) : (
+              <Spinner />
+            )}
           </tbody>
         </table>
       </div>
@@ -159,4 +59,9 @@ const Charities = () => {
   );
 };
 
-export default Charities;
+const mapStateToProps = state => ({
+  charities: state.charities.charities,
+  loading: state.charities.loading
+});
+
+export default connect(mapStateToProps, { loadCharities })(Charities);

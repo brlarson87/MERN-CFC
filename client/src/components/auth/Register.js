@@ -230,7 +230,4 @@ Register.propTypes = {
   register: PropTypes.func.isRequired
 };
 
-export default connect(
-  null,
-  { register }
-)(Register);
+export default connect(null, { register })(Register);

@@ -4,6 +4,21 @@ const admin = require("../../middleware/admin");
 const { check, validationResult } = require("express-validator");
 const Charity = require("../../models/Charity");
 
+// @route   GET api/charity
+// @desc    returns array of 10 charities
+// @access  public
+router.get("/", async (req, res) => {
+  try {
+    const charities = await Charity.find({});
+    res.json(charities);
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
+// @route   POST api/charity
+// @desc    Submits new charity to the database
+// @access  ADMIN
 router.post(
   "/",
   admin,

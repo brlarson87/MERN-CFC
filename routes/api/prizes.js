@@ -54,7 +54,7 @@ router.post(
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const prizes = await Prize.find({});
+    const prizes = await Prize.find({ active: true });
     res.json(prizes);
   } catch (error) {
     res.status(400).json({ error });
@@ -74,6 +74,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// @route delete api/ticketsPool/:id
+// @desc clear prize tickets
+// @access Development
 router.delete("/ticketsPool/:id", async (req, res) => {
   try {
     let prize = await Prize.findById(req.params.id);
