@@ -10,8 +10,10 @@
   justify-content: space-between;
   max-width: $row-width;
   margin: 0 auto;
-  margin-bottom: 20rem;
+  margin-bottom: 5rem;
+  margin-top: 7rem;
   padding-top: 2rem;
+  height: 70rem;
 
   .left-col {
     width: 30%;
@@ -19,6 +21,8 @@
 
   .right-col {
     width: 68%;
+    overflow-y: auto;
+    @include scroller;
   }
 }
 

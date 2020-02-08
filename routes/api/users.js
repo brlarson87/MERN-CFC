@@ -8,10 +8,10 @@ const config = require("config");
 const User = require("../../models/User");
 const setTicket = require("../../utils/setTicket");
 
-router.get("/", (req, res) => {
-  console.log("connected");
-  res.json({ name: "Blake" });
-});
+// router.get("/", (req, res) => {
+//   console.log("connected");
+//   res.json({ name: "Blake" });
+// });
 
 // @route   POST api/users
 // @desc    Register User
@@ -98,7 +98,6 @@ router.post(
 // @route   POST api/users/me/purchaseTickets
 // @desc    Buy tickets
 // @access  Private
-
 router.post(
   "/me/purchaseTickets",
   auth,
@@ -115,7 +114,7 @@ router.post(
       let user = await User.findById({ _id: req.user.id });
 
       for (let i = 0; i < ticketAmount; i++) {
-        user.tickets.unshift(setTicket(user._id));
+        user.tickets.push(setTicket(user._id));
         await user.save();
       }
 
@@ -126,6 +125,8 @@ router.post(
   }
 );
 
+// Development Route.
+// Will need Prize Id in the future when pool is ended
 router.delete("/deleteTickets", auth, async (req, res) => {
   try {
     let user = await User.findById(req.user.id);

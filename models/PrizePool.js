@@ -10,8 +10,10 @@ const PrizePoolSchema = new Schema({
     type: String,
     required: true
   },
+  // ******** ticketPool will change to a Number **********
   ticketPool: {
-    type: [Object]
+    type: Number,
+    default: 0
   },
   prizeTotal: {
     type: Number,

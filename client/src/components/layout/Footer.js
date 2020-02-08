@@ -3,63 +3,63 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div class='footer'>
+    <div className='footer'>
       {/*<h2 class='footer__title'>CfC</h2>*/}
-      <h4 class='footer__social-header'>Follow us</h4>
+      <h4 className='footer__social-header'>Follow us</h4>
 
-      <div class='footer__container'>
-        <ul class='footer__nav footer__nav--left'>
-          <li class='footer__nav--item'>
-            <Link to='/' class='footer__nav--link'>
-              <i class='fab fa-twitter-square'></i>&nbsp; Twitter
+      <div className='footer__container'>
+        <ul className='footer__nav footer__nav--left'>
+          <li className='footer__nav--item'>
+            <Link to='/' className='footer__nav--link'>
+              <i className='fab fa-twitter-square'></i>&nbsp; Twitter
             </Link>
           </li>
-          <li class='footer__nav--item'>
-            <Link to='/' class='footer__nav--link'>
-              <i class='fab fa-facebook-square'></i>&nbsp; Facebook
+          <li className='footer__nav--item'>
+            <Link to='/' className='footer__nav--link'>
+              <i className='fab fa-facebook-square'></i>&nbsp; Facebook
             </Link>
           </li>
-          <li class='footer__nav--item'>
-            <Link to='/' class='footer__nav--link'>
-              <i class='fab fa-youtube'></i>&nbsp; Youtube
+          <li className='footer__nav--item'>
+            <Link to='/' className='footer__nav--link'>
+              <i className='fab fa-youtube'></i>&nbsp; Youtube
             </Link>
           </li>
-          <li class='footer__nav--item'>
-            <Link to='/' class='footer__nav--link'>
-              <i class='fab fa-instagram'></i>&nbsp; Instagram
+          <li className='footer__nav--item'>
+            <Link to='/' className='footer__nav--link'>
+              <i className='fab fa-instagram'></i>&nbsp; Instagram
             </Link>
           </li>
         </ul>
 
-        <ul class='footer__nav footer__nav--right u-margin-top-sm'>
-          <li class='footer__nav--item footer__nav--item--sub'>
-            <Link to='/' class='footer__nav--link'>
+        <ul className='footer__nav footer__nav--right u-margin-top-sm'>
+          <li className='footer__nav--item footer__nav--item--sub'>
+            <Link to='/' className='footer__nav--link'>
               Support the site
             </Link>
           </li>
-          <li class='footer__nav--item footer__nav--item--sub'>
-            <Link to='/' class='footer__nav--link'>
+          <li className='footer__nav--item footer__nav--item--sub'>
+            <Link to='/' className='footer__nav--link'>
               Contact Us
             </Link>
           </li>
-          <li class='footer__nav--item footer__nav--item--sub'>
-            <Link to='/' class='footer__nav--link'>
+          <li className='footer__nav--item footer__nav--item--sub'>
+            <Link to='/' className='footer__nav--link'>
               Submit a charity
             </Link>
           </li>
-          <li class='footer__nav--item footer__nav--item--sub'>
-            <Link to='/' class='footer__nav--link'>
+          <li className='footer__nav--item footer__nav--item--sub'>
+            <Link to='/' className='footer__nav--link'>
               Archived cars
             </Link>
           </li>
-          <li class='footer__nav--item footer__nav--item--sub'>
-            <Link to='/' class='footer__nav--link'>
+          <li className='footer__nav--item footer__nav--item--sub'>
+            <Link to='/' className='footer__nav--link'>
               Archived charity winners
             </Link>
           </li>
         </ul>
       </div>
-      <h5 class='footer__copyright-tag'>&copy; 2019 Cars for Causes</h5>
+      <h5 className='footer__copyright-tag'>&copy; 2019 Cars for Causes</h5>
     </div>
   );
 };

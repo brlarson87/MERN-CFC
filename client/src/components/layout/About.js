@@ -5,11 +5,11 @@ import Footer from "../layout/Footer";
 const Layout = () => {
   return (
     <Fragment>
-      <div class='container'>
-        <div class='about-us'>
-          <div class='about-us__text-box'>
-            <h2 class='about-us__text-box--title'>About Us</h2>
-            <p class='about-us__text-box--text'>
+      <div className='container'>
+        <div className='about-us'>
+          <div className='about-us__text-box'>
+            <h2 className='about-us__text-box--title'>About Us</h2>
+            <p className='about-us__text-box--text'>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, quo
               id unde tenetur reprehenderit consequatur ut deleniti. Nobis
               nostrum, sequi delectus voluptatum itaque iure explicabo.

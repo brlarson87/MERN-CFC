@@ -60,11 +60,11 @@ const AuthLinks = ({ user, loading, logout }) => {
   return (
     <Fragment>
       <div className='overlay-all'></div>
-      <label for='navi-toggle' class='menu-btn'>
-        <span class='menu-icon'>&larr;</span>
+      <label htmlFor='navi-toggle' className='menu-btn'>
+        <span className='menu-icon'>&larr;</span>
       </label>
-      <div class='header__icon-ticket'>
-        <i class='fas fa-ticket-alt'>
+      <div className='header__icon-ticket'>
+        <i className='fas fa-ticket-alt'>
           &nbsp; x {!loading && user && ticketStatus(user.tickets).active}
         </i>
       </div>
@@ -78,12 +78,12 @@ const AuthLinks = ({ user, loading, logout }) => {
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/cars' className='main-nav__menu--item-link'>
-              <i class='fas fa-car'></i>&nbsp; Cars
+              <i className='fas fa-car'></i>&nbsp; Cars
             </Link>
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/charities' className='main-nav__menu--item-link'>
-              <i class='fas fa-ribbon'></i>&nbsp; Charities
+              <i className='fas fa-ribbon'></i>&nbsp; Charities
             </Link>
           </li>
           <li className='main-nav__menu--item'>
@@ -95,7 +95,7 @@ const AuthLinks = ({ user, loading, logout }) => {
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/' className='main-nav__menu--item-link' onClick={logout}>
-              <i class='fas fa-sign-out-alt'></i>&nbsp; Logout
+              <i className='fas fa-sign-out-alt'></i>&nbsp; Logout
             </Link>
           </li>
         </ul>

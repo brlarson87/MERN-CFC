@@ -4,14 +4,19 @@ const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
 const User = require("../../models/User");
 const Prize = require("../../models/PrizePool");
+const Ticket = require("../../models/Ticket");
 const { ObjectId } = require("mongodb");
 
+// @route   Put api/interactive/enterTickets
+// @desc    Modify Users ticket array to reference pool entered and add a reference of the new ticket  //          Prize document chosen
+// @access  Private
 router.put(
   "/enterTickets",
   auth,
   [
     check("amount", "Amount is required").exists(),
-    check("prizeId", "prizeId is required").exists()
+    check("prizeId", "prizeId is required").exists(),
+    check("activeUserTickets", "Active number of tickets is required").exists()
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -23,41 +28,36 @@ router.put(
       let prize = await Prize.findById(req.body.prizeId);
 
       let user = await User.findById(req.user.id);
-
+      let startingIndex = user.tickets.length - req.body.activeUserTickets;
       console.log(prize.car);
+      console.log(req.body.amount);
       console.log(user.firstName);
+      console.log(startingIndex);
 
-      let counter = 0;
+      for (let i = startingIndex; i < startingIndex + req.body.amount; i++) {
+        let ticketNumber = prize.ticketPool + 1;
 
-      let ticketPoolArr = [];
-      let userTicketArr = [];
+        let overRidingTicket = {
+          prizeId: prize._id,
+          userId: req.user.id,
+          ticketNumber,
+          datePurchased: user.tickets[i].datePurchased
+        };
+        console.log(overRidingTicket);
 
-      while (counter < req.body.amount) {
-        if (!user.tickets[0].prizeId) {
-          let tn = prize.ticketPool.length + 1 || 1;
-          const newTicket = {
-            prizeId: req.body.prizeId,
-            userId: new ObjectId(user._id),
-            ticketNumber: tn,
-            datePurchased: user.tickets[0].datePurchased
-          };
-          user.tickets.splice(0, 1);
-          user.tickets.push(newTicket);
-          prize.ticketPool.push(newTicket);
+        user.tickets.set(i, overRidingTicket);
 
-          //Load arrays to send back instead of full database arrays
-          ticketPoolArr.push(newTicket);
-          userTicketArr.push(newTicket);
-
-          await user.save();
-          await prize.save();
-          counter++;
-        }
+        await user.save();
+        let ticket = new Ticket(overRidingTicket);
+        prize.ticketPool += 1;
+        await ticket.save();
+        await prize.save();
       }
 
-      res.json({ ticketPool: ticketPoolArr, userTickets: userTicketArr });
+      res.json({ prize, user });
     } catch (error) {
       console.log(error);
+      console.log("ERROR HERE");
       res.status(404).json({ error: error });
     }
   }

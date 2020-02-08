@@ -41,6 +41,12 @@ export default function(state = initialState, action) {
         loading: false,
         prize: null
       };
+    case ENTER_SUCCESS_PRIZE:
+      return {
+        ...state,
+        loading: false,
+        prize: payload
+      };
     default:
       return state;
   }

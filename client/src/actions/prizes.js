@@ -32,28 +32,33 @@ export const loadSinglePrize = id => async dispatch => {
       payload: res.data
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: PRIZE_FAIL
     });
   }
 };
 
-export const enterTickets = (amount, prizeId) => async dispatch => {
+export const enterTickets = (
+  amount,
+  prizeId,
+  activeUserTickets
+) => async dispatch => {
   const config = setConfigHeader();
-  const body = JSON.stringify({ amount, prizeId });
+  const body = JSON.stringify({ amount, prizeId, activeUserTickets });
 
   try {
     const res = await axios.put("/api/interactive/enterTickets", body, config);
-    //  dispatch({
-    //    type: ENTER_SUCCESS_PRIZE,
-    //    payload: res.data.ticketPool
-    //  });
-    //  dispatch({
-    //    type: ENTER_SUCCESS_USER,
-    //    payload: res.data.userTickets
-    //  });
-    console.log(res.data);
+    dispatch({
+      type: ENTER_SUCCESS_PRIZE,
+      payload: res.data.prize
+    });
+    dispatch({
+      type: ENTER_SUCCESS_USER,
+      payload: res.data.user
+    });
   } catch (error) {
+    console.log("Enter Tickets Action generator error");
     console.log(error);
   }
 };

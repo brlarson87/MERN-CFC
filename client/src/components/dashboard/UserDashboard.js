@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+//Components
 import UserPools from "./UserPools";
-
+//Utils
 import ticketStatus from "../../utils/ticketStatus";
 import { numberPoolsEntered } from "../../utils/numberPoolsEntered";
+import { checkIfEligibleForPledge } from "../../utils/charityEligible";
+//Actions
 import { loadPrizes } from "../../actions/prizes";
 
 const UserDashboard = ({ user, prizes, loadPrizes }) => {
@@ -15,76 +18,85 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
   }, [loadPrizes]);
 
   return (
-    <div class='container'>
-      <div class='dashboard'>
-        <h2 class='dashboard__title'>My Account</h2>
-        <div class='breaker'>&nbsp;</div>
-        <div class='row'>
-          <div class='col-1-3'>
-            <h4 class='cover-title'>Personal</h4>
+    <div className='container'>
+      <div className='dashboard'>
+        <h2 className='dashboard__title'>My Account</h2>
+        <div className='breaker'>&nbsp;</div>
+        <div className='row'>
+          <div className='col-1-3'>
+            <h4 className='cover-title'>Personal</h4>
             {user && (
-              <span class='info'>
+              <span className='info'>
                 {user.firstName}&nbsp;{user.lastName}
               </span>
             )}
-            {user && <span class='info'>{user.email}</span>}
-            {user && <span class='info'>{user.address.streetName}</span>}
+            {user && <span className='info'>{user.email}</span>}
+            {user && <span className='info'>{user.address.streetName}</span>}
             {user && (
-              <span class='info'>
+              <span className='info'>
                 {user.address.city}&nbsp;{user.address.state},&nbsp;
                 {user.address.zipCode}
               </span>
             )}
-            <a href='/' class='btn--link'>
+            <a href='/' className='btn--link'>
               Edit
             </a>
-            <a href='/' class='btn--link'>
+            <a href='/' className='btn--link'>
               Change Password
             </a>
           </div>
-          <div class='col-1-3'>
-            <h4 class='cover-title'>Ticket</h4>
-            <span class='info'>
+          <div className='col-1-3'>
+            <h4 className='cover-title'>Ticket</h4>
+            <span className='info'>
               Live Tickets... &nbsp; &times;&nbsp;
-              <span class='number number-live'>
+              <span className='number number-live'>
                 {user && ticketStatus(user.tickets).live}
               </span>
             </span>
-            <span class='info'>
+            <span className='info'>
               Active Tickets... &nbsp; &times;&nbsp;
-              <span class='number number-active'>
+              <span className='number number-active'>
                 {user && ticketStatus(user.tickets).active}
               </span>
             </span>
-            <span class='info'>
+            <span className='info'>
               Pools entered... &nbsp; &times;&nbsp;
-              <span class='number number-pools'>
+              <span className='number number-pools'>
                 {user && numberPoolsEntered(user.tickets)}
               </span>
             </span>
-            <Link to='/purchaseTickets' class='btn--link'>
+            <Link to='/purchaseTickets' className='btn--link'>
               Buy Tickets
             </Link>
           </div>
-          <div class='col-1-3'>
-            <h4 class='cover-title'>Charity</h4>
-            <span class='info'>
+          <div className='col-1-3'>
+            <h4 className='cover-title'>Charity</h4>
+            <span className='info'>
               Charities pledged... &nbsp; &times;&nbsp;
-              <span class='number'>0</span>
+              <span className='number'>
+                {user && user.charitiesPledged.length}
+              </span>
             </span>
-            <span class='info'>
-              you're elible to pick a charity
-              <a href='/' class='btn--link font-sm margin-left-sm'>
-                pick one
-              </a>
-            </span>
-            <a href='/' class='btn--link'>
+            {/*----------CheckIfEligbleForPledge-----------*/}
+            {user && prizes && checkIfEligibleForPledge(user.tickets, prizes) && (
+              <span className='info'>
+                you're elible to pick a charity
+                <Link
+                  to='/charities'
+                  className='btn--link font-sm margin-left-sm'
+                >
+                  pick one
+                </Link>
+              </span>
+            )}
+
+            <a href='/' className='btn--link'>
               Submit Charity
             </a>
           </div>
         </div>
-        <h2 class='dashboard__title'>My pools</h2>
-        <div class='breaker'>&nbsp;</div>
+        <h2 className='dashboard__title'>My pools</h2>
+        <div className='breaker'>&nbsp;</div>
         {/*----------POOLS-----------*/}
         {user && prizes && <UserPools tickets={user.tickets} prizes={prizes} />}
       </div>
@@ -101,7 +113,6 @@ const mapStateToProps = state => ({
   prizes: state.prizes.prizes
 });
 
-export default connect(
-  mapStateToProps,
-  { loadPrizes }
-)(UserDashboard);
+export default connect(mapStateToProps, {
+  loadPrizes
+})(UserDashboard);

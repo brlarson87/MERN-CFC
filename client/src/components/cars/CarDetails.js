@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { loadSinglePrize } from "../../actions/prizes";
+import ticketStatus from "../../utils/ticketStatus";
 
 import CarThumb from "./CarThumb";
 
-import Spinner from "../layout/Spinner";
+//import Spinner from "../layout/Spinner";
 
 import formatNumber from "../../utils/formatNumber";
 import ticketsEnteredInPool from "../../utils/ticketsEnteredInPool";
@@ -63,7 +64,7 @@ const CarDetails = ({
           <div className='details__group'>
             <span className='details__group--left'>Tickets Entered</span>
             <span className='details__group--right'>
-              {!loading && prize && prize.ticketPool.length}
+              {!loading && prize && prize.ticketPool}
             </span>
           </div>
           <div className='details__group'>
@@ -115,11 +116,12 @@ const CarDetails = ({
           </div>
 
           {/*----------TICKET FORM-----------*/}
-          {prize && (
+          {prize && user && (
             <EnterTickets
               id={prize._id}
               ticketTotal={prize.ticketPool.length}
               enterTickets={enterTickets}
+              activeUserTickets={ticketStatus(user.tickets).active}
             />
           )}
         </div>
@@ -131,27 +133,28 @@ const CarDetails = ({
           <div className='images-container__top'>
             <img
               src={
-                !loading && prize ? (
-                  prize.pictures[count]
-                ) : (
-                  <Spinner margin={"100"} />
-                )
+                // !loading && prize ? (
+                //   prize.pictures[count]
+                // ) : (
+                //   <Spinner margin={"100"} />
+                // )
+                prize && prize.pictures[count]
               }
-              alt='Ford mustang'
+              alt='car'
               className='main-image'
             />
             <div className='arrow arrow-left' onClick={() => subtractOne()}>
-              <i class='fas fa-arrow-left'></i>
+              <i className='fas fa-arrow-left'></i>
             </div>
             <div className='arrow arrow-right' onClick={() => addOne()}>
-              <i class='fas fa-arrow-right'></i>
+              <i className='fas fa-arrow-right'></i>
             </div>
           </div>
 
           {/* --BOTTOM CONTAINER OF THUMBNAILS-- */}
           <div className='images-container__bottom'>
             {/*----- Loop through prize pictures ---------*/}
-            {!loading && prize ? (
+            {/* {!loading && prize ? (
               prize.pictures.map((pic, i) => (
                 <CarThumb
                   pic={pic}
@@ -163,7 +166,17 @@ const CarDetails = ({
               ))
             ) : (
               <Spinner />
-            )}
+            )} */
+            prize &&
+              prize.pictures.map((pic, i) => (
+                <CarThumb
+                  pic={pic}
+                  keyy={i}
+                  key={i}
+                  alternate={prize.car}
+                  changeCount={changeCount}
+                />
+              ))}
           </div>
         </div>
       </div>
@@ -177,7 +190,6 @@ const mapStateToProps = state => ({
   user: state.auth.user
 });
 
-export default connect(
-  mapStateToProps,
-  { loadSinglePrize, enterTickets }
-)(CarDetails);
+export default connect(mapStateToProps, { loadSinglePrize, enterTickets })(
+  CarDetails
+);

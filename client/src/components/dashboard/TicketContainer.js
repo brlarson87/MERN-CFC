@@ -5,14 +5,15 @@ import SingleTicket from "./SingleTicket";
 const TicketContainer = props => {
   return (
     <Fragment>
-      <h4 class='dashboard__title--pool'>
+      <h4 className='dashboard__title--pool'>
         {props.prize.car} (&times;{props.tickets.length})
       </h4>
-      <div class='ticket-container'>
-        {props.tickets.map(ticket => (
+      <div className='ticket-container'>
+        {props.tickets.map((ticket, i) => (
           <SingleTicket
             number={ticket.ticketNumber}
             total={props.prize.prizeTotal}
+            key={i}
           />
         ))}
       </div>

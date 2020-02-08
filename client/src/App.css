@@ -70,12 +70,23 @@
   justify-content: space-between;
   max-width: 134rem;
   margin: 0 auto;
-  margin-bottom: 20rem;
-  padding-top: 2rem; }
+  margin-bottom: 5rem;
+  margin-top: 7rem;
+  padding-top: 2rem;
+  height: 70rem; }
   .details-container .left-col {
     width: 30%; }
   .details-container .right-col {
-    width: 68%; }
+    width: 68%;
+    overflow-y: auto; }
+    .details-container .right-col::-webkit-scrollbar {
+      width: 0.5rem; }
+    .details-container .right-col::-webkit-scrollbar-track {
+      background-color: #e2e2e2;
+      border-radius: 5px; }
+    .details-container .right-col::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(to bottom, #520d0d, #7e1414);
+      border-radius: 5px; }
 
 .u-color-primary {
   color: #ca1111; }
@@ -140,7 +151,7 @@ body {
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif; }
   body::-webkit-scrollbar {
-    width: 1.1rem; }
+    width: 0.5rem; }
   body::-webkit-scrollbar-track {
     background-color: #e2e2e2;
     border-radius: 5px; }
@@ -482,7 +493,8 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #eee;
-  filter: grayscale(40%); }
+  filter: grayscale(40%);
+  z-index: 500; }
   .full-container .form-container {
     position: absolute;
     top: 10%;
@@ -492,7 +504,8 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0.5rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
     border: solid 1px #ddd;
-    animation: moveInForm 0.6s linear forwards; }
+    animation: moveInForm 0.6s linear forwards;
+    z-index: 1000; }
     .full-container .form-container__title {
       font-size: 2.5rem;
       margin-bottom: 2rem;
@@ -553,7 +566,7 @@ body {
 .search-form {
   position: relative;
   margin: 0 auto;
-  margin-top: 2.5rem;
+  margin-top: 5.5rem;
   width: 40%; }
   .search-form__input {
     display: inline-block;
@@ -633,7 +646,7 @@ body {
 .about-us {
   margin: 0 auto;
   margin-bottom: 17rem;
-  margin-top: 8rem;
+  margin-top: 14rem;
   background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 53%, transparent 53.1%), url("https://i.ibb.co/8KLY68g/amg-5.jpg");
   background-size: cover;
   background-position: right;
@@ -659,14 +672,21 @@ body {
 
 .header {
   background-color: #fff;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+  margin-bottom: 3rem; }
   .header::after {
     display: table;
     content: "";
     clear: both; }
   .header .main-nav {
-    position: relative;
-    backface-visibility: hidden; }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 100;
+    backface-visibility: hidden;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); }
     .header .main-nav__logo {
       text-align: center;
       padding: 2rem 0; }
@@ -891,8 +911,7 @@ body {
     text-transform: uppercase; }
     .dashboard__title--pool {
       width: 100%;
-      margin-top: 3rem;
-      margin-bottom: 2rem;
+      margin: 4rem 0;
       padding: 3rem 0;
       font-size: 1.8rem;
       font-weight: 600;
@@ -935,7 +954,7 @@ body {
     border-radius: 5px;
     box-shadow: 0rem -1rem 0 #fff, 0rem -2rem 0 #fff, 0rem -3rem 1.2rem rgba(0, 0, 0, 0.55), 0rem -4rem 0 #b8a37b, 0rem 1rem 0 #fff, 0rem 2rem 0 #fff, 0rem 3rem 1.2rem rgba(0, 0, 0, 0.35), 0rem 4rem 0 #b8a37b, -1px -1px 2rem rgba(0, 0, 0, 0.2), 1.2rem -2.1rem 0 #b8a37b, -1.2rem 2.1rem 0 #b8a37b; }
     .dashboard .ticket-container::-webkit-scrollbar {
-      width: 1.1rem; }
+      width: 0.5rem; }
     .dashboard .ticket-container::-webkit-scrollbar-track {
       background-color: #e2e2e2;
       border-radius: 5px; }

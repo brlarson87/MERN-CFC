@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import Spinner from "./Spinner";
+//import Spinner from "./Spinner";
 import Footer from "./Footer";
 
-const Landing = () => {
+const Landing = ({ loading, isAuthenticated, user }) => {
   useEffect(() => {
     let scroll =
       window.requestAnimationFrame ||
@@ -51,20 +51,61 @@ const Landing = () => {
             Using the love of cars to crowdfund donations
           </h2>
           <div className='landing-info--grid'>
-            <div className='landing-info--box'>
-              <h4 className='landing-info--box--heading'>Create an account</h4>
-              <p className='landing-info--box--text margin-bottom-lg'>
-                Sign up, It's free!
-              </p>
-              <Link to='/login' className='btn-abs-bottom'>
-                Signup/Login
-              </Link>
-            </div>
-            <div className='arrow'>&rarr;</div>
-            <div className='landing-info--box'>
-              <h4 className='landing-info--box--heading'>Purchase Tickets</h4>
-              <p className='landing-info--box--text'>Tickets are $1 each.</p>
-            </div>
+            {!loading && isAuthenticated && user ? (
+              <Fragment>
+                <div className='landing-info--box'>
+                  <h4 className='landing-info--box--heading'>
+                    Welcome Back {user.firstName}!
+                  </h4>
+                  <p className='landing-info--box--text margin-bottom-lg'>
+                    Good luck in the pools.
+                  </p>
+                  <Link
+                    to='/account'
+                    className='btn-abs-bottom'
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    My Account
+                  </Link>
+                </div>
+                <div className='arrow'>&rarr;</div>
+                <div className='landing-info--box'>
+                  <h4 className='landing-info--box--heading'>
+                    Purchase Tickets
+                  </h4>
+                  <p className='landing-info--box--text'>
+                    Tickets are $1 each.
+                  </p>
+                  <Link to='/purchaseTickets' className='btn-abs-bottom'>
+                    Buy Tickets
+                  </Link>
+                </div>
+              </Fragment>
+            ) : (
+              <Fragment>
+                <div className='landing-info--box'>
+                  <h4 className='landing-info--box--heading'>
+                    Create an account
+                  </h4>
+                  <p className='landing-info--box--text margin-bottom-lg'>
+                    Sign up, It's free!
+                  </p>
+                  <Link to='/login' className='btn-abs-bottom'>
+                    Signup/Login
+                  </Link>
+                </div>
+                <div className='arrow'>&rarr;</div>
+                <div className='landing-info--box'>
+                  <h4 className='landing-info--box--heading'>
+                    Purchase Tickets
+                  </h4>
+                  <p className='landing-info--box--text'>
+                    Tickets are $1 each.
+                  </p>
+                </div>
+              </Fragment>
+            )}
+
             <div className='arrow'>&rarr;</div>
             <div className='landing-info--box'>
               <h4 className='landing-info--box--heading'>Enter tickets</h4>
@@ -112,7 +153,7 @@ Landing.propTypes = {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
-  loading: state.auth.loding,
+  loading: state.auth.loading,
   user: state.auth.user
 });
 

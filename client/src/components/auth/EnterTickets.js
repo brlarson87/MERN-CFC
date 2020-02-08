@@ -15,7 +15,7 @@ const EnterTickets = props => {
   const onSubmit = e => {
     e.preventDefault();
     const amount = parseInt(ticketAmount);
-    props.enterTickets(amount, props.id);
+    props.enterTickets(amount, props.id, props.activeUserTickets);
   };
 
   return (

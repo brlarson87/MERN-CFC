@@ -5,7 +5,8 @@ import {
   REGISTER_SUCCESS,
   LOGIN_FAIL,
   CLEAR_AUTH,
-  TICKETS_ADDED
+  TICKETS_ADDED,
+  ENTER_SUCCESS_USER
 } from "../actions/types";
 
 const initialState = {
@@ -46,6 +47,12 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         user: null
+      };
+    case ENTER_SUCCESS_USER:
+      return {
+        ...state,
+        loading: false,
+        user: payload
       };
     default:
       return state;

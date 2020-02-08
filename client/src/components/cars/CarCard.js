@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
+import progressBar from "../../utils/progressBar";
 
 const CarCard = props => {
   return (
@@ -38,7 +39,7 @@ const CarCard = props => {
           )}
           <div className='car-card__details--right'>
             <span className='car-card__tickets-in'>
-              {formatNumber(props.prize.ticketPool.length)}
+              {formatNumber(props.prize.ticketPool)}
             </span>{" "}
             /
             <span className='car-card__total-tickets'>
@@ -49,7 +50,9 @@ const CarCard = props => {
         <div className='car-card__progress-bar'>
           <span
             className='car-card__progress-bar__filler'
-            style={{ width: "40%" }}
+            style={{
+              width: progressBar(props.prize.ticketPool, props.prize.prizeTotal)
+            }}
           ></span>
         </div>
         <Link

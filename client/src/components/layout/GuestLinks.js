@@ -57,8 +57,8 @@ const GuestLinks = () => {
   return (
     <Fragment>
       <div className='overlay-all'></div>
-      <label for='navi-toggle' class='menu-btn'>
-        <span class='menu-icon'>&larr;</span>
+      <label htmlFor='navi-toggle' className='menu-btn'>
+        <span className='menu-icon'>&larr;</span>
       </label>
       <div className='pop-out-left'>
         <ul className='main-nav__menu'>
@@ -69,17 +69,17 @@ const GuestLinks = () => {
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/cars' className='main-nav__menu--item-link'>
-              <i class='fas fa-car'></i>&nbsp; Cars
+              <i className='fas fa-car'></i>&nbsp; Cars
             </Link>
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/charities' className='main-nav__menu--item-link'>
-              <i class='fas fa-ribbon'></i>&nbsp; Charities
+              <i className='fas fa-ribbon'></i>&nbsp; Charities
             </Link>
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/login' className='main-nav__menu--item-link'>
-              <i class='fas fa-sign-in-alt'></i>&nbsp; Login
+              <i className='fas fa-sign-in-alt'></i>&nbsp; Login
             </Link>
           </li>
           <li className='main-nav__menu--item'>

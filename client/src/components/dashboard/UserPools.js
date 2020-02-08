@@ -23,7 +23,7 @@ const UserPool = props => {
       ) : (
         <Fragment>
           <h2 className='empty-pools'>You Entered 0 Pools..</h2>
-          <Link to='/cars' class='btn--link u-margin-top-med'>
+          <Link to='/cars' className='btn--link u-margin-top-med'>
             Browse cars
           </Link>
         </Fragment>
