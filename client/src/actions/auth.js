@@ -9,6 +9,8 @@ import {
   TICKETS_ADDED
 } from "./types";
 
+import { setAlert } from "./alert";
+
 import setAuthToken from "../utils/setAuthToken";
 import setConfigHeader from "../utils/setConfigHeader";
 
@@ -50,10 +52,12 @@ export const login = (email, password, history) => async dispatch => {
     });
     dispatch(loadUser());
     history.push("/cars");
+    dispatch(setAlert("Welcome Back!!!", "success alert--main-page"));
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL
     });
+    dispatch(setAlert("Incorrect Email or Password", "error"));
   }
 };
 

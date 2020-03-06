@@ -5,13 +5,16 @@
 
 @import "./base/base";
 
+@import "./components/alert";
 @import "./components/button";
 @import "./components/car-card";
 @import "./components/car-details";
 @import "./components/car-carousel";
 @import "./components/form";
+@import "./components/modal";
 @import "./components/search-form";
 @import "./components/table";
+@import "./components/quick-enter";
 
 @import "./layout/about";
 @import "./layout/header";

@@ -6,6 +6,7 @@ import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
 
 //COMPONENTS
+import Alert from "./components/layout/Alert";
 import Header from "./components/layout/Header";
 import Landing from "./components/layout/Landing";
 import About from "./components/layout/About";
@@ -34,6 +35,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Header />
+        <Alert />
         <Route exact path='/' component={Landing} />
         <Switch>
           <Route exact path='/register' component={Register} />

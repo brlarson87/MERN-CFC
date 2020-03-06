@@ -82,6 +82,7 @@ router.delete("/ticketsPool/:id", async (req, res) => {
     let prize = await Prize.findById(req.params.id);
 
     prize.ticketPool = 0;
+    prize.charityPool = [];
 
     await prize.save();
 

@@ -3,6 +3,7 @@
   margin: 0 auto;
   margin-bottom: 10rem;
   padding-top: 3rem;
+  position: relative;
 }
 
 .details-container {
@@ -11,7 +12,7 @@
   max-width: $row-width;
   margin: 0 auto;
   margin-bottom: 5rem;
-  margin-top: 7rem;
+  margin-top: 6.75rem;
   padding-top: 2rem;
   height: 70rem;
 
@@ -46,6 +47,10 @@
   margin-top: 1rem !important;
 }
 
+.u-margin-top-lg {
+  margin-top: 3rem !important;
+}
+
 .font-sm {
   font-size: 1rem !important;
 }
@@ -76,16 +81,22 @@
   top: 1.8rem;
   font-size: 2rem;
   color: #fff;
-  background-color: $primary-color;
+  background-color: $primary-color-dark;
   border-radius: 50%;
   padding: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
 
   &:hover {
     background-color: #fff;
-    color: $primary-color;
+    color: $primary-color-dark;
   }
 }
 
 .position-up {
   margin-top: -5rem;
+}
+
+.opacity {
+  opacity: 1 !important;
 }

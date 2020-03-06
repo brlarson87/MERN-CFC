@@ -17,3 +17,15 @@
     border-radius: 5px;
   }
 }
+
+@mixin charityBtnsLinks {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 2px;
+  background-color: darken(#f6f6f6, 25%);
+  color: $primary-color;
+
+  &:hover {
+    background-color: darken(#f6f6f6, 38%);
+  }
+}

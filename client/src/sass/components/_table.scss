@@ -2,7 +2,6 @@
   margin: 0 auto;
   margin-top: 4rem;
   width: 80%;
-  border-bottom: solid 1px $primary-color;
   padding-bottom: 3rem;
 
   &__row {
@@ -39,7 +38,7 @@
   }
 
   &__data {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
     font-size: 1.3rem;
     font-weight: 500;
 
@@ -62,15 +61,22 @@
     transition: all 0.4s;
     &:link,
     &:visited {
-      padding: 1rem;
-      border-radius: 2px;
-      background-color: darken(#f6f6f6, 25%);
-      color: $primary-color;
+      @include charityBtnsLinks;
       text-decoration: none;
     }
-    &:hover {
-      cursor: pointer;
-      background-color: darken(#f6f6f6, 38%);
+
+    &-large {
+      font-size: 1.4rem;
     }
+  }
+}
+
+.charity-confirm-btn {
+  @include charityBtnsLinks;
+  border: none;
+  transition: all 0.4s;
+
+  &:focus {
+    outline: none;
   }
 }

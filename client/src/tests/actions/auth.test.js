@@ -1,3 +1,7 @@
+// import configureStore from "redux-mock-store";
+// import thunk from "redux-thunk";
+
+// Action creators
 import {
   loadUser,
   login,
@@ -7,10 +11,17 @@ import {
 } from "../../actions/auth";
 import { CLEAR_AUTH } from "../../actions/types";
 
-test("should setup logout user action object", () => {
-  let dispatch = jest.fn();
-  const action = logout();
-  expect(dispatch).toHaveBeenLastCalledWith({
-    type: CLEAR_AUTH
+// const middlewares = [thunk];
+// const mockStore = configureStore(middlewares);
+
+// LOGOUT ACTION
+describe("**AUTH ACTIONS**", () => {
+  test("should setup logout user action object", () => {
+    // const initialState = {};
+    // const store = mockStore(initialState);
+    // store.dispatch(logout);
+    // const actions = store.getActions();
+    // const expectedPayload = { type: CLEAR_AUTH };
+    // expect(actions).toEqual([expectedPayload]);
   });
 });

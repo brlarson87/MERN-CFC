@@ -4,10 +4,13 @@ import PropTypes from "prop-types";
 import FlexRow from "./FlexRow";
 import Spinner from "../layout/Spinner";
 import Footer from "../layout/Footer";
+//Actions
 import { loadPrizes } from "../../actions/prizes";
+import { enterTickets } from "../../actions/prizes";
+//Actions
 import chunks from "../../utils/chunks";
 
-const Cars = ({ loadPrizes, prizes, loading, user }) => {
+const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {
   useEffect(() => {
     loadPrizes();
   }, [loadPrizes]);
@@ -16,7 +19,12 @@ const Cars = ({ loadPrizes, prizes, loading, user }) => {
       <div className='container'>
         {!loading && prizes ? (
           prizes.map((chunk, index) => (
-            <FlexRow chunk={chunk} key={index} user={user} />
+            <FlexRow
+              chunk={chunk}
+              key={index}
+              user={user}
+              enterTickets={enterTickets}
+            />
           ))
         ) : (
           <Spinner />
@@ -39,7 +47,4 @@ const mapStateToProps = state => ({
   user: state.auth.user
 });
 
-export default connect(
-  mapStateToProps,
-  { loadPrizes }
-)(Cars);
+export default connect(mapStateToProps, { loadPrizes, enterTickets })(Cars);

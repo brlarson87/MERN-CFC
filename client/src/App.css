@@ -63,7 +63,8 @@
   max-width: 134rem;
   margin: 0 auto;
   margin-bottom: 10rem;
-  padding-top: 3rem; }
+  padding-top: 3rem;
+  position: relative; }
 
 .details-container {
   display: flex;
@@ -71,7 +72,7 @@
   max-width: 134rem;
   margin: 0 auto;
   margin-bottom: 5rem;
-  margin-top: 7rem;
+  margin-top: 6.75rem;
   padding-top: 2rem;
   height: 70rem; }
   .details-container .left-col {
@@ -103,6 +104,9 @@
 .u-margin-top-sm {
   margin-top: 1rem !important; }
 
+.u-margin-top-lg {
+  margin-top: 3rem !important; }
+
 .font-sm {
   font-size: 1rem !important; }
 
@@ -127,15 +131,20 @@
   top: 1.8rem;
   font-size: 2rem;
   color: #fff;
-  background-color: #ca1111;
+  background-color: #520d0d;
   border-radius: 50%;
-  padding: 0 0.5rem; }
+  padding: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s; }
   .exit-container:hover {
     background-color: #fff;
-    color: #ca1111; }
+    color: #520d0d; }
 
 .position-up {
   margin-top: -5rem; }
+
+.opacity {
+  opacity: 1 !important; }
 
 *,
 *::after,
@@ -158,6 +167,30 @@ body {
   body::-webkit-scrollbar-thumb {
     background-image: linear-gradient(to bottom, #520d0d, #7e1414);
     border-radius: 5px; }
+
+.alert {
+  padding: 0.8rem;
+  opacity: 0.9;
+  color: #ca1111;
+  position: fixed;
+  top: 1rem;
+  left: 25%;
+  right: 25%;
+  text-align: center;
+  border-radius: 1rem;
+  z-index: 1;
+  font-size: 2rem;
+  transition: all 0.4s ease-in; }
+  .alert--error {
+    background-color: #ca1111;
+    color: #fff;
+    z-index: 2000; }
+  .alert--success {
+    background-color: #b8a37b;
+    color: white; }
+  .alert--main-page {
+    top: 8rem;
+    z-index: 1; }
 
 .btn:link, .btn:visited {
   position: relative;
@@ -226,6 +259,8 @@ body {
   .btn--submit--primary:hover {
     cursor: pointer;
     box-shadow: 0rem 1.2rem 2rem rgba(0, 0, 0, 0.25); }
+  .btn--submit--primary:active, .btn--submit--primary:focus {
+    outline: 0; }
 
 .btn--link:link, .btn--link:visited {
   text-decoration: none;
@@ -267,11 +302,10 @@ body {
   color: #520d0d;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
-  transition: 0.3s; }
-  .btn__input--secondary:hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-    box-shadow: 0.8rem 1.2rem 1rem rgba(0, 0, 0, 0.4); }
+  transition: 0.3s;
+  cursor: pointer; }
+  .btn__input--secondary:active, .btn__input--secondary:focus {
+    outline: 0; }
 
 .btn--block:link, .btn--block:visited {
   display: block;
@@ -287,6 +321,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   will-change: transform; }
+
+.btn--block--secondary:link, .btn--block--secondary:visited {
+  background-color: #b8a37b; }
 
 .btn--block:hover, .btn--block:active {
   transform: translateY(-1px);
@@ -315,6 +352,15 @@ body {
     cursor: pointer;
     transform: translateX(-50%) translateY(-1px);
     box-shadow: 1.5rem 1.5rem 1rem rgba(0, 0, 0, 0.3); }
+
+.charityBtn {
+  opacity: 0;
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+  transition: opacity 0.5s; }
 
 .car-card {
   width: 45%;
@@ -373,8 +419,7 @@ body {
     height: 1rem;
     border-radius: 1rem;
     border: solid 2px #606060;
-    margin: 0 auto;
-    margin-bottom: 1.2rem; }
+    margin: 1.2rem auto; }
     .car-card__progress-bar__filler {
       position: absolute;
       top: 0;
@@ -411,7 +456,7 @@ body {
   .details__features--text {
     line-height: 2.5rem; }
   .details__ticket-form {
-    margin-top: 4rem; }
+    margin-top: 3rem; }
     .details__ticket-form--title {
       color: #520d0d;
       font-size: 1.5rem;
@@ -441,8 +486,7 @@ body {
     margin: 0 auto;
     border-radius: 0.5rem;
     overflow: hidden;
-    margin-top: 4rem;
-    box-shadow: 0rem 5rem 5rem rgba(0, 0, 0, 0.25); }
+    margin-top: 4rem; }
     .images-container__top .main-image {
       width: 100%;
       border-radius: 0.5rem; }
@@ -494,7 +538,7 @@ body {
   width: 100vw;
   background-color: #eee;
   filter: grayscale(40%);
-  z-index: 500; }
+  z-index: 999; }
   .full-container .form-container {
     position: absolute;
     top: 10%;
@@ -538,6 +582,8 @@ body {
           font-weight: bold; }
           .full-container .form-container__form--group--input--login {
             width: 100%; }
+          .full-container .form-container__form--group--input:focus {
+            outline: 0; }
       .full-container .form-container__form--password-container {
         display: flex;
         justify-content: space-around;
@@ -562,6 +608,65 @@ body {
       .full-container .form-container__link-title--link {
         text-decoration: none;
         color: #ca1111; }
+
+.modal-overlay {
+  position: fixed;
+  z-index: 199;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  transition: all 0.4s; }
+
+.modal-content {
+  position: absolute;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: 500;
+  border-radius: 5px;
+  padding: 2rem 0; }
+  .modal-content .modal-title {
+    text-align: center;
+    color: #520d0d;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    text-decoration: underline; }
+  .modal-content .charity-confirm-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    cursor: pointer; }
+    .modal-content .charity-confirm-container .car-image {
+      width: 20%;
+      border-radius: 1rem;
+      overflow: hidden;
+      pointer-events: none;
+      align-self: stretch; }
+      .modal-content .charity-confirm-container .car-image__img {
+        width: 100%;
+        height: 100%; }
+    .modal-content .charity-confirm-container .car-description {
+      font-size: 1.4rem;
+      font-weight: 500;
+      pointer-events: none; }
+    .modal-content .charity-confirm-container .confirmation-btn {
+      cursor: pointer;
+      padding: 0.8rem;
+      border: none;
+      opacity: 0;
+      border-radius: 5px;
+      color: white;
+      background-color: #520d0d; }
+
+.active-container {
+  background-color: rgba(0, 0, 0, 0.65); }
 
 .search-form {
   position: relative;
@@ -594,7 +699,6 @@ body {
   margin: 0 auto;
   margin-top: 4rem;
   width: 80%;
-  border-bottom: solid 1px #ca1111;
   padding-bottom: 3rem; }
   .charity-table__row {
     text-align: center; }
@@ -618,7 +722,7 @@ body {
   .charity-table__body {
     position: relative; }
   .charity-table__data {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
     font-size: 1.3rem;
     font-weight: 500; }
     .charity-table__data--title {
@@ -634,14 +738,62 @@ body {
   .charity-table__link {
     transition: all 0.4s; }
     .charity-table__link:link, .charity-table__link:visited {
+      cursor: pointer;
       padding: 1rem;
       border-radius: 2px;
       background-color: #b6b6b6;
       color: #ca1111;
       text-decoration: none; }
-    .charity-table__link:hover {
-      cursor: pointer;
-      background-color: #959595; }
+      .charity-table__link:link:hover, .charity-table__link:visited:hover {
+        background-color: #959595; }
+    .charity-table__link-large {
+      font-size: 1.4rem; }
+
+.charity-confirm-btn {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 2px;
+  background-color: #b6b6b6;
+  color: #ca1111;
+  border: none;
+  transition: all 0.4s; }
+  .charity-confirm-btn:hover {
+    background-color: #959595; }
+  .charity-confirm-btn:focus {
+    outline: none; }
+
+.quick-enter {
+  position: relative;
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+  z-index: 5;
+  cursor: pointer; }
+  .quick-enter__btn {
+    background-color: rgba(26, 26, 26, 0.25);
+    font-size: 1.4rem;
+    border-radius: 5px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    color: #ca1111;
+    transition: transform 0.3s ease;
+    border-right: 3px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    border-top: none;
+    cursor: pointer;
+    transition: all 0.2s; }
+
+.enter-tickets-quick-btn {
+  background-color: #b8a37b;
+  padding: 1rem 2rem; }
+
+.amount-active {
+  outline: 0;
+  background-image: radial-gradient(#9d1919, #490c0c);
+  color: #fff; }
 
 .about-us {
   margin: 0 auto;
@@ -671,9 +823,11 @@ body {
       padding: 2.5rem 2.5rem 4.5rem 2.5rem; }
 
 .header {
+  position: relative;
   background-color: #fff;
   padding-bottom: 1rem;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  z-index: 6; }
   .header::after {
     display: table;
     content: "";
@@ -734,7 +888,7 @@ body {
     z-index: 2000;
     font-size: 2rem;
     color: #b8a37b;
-    transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18); }
+    transition: all 0.35s; }
 
 .menu-btn {
   position: fixed;
@@ -742,11 +896,11 @@ body {
   right: 3rem;
   height: 4.5rem;
   width: 4.5rem;
-  z-index: 2000;
+  z-index: 998;
   border: 1px solid #b8a37b;
   border-radius: 50%;
   background-image: linear-gradient(#ca1111, #520d0d);
-  transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18); }
+  transition: all 0.35s; }
   .menu-btn:hover {
     cursor: pointer;
     background-image: linear-gradient(#520d0d, #ca1111); }
@@ -757,7 +911,7 @@ body {
   left: 20%;
   font-size: 2.5rem;
   color: white;
-  transition: all 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  transition: all 0.35s;
   user-select: none; }
 
 .pop-out-left {
@@ -770,13 +924,13 @@ body {
   z-index: 200;
   right: 0rem;
   height: 100vh;
-  transition: all 0.5s cubic-bezier(0.17, -0.15, 1, 0.18);
+  transition: all 0.35s;
   text-align: center; }
 
 .nav-showing {
   animation: moveUp;
-  animation-duration: 1s;
-  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
   animation-fill-mode: forwards;
   opacity: 1; }
 
@@ -834,8 +988,6 @@ body {
       display: block;
       padding: 1rem;
       transition: all 0.3s; }
-      .footer__nav--item:hover {
-        transform: scale(1.03) translateY(-2px); }
       .footer__nav--item--sub {
         display: inline-block; }
     .footer__nav--link:link, .footer__nav--link:visited {
@@ -869,7 +1021,7 @@ body {
     float: left; }
 
 .spinner {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

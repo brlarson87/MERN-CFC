@@ -6,7 +6,7 @@
   width: 100vw;
   background-color: #eee;
   filter: grayscale(40%);
-  z-index: 500;
+  z-index: 999;
 
   .form-container {
     position: absolute;
@@ -58,6 +58,10 @@
 
           &--login {
             width: 100%;
+          }
+
+          &:focus {
+            outline: 0;
           }
         }
       }

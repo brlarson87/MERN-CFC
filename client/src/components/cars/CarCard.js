@@ -55,14 +55,27 @@ const CarCard = props => {
             }}
           ></span>
         </div>
-        <Link
-          to={`/cardetails/${props.prize._id}`}
-          className='btn btn--quick'
-          onClick={() => window.scrollTo(0, 0)}
-          style={{ marginBottom: "3px" }}
-        >
-          Quick Enter
-        </Link>
+
+        <h3>Quick Enter</h3>
+
+        <div className='quick-enter'>
+          <button className='quick-enter__btn' value='1'>
+            1
+          </button>
+          <button className='quick-enter__btn' value='1'>
+            5
+          </button>
+          <button className='quick-enter__btn' value='10'>
+            10
+          </button>
+          <button className='quick-enter__btn' value='25'>
+            25
+          </button>
+          <button className='quick-enter__btn' value='50'>
+            50
+          </button>
+        </div>
+
         <Link
           to={`/cardetails/${props.prize._id}`}
           className='btn btn--primary u-margin-bottom-sm'

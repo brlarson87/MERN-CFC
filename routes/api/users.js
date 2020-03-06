@@ -132,6 +132,7 @@ router.delete("/deleteTickets", auth, async (req, res) => {
     let user = await User.findById(req.user.id);
 
     user.tickets = [];
+    user.charitiesPledged = [];
 
     await user.save();
 

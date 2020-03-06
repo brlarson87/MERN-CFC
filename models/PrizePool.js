@@ -19,12 +19,9 @@ const PrizePoolSchema = new Schema({
     type: Number,
     required: true
   },
-  charityPool: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "charities"
-    }
-  ],
+  charityPool: {
+    type: [Object]
+  },
   dateAdded: {
     type: Date,
     default: Date.now

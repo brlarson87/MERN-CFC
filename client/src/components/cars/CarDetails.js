@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { loadSinglePrize } from "../../actions/prizes";
 import ticketStatus from "../../utils/ticketStatus";
 
@@ -9,6 +10,8 @@ import CarThumb from "./CarThumb";
 
 import formatNumber from "../../utils/formatNumber";
 import ticketsEnteredInPool from "../../utils/ticketsEnteredInPool";
+
+//Actions
 import { enterTickets } from "../../actions/prizes";
 
 //COMPONENT
@@ -76,9 +79,9 @@ const CarDetails = ({
             </span>
           </div>
           <div className='details__group'>
-            <span className='details__group--left'>Charity Amount</span>
+            <span className='details__group--left'>Charity Donation</span>
             <span className='details__group--right'>
-              {!loading && prize && formatNumber(prize.charityAmount)}
+              {!loading && prize && formatNumber(prize.charityAmount, true)}
             </span>
           </div>
 
@@ -116,13 +119,22 @@ const CarDetails = ({
           </div>
 
           {/*----------TICKET FORM-----------*/}
-          {prize && user && (
+          {prize && user ? (
             <EnterTickets
               id={prize._id}
               ticketTotal={prize.ticketPool.length}
               enterTickets={enterTickets}
               activeUserTickets={ticketStatus(user.tickets).active}
             />
+          ) : (
+            <Fragment>
+              <h5 className='details__ticket-form--title u-margin-top-lg'>
+                Login to enter
+              </h5>
+              <Link to='/login' className='btn--block u-margin-top-sm'>
+                Login
+              </Link>
+            </Fragment>
           )}
         </div>
       </div>
@@ -132,14 +144,7 @@ const CarDetails = ({
           {/*----------MAIN IMAGE-----------*/}
           <div className='images-container__top'>
             <img
-              src={
-                // !loading && prize ? (
-                //   prize.pictures[count]
-                // ) : (
-                //   <Spinner margin={"100"} />
-                // )
-                prize && prize.pictures[count]
-              }
+              src={prize && prize.pictures[count]}
               alt='car'
               className='main-image'
             />
@@ -154,20 +159,7 @@ const CarDetails = ({
           {/* --BOTTOM CONTAINER OF THUMBNAILS-- */}
           <div className='images-container__bottom'>
             {/*----- Loop through prize pictures ---------*/}
-            {/* {!loading && prize ? (
-              prize.pictures.map((pic, i) => (
-                <CarThumb
-                  pic={pic}
-                  keyy={i}
-                  key={i}
-                  alternate={prize.car}
-                  changeCount={changeCount}
-                />
-              ))
-            ) : (
-              <Spinner />
-            )} */
-            prize &&
+            {prize &&
               prize.pictures.map((pic, i) => (
                 <CarThumb
                   pic={pic}

@@ -1,0 +1,41 @@
+.quick-enter {
+  position: relative;
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+  z-index: 5;
+  cursor: pointer;
+
+  &__btn {
+    background-color: lighten(rgba(0, 0, 0, 0.25), 10%);
+    font-size: 1.4rem;
+    border-radius: 5px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    color: $primary-color;
+    transition: transform 0.3s ease;
+    border-right: 3px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    border-top: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+}
+
+.enter-tickets-quick-btn {
+  background-color: $secondary-color;
+  padding: 1rem 2rem;
+}
+
+// JS toggle classes
+.amount-active {
+  outline: 0;
+  background-image: radial-gradient(
+    lighten($primary-color-dark, 17%),
+    darken($primary-color-dark, 2%)
+  );
+  color: #fff;
+}

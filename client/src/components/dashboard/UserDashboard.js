@@ -74,21 +74,27 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
             <span className='info'>
               Charities pledged... &nbsp; &times;&nbsp;
               <span className='number'>
-                {user && user.charitiesPledged.length}
+                {user && prizes && user.charitiesPledged.length}
               </span>
             </span>
             {/*----------CheckIfEligbleForPledge-----------*/}
-            {user && prizes && checkIfEligibleForPledge(user.tickets, prizes) && (
-              <span className='info'>
-                you're elible to pick a charity
-                <Link
-                  to='/charities'
-                  className='btn--link font-sm margin-left-sm'
-                >
-                  pick one
-                </Link>
-              </span>
-            )}
+            {user &&
+              prizes &&
+              checkIfEligibleForPledge(
+                user.tickets,
+                prizes,
+                user.charitiesPledged
+              ).eligible && (
+                <span className='info'>
+                  you're elible to pick a charity
+                  <Link
+                    to='/charities'
+                    className='btn--link font-sm margin-left-sm'
+                  >
+                    pick one
+                  </Link>
+                </span>
+              )}
 
             <a href='/' className='btn--link'>
               Submit Charity

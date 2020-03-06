@@ -17,13 +17,14 @@ const GuestLinks = () => {
 
     for (let i = 0; i < navLinks.length; i++) {
       navLinks[i].addEventListener("click", () => {
-        if (i === 1) {
-          setTimeout(() => {
-            close();
-          }, 500);
-        } else {
-          close();
-        }
+        // if (i === 1) {
+        //   setTimeout(() => {
+        //     close();
+        //   }, 500);
+        // } else {
+        //   close();
+        // }
+        close();
       });
     }
     menuBtn.addEventListener("click", () => {
