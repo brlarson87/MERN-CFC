@@ -102,6 +102,7 @@ export const register = (formData, history) => async dispatch => {
     history.push("/");
   } catch (error) {
     console.log(error);
+    dispatch(setAlert("All fields required", "error"));
   }
 };
 

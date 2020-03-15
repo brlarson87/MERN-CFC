@@ -146,6 +146,9 @@
 .opacity {
   opacity: 1 !important; }
 
+.u-lg-font {
+  font-size: 4.8rem !important; }
+
 *,
 *::after,
 *::before {
@@ -609,6 +612,12 @@ body {
         text-decoration: none;
         color: #ca1111; }
 
+.match-icon-box {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.6rem; }
+
 .modal-overlay {
   position: fixed;
   z-index: 199;
@@ -630,6 +639,10 @@ body {
   z-index: 500;
   border-radius: 5px;
   padding: 2rem 0; }
+  .modal-content--sm {
+    top: 35%;
+    width: 30%;
+    padding: 4rem 0; }
   .modal-content .modal-title {
     text-align: center;
     color: #520d0d;
@@ -656,17 +669,21 @@ body {
       font-size: 1.4rem;
       font-weight: 500;
       pointer-events: none; }
-    .modal-content .charity-confirm-container .confirmation-btn {
-      cursor: pointer;
-      padding: 0.8rem;
-      border: none;
-      opacity: 0;
-      border-radius: 5px;
-      color: white;
-      background-color: #520d0d; }
 
 .active-container {
   background-color: rgba(0, 0, 0, 0.65); }
+
+.confirmation-btn {
+  cursor: pointer;
+  padding: 0.8rem;
+  border: none;
+  opacity: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: #520d0d;
+  transition: all 0.2s; }
+  .confirmation-btn:hover {
+    background-color: #681010; }
 
 .search-form {
   position: relative;
@@ -679,7 +696,6 @@ body {
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     border-color: #711212;
-    text-transform: uppercase;
     font-family: "Quicksand", sans-serif;
     font-weight: 500;
     font-size: 1.2rem; }
@@ -692,8 +708,6 @@ body {
     font-size: 2.5rem;
     background-color: #fff;
     border: none; }
-    .search-form__submit-btn:hover {
-      cursor: pointer; }
 
 .charity-table {
   margin: 0 auto;

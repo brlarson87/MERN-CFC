@@ -12,7 +12,7 @@ import formatNumber from "../../utils/formatNumber";
 import ticketsEnteredInPool from "../../utils/ticketsEnteredInPool";
 
 //Actions
-import { enterTickets } from "../../actions/prizes";
+import { showConfirmModal } from "../../actions/modal";
 
 //COMPONENT
 import EnterTickets from "../auth/EnterTickets";
@@ -23,7 +23,7 @@ const CarDetails = ({
   prize,
   loading,
   user,
-  enterTickets
+  showConfirmModal
 }) => {
   useEffect(() => {
     loadSinglePrize(match.params.id);
@@ -123,8 +123,9 @@ const CarDetails = ({
             <EnterTickets
               id={prize._id}
               ticketTotal={prize.ticketPool.length}
-              enterTickets={enterTickets}
+              showConfirmModal={showConfirmModal}
               activeUserTickets={ticketStatus(user.tickets).active}
+              prizeName={prize.car}
             />
           ) : (
             <Fragment>
@@ -182,6 +183,7 @@ const mapStateToProps = state => ({
   user: state.auth.user
 });
 
-export default connect(mapStateToProps, { loadSinglePrize, enterTickets })(
-  CarDetails
-);
+export default connect(mapStateToProps, {
+  loadSinglePrize,
+  showConfirmModal
+})(CarDetails);

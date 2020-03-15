@@ -1,10 +1,17 @@
-import { SHOW_CHARITY_MODAL, HIDE_CHARITY_MODAL } from "../actions/types";
+import {
+  SHOW_CHARITY_MODAL,
+  HIDE_CHARITY_MODAL,
+  SHOW_CONFIRM_MODAL,
+  HIDE_CONFIRM_MODAL
+} from "../actions/types";
 
 const initialState = {
   loading: true,
   show: false,
   content: [],
-  charityId: undefined
+  charityId: undefined,
+  showConfirm: false,
+  confirmContent: {}
 };
 
 export default function(state = initialState, action) {
@@ -26,6 +33,25 @@ export default function(state = initialState, action) {
         show: false,
         content: [],
         charityId: undefined
+      };
+    case SHOW_CONFIRM_MODAL:
+      return {
+        ...state,
+        loading: false,
+        showConfirm: true,
+        confirmContent: {
+          ticketAmount: payload.ticketAmount,
+          prizeId: payload.prizeId,
+          activeTickets: payload.activeTickets,
+          prizeName: payload.prizeName
+        }
+      };
+    case HIDE_CONFIRM_MODAL:
+      return {
+        ...state,
+        loading: false,
+        showConfirm: false,
+        confirmContent: {}
       };
     default:
       return state;

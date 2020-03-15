@@ -6,11 +6,17 @@ import TableRow from "./TableRow";
 import CharityConfirm from "../modals/CharityConfirm";
 //import Spinner from "./Spinner";
 
+//Actions
 import { loadCharities } from "../../actions/charities";
+import { loadPrizes } from "../../actions/prizes";
 import { showCharityConfirmation } from "../../actions/modal";
+
+import { utilFilter } from "../../utils/utilFilter";
+import { totalCountOfCharities } from "../../utils/utilFilter";
 
 const Charities = ({
   loadCharities,
+  loadPrizes,
   showCharityConfirmation,
   charities,
   loading,
@@ -20,6 +26,7 @@ const Charities = ({
 }) => {
   useEffect(() => {
     loadCharities();
+    loadPrizes();
     const charityBtn = document.querySelector(".charityBtn");
     charityBtn.addEventListener = document.addEventListener(
       "click",
@@ -40,11 +47,19 @@ const Charities = ({
     });
   }, [loadCharities]);
 
-  const [charityCount, setCharityCount] = useState(10);
+  const [charityData, setCharityData] = useState({
+    count: 10,
+    filter: ""
+  });
+
+  const { count, filter } = charityData;
+
+  const onChange = e =>
+    setCharityData({ ...charityData, [e.target.name]: e.target.value });
 
   const incrementCharityCount = () => {
     setTimeout(() => {
-      setCharityCount(charityCount + 10);
+      setCharityData({ ...charityData, count: count + 10 });
     }, 500);
   };
 
@@ -55,6 +70,9 @@ const Charities = ({
         <form action='POST' className='search-form'>
           <input
             type='text'
+            name='filter'
+            value={filter}
+            onChange={e => onChange(e)}
             className='search-form__input'
             placeholder='Search charities...'
           />
@@ -81,21 +99,25 @@ const Charities = ({
           <tbody className='charity-table__body'>
             {charities &&
               !loading &&
-              charities.slice(0, charityCount).map((charity, i) => (
-                <TableRow
-                  // name={charity.name}
-                  // desc={charity.desc}
-                  // url={charity.url}
-                  key={i}
-                  user={user}
-                  prizes={prizes}
-                  showCharityConfirmation={showCharityConfirmation}
-                  charity={charity}
-                />
-              ))}
+              utilFilter(charities, filter)
+                .slice(0, count)
+                .map((charity, i) => (
+                  <TableRow
+                    key={i}
+                    user={user}
+                    prizes={prizes}
+                    showCharityConfirmation={showCharityConfirmation}
+                    charity={charity}
+                  />
+                ))}
           </tbody>
         </table>
-
+        {charities && !totalCountOfCharities(charities, filter) && (
+          <div className='match-icon-box'>
+            <h1>No matches...</h1>
+            <i className='fas fa-sad-tear u-lg-font u-margin-top-lg'></i>
+          </div>
+        )}
         <button
           className='charityBtn'
           style={{ opacity: 0 }}
@@ -118,5 +140,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   loadCharities,
+  loadPrizes,
   showCharityConfirmation
 })(Charities);

@@ -67,7 +67,7 @@ router.put("/enterCharity", auth, async (req, res) => {
   const userId = req.user.id;
 
   try {
-    let prize = await Prize.findById(ObjectId(req.body.prizeId));
+    let prize = await Prize.findById(req.body.prizeId);
 
     let user = await User.findById(req.user.id);
 
@@ -83,9 +83,6 @@ router.put("/enterCharity", auth, async (req, res) => {
       prizeId,
       charityId
     };
-
-    console.log(charityUser);
-    console.log(prizeCharity);
 
     prize.charityPool.push(charityUser);
     await prize.save();

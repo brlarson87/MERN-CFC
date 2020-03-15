@@ -1,6 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 
+//Components
+import TicketConfirm from "../modals/TicketConfirm";
+
 const EnterTickets = props => {
   const [formData, setFormData] = useState({
     ticketAmount: ""
@@ -15,11 +18,21 @@ const EnterTickets = props => {
   const onSubmit = e => {
     e.preventDefault();
     const amount = parseInt(ticketAmount);
-    props.enterTickets(amount, props.id, props.activeUserTickets);
+    if (amount) {
+      props.showConfirmModal(
+        amount,
+        props.id,
+        props.activeUserTickets,
+        props.prizeName
+      );
+    }
+
+    //props.enterTickets(amount, props.id, props.activeUserTickets);
   };
 
   return (
     <Fragment>
+      <TicketConfirm />
       <div className='details__ticket-form'>
         <h5 className='details__ticket-form--title'>Enter Tickets</h5>
         <form

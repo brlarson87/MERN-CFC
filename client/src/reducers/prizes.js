@@ -3,7 +3,8 @@ import {
   CLEAR_PRIZES,
   PRIZE_SUCCESS,
   PRIZE_FAIL,
-  ENTER_SUCCESS_PRIZE
+  ENTER_SUCCESS_PRIZE,
+  PRIZE_PLEDGE_SUCCESS
 } from "../actions/types";
 
 const initialState = {
@@ -42,6 +43,7 @@ export default function(state = initialState, action) {
         prize: null
       };
     case ENTER_SUCCESS_PRIZE:
+    case PRIZE_PLEDGE_SUCCESS:
       return {
         ...state,
         loading: false,

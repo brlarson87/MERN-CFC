@@ -23,7 +23,12 @@ const TableRow = props => {
           {props.charity.desc}
         </td>
         <td className='charity-table__data'>
-          <a href={props.charity.url} className='charity-table__link'>
+          <a
+            href={props.charity.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='charity-table__link'
+          >
             Visit
           </a>
         </td>

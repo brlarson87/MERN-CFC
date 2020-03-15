@@ -6,28 +6,9 @@ export const checkIfEligibleForPledge = (
   prizes,
   charitiesPledged = []
 ) => {
-  // let total = 0;
-  // let arr = [];
-  // let validArr = [];
-  // prizes.forEach(prize => {
-  //   const ticketsBreakPoint = prize.charityPledgeAmount;
-  //   let counter = 0;
-  //   tickets.forEach(ticket => {
-  //     if (ticket.prizeId === prize._id) {
-  //       counter++;
-  //       if (counter === ticketsBreakPoint) {
-  //         total++;
-  //         arr.push({
-  //           prizeID: prize._id,
-  //           thumbnail: prize.pictures[0]
-  //         });
-  //       }
-  //     }
-  //   });
-  // });
-
   let total = 0;
   let arr = [];
+  let prizesPledged = charitiesPledged.map(c => c.prizeId);
 
   prizes.forEach(prize => {
     const ticketsBreakPoint = prize.charityPledgeAmount;
@@ -35,7 +16,10 @@ export const checkIfEligibleForPledge = (
     tickets.forEach(ticket => {
       if (ticket.prizeId === prize._id) {
         counter++;
-        if (counter === ticketsBreakPoint) {
+        if (
+          counter === ticketsBreakPoint &&
+          !(prizesPledged.indexOf(prize._id) > -1)
+        ) {
           total++;
           arr.push({
             prizeID: prize._id,
@@ -46,16 +30,8 @@ export const checkIfEligibleForPledge = (
     });
   });
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < charitiesPledged.length; j++) {
-      if (arr[i].prizeID === charitiesPledged[j].prizeId) {
-        arr = arr.filter(a => a.prizeID !== arr[i].prizeID);
-      }
-    }
-  }
-
   return {
-    eligible: total - charitiesPledged.length > 0,
+    eligible: total > 0,
     prizesEligibleFor: arr
   };
 };

@@ -21,6 +21,12 @@
   border-radius: 5px;
   padding: 2rem 0;
 
+  &--sm {
+    top: 35%;
+    width: 30%;
+    padding: 4rem 0;
+  }
+
   .modal-title {
     text-align: center;
     color: $primary-color-dark;
@@ -55,19 +61,24 @@
       font-weight: 500;
       pointer-events: none;
     }
-
-    .confirmation-btn {
-      cursor: pointer;
-      padding: 0.8rem;
-      border: none;
-      opacity: 0;
-      border-radius: 5px;
-      color: white;
-      background-color: $primary-color-dark;
-    }
   }
 }
 
 .active-container {
   background-color: rgba(0, 0, 0, 0.65);
+}
+
+.confirmation-btn {
+  cursor: pointer;
+  padding: 0.8rem;
+  border: none;
+  opacity: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: $primary-color-dark;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: lighten($primary-color-dark, 5%);
+  }
 }

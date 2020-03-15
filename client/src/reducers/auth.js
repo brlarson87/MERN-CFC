@@ -6,7 +6,8 @@ import {
   LOGIN_FAIL,
   CLEAR_AUTH,
   TICKETS_ADDED,
-  ENTER_SUCCESS_USER
+  ENTER_SUCCESS_USER,
+  USER_PLEDGE_SUCCESS
 } from "../actions/types";
 
 const initialState = {
@@ -22,6 +23,7 @@ export default function(state = initialState, action) {
   switch (type) {
     case USER_LOADED:
     case TICKETS_ADDED:
+    case USER_PLEDGE_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
