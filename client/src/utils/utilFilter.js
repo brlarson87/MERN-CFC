@@ -1,6 +1,6 @@
 export const utilFilter = (charities, filter) => {
   return charities.filter(charity =>
-    charity.name.toLowerCase().includes(filter)
+    charity.name.toLowerCase().includes(filter.toLowerCase())
   );
 };
 
