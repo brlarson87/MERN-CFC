@@ -1,13 +1,15 @@
 import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+//Components
 import FlexRow from "./FlexRow";
 import Spinner from "../layout/Spinner";
 import Footer from "../layout/Footer";
 //Actions
 import { loadPrizes } from "../../actions/prizes";
 import { enterTickets } from "../../actions/prizes";
-//Actions
+//Utilities
 import chunks from "../../utils/chunks";
 
 const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {

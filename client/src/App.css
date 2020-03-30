@@ -1022,8 +1022,10 @@ body {
     color: #000; }
 
 .row {
-  padding: 1rem;
-  margin: 8rem; }
+  padding: 3rem 1rem;
+  margin: 8rem;
+  background-image: radial-gradient(rgba(205, 205, 205, 0.45), rgba(202, 202, 202, 0.55));
+  border-radius: 1rem; }
   .row::after {
     content: "";
     display: table;

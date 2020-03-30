@@ -1,6 +1,11 @@
 .row {
-  padding: 1rem;
+  padding: 3rem 1rem;
   margin: 8rem;
+  background-image: radial-gradient(
+    rgba(#cdcdcd, 0.45),
+    darken(rgba(#cdcdcd, 0.55), 1%)
+  );
+  border-radius: 1rem;
 
   &::after {
     content: "";

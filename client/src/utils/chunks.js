@@ -1,4 +1,7 @@
 const chunks = prizes => {
+  if (!prizes) {
+    return [];
+  }
   const chunks = [];
   const chunkSize = 2;
   for (let i = 0; i < prizes.length; i += chunkSize) {

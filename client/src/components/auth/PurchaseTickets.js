@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+//Actions
 import { purchaseTickets } from "../../actions/auth";
 
 const PurchaseTickets = ({ purchaseTickets, history }) => {
@@ -52,7 +54,4 @@ const PurchaseTickets = ({ purchaseTickets, history }) => {
   );
 };
 
-export default connect(
-  null,
-  { purchaseTickets }
-)(PurchaseTickets);
+export default connect(null, { purchaseTickets })(PurchaseTickets);

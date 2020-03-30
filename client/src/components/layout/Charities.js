@@ -45,7 +45,7 @@ const Charities = ({
         charityBtn.style.opacity = "0";
       }
     });
-  }, [loadCharities]);
+  }, [loadCharities, loadPrizes]);
 
   const [charityData, setCharityData] = useState({
     count: 10,
