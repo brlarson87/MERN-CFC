@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
-const ConfirmationContainer = props => {
+const ConfirmationContainer = (props) => {
   const enterThisCharity = () => {
     props.enterCharity(props.prizeId, props.charityId);
   };
 
-  const toggleBackground = e => {
-    clearNonActives(props.keyy);
+  const toggleBackground = (e) => {
+    clearNonActives();
     e.target.classList.add("active-container");
     let btns = document.querySelectorAll(".confirmation-btn");
     btns[props.keyy].classList.add("opacity");
@@ -15,10 +15,10 @@ const ConfirmationContainer = props => {
   const clearNonActives = () => {
     let containers = document.querySelectorAll(".active-container");
     let btns = document.querySelectorAll(".confirmation-btn");
-    containers.forEach(container =>
+    containers.forEach((container) =>
       container.classList.remove("active-container")
     );
-    btns.forEach(btn => btn.classList.remove("opacity"));
+    btns.forEach((btn) => btn.classList.remove("opacity"));
   };
 
   return (

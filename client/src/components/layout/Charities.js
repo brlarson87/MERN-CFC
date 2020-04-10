@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import TableRow from "./TableRow";
 import CharityConfirm from "../modals/CharityConfirm";
-//import Spinner from "./Spinner";
+import Spinner from "./Spinner";
 
 //Actions
 import { loadCharities } from "../../actions/charities";
@@ -22,7 +22,7 @@ const Charities = ({
   loading,
   user,
   prizes,
-  modalShow
+  modalShow,
 }) => {
   useEffect(() => {
     loadCharities();
@@ -36,7 +36,7 @@ const Charities = ({
       const {
         scrollTop,
         scrollHeight,
-        clientHeight
+        clientHeight,
       } = document.documentElement;
 
       if (scrollTop + clientHeight >= scrollHeight - 5) {
@@ -49,12 +49,12 @@ const Charities = ({
 
   const [charityData, setCharityData] = useState({
     count: 10,
-    filter: ""
+    filter: "",
   });
 
   const { count, filter } = charityData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setCharityData({ ...charityData, [e.target.name]: e.target.value });
 
   const incrementCharityCount = () => {
@@ -67,19 +67,19 @@ const Charities = ({
     <Fragment>
       {modalShow && <CharityConfirm />}
       <div className='container'>
-        <form action='POST' className='search-form'>
+        <div className='search-form'>
           <input
             type='text'
             name='filter'
             value={filter}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             className='search-form__input'
             placeholder='Search charities...'
           />
-          <button className='search-form__submit-btn'>
+          <div className='search-form__submit-btn'>
             <i className='fas fa-search'></i>
-          </button>
-        </form>
+          </div>
+        </div>
         <table className='charity-table'>
           <thead className='charity-table__head'>
             <tr className='charity-table__row'>
@@ -112,12 +112,14 @@ const Charities = ({
                 ))}
           </tbody>
         </table>
-        {charities && !totalCountOfCharities(charities, filter) && (
+        {loading && <Spinner />}
+        {charities && !totalCountOfCharities(charities, filter) && !loading && (
           <div className='match-icon-box'>
             <h1>No matches...</h1>
             <i className='fas fa-sad-tear u-lg-font u-margin-top-lg'></i>
           </div>
         )}
+
         <button
           className='charityBtn'
           style={{ opacity: 0 }}
@@ -130,16 +132,16 @@ const Charities = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   charities: state.charities.charities,
   loading: state.charities.loading,
   user: state.auth.user,
   prizes: state.prizes.prizes,
-  modalShow: state.modal.show
+  modalShow: state.modal.show,
 });
 
 export default connect(mapStateToProps, {
   loadCharities,
   loadPrizes,
-  showCharityConfirmation
+  showCharityConfirmation,
 })(Charities);

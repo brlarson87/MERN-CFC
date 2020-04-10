@@ -29,7 +29,7 @@ router.post(
   "/",
   [
     check("email", "Email is required"),
-    check("password", "Password is required")
+    check("password", "Password is required"),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -50,8 +50,8 @@ router.post(
       }
       const payload = {
         user: {
-          id: user._id
-        }
+          id: user._id,
+        },
       };
 
       jwt.sign(

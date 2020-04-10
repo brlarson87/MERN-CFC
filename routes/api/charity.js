@@ -25,7 +25,7 @@ router.post(
   [
     check("name", "Name is required").exists(),
     check("url", "Url is required").exists(),
-    check("desc", "Description is required").exists()
+    check("desc", "Description is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);

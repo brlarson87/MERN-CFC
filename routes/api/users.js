@@ -25,7 +25,7 @@ router.post(
     check("address.streetName", "Street name is required").exists(),
     check("address.city", "City is required").exists(),
     check("address.state", "State is required").exists(),
-    check("address.zipCode", "Zipcode is required").exists()
+    check("address.zipCode", "Zipcode is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -38,7 +38,7 @@ router.post(
       lastName,
       email,
       password,
-      address: { streetName, city, state, zipCode }
+      address: { streetName, city, state, zipCode },
     } = req.body;
 
     try {
@@ -56,8 +56,8 @@ router.post(
           streetName,
           city,
           state,
-          zipCode
-        }
+          zipCode,
+        },
       });
 
       const { admin } = req.body;
@@ -76,8 +76,8 @@ router.post(
 
       const payload = {
         user: {
-          id: user._id
-        }
+          id: user._id,
+        },
       };
 
       jwt.sign(
@@ -109,16 +109,18 @@ router.post(
     }
 
     const ticketAmount = req.body.amount;
+    let returnArray = [];
 
     try {
       let user = await User.findById({ _id: req.user.id });
 
       for (let i = 0; i < ticketAmount; i++) {
+        returnArray.push(setTicket(user._id));
         user.tickets.push(setTicket(user._id));
         await user.save();
       }
 
-      res.json(user);
+      res.json(returnArray);
     } catch (error) {
       res.status(400).json({ error });
     }

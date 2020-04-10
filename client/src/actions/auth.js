@@ -6,7 +6,7 @@ import {
   LOGIN_FAIL,
   CLEAR_AUTH,
   REGISTER_SUCCESS,
-  TICKETS_ADDED
+  TICKETS_ADDED,
 } from "./types";
 
 import { setAlert } from "./alert";
@@ -17,7 +17,7 @@ import setConfigHeader from "../utils/setConfigHeader";
 ///
 /// Load user with loacal storage token
 ///
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   if (localStorage.getItem("token")) {
     setAuthToken(localStorage.token);
   }
@@ -26,11 +26,11 @@ export const loadUser = () => async dispatch => {
     const res = await axios.get("/api/auth");
     dispatch({
       type: USER_LOADED,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     dispatch({
-      type: AUTH_ERROR
+      type: AUTH_ERROR,
     });
   }
 };
@@ -38,7 +38,7 @@ export const loadUser = () => async dispatch => {
 ///
 /// Login existing user
 ///
-export const login = (email, password, history) => async dispatch => {
+export const login = (email, password, history) => async (dispatch) => {
   const config = setConfigHeader();
 
   const body = JSON.stringify({ email, password });
@@ -48,14 +48,14 @@ export const login = (email, password, history) => async dispatch => {
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
     dispatch(loadUser());
     history.push("/cars");
     dispatch(setAlert("Welcome Back!!!", "success alert--main-page"));
   } catch (error) {
     dispatch({
-      type: LOGIN_FAIL
+      type: LOGIN_FAIL,
     });
     dispatch(setAlert("Incorrect Email or Password", "error"));
   }
@@ -64,7 +64,7 @@ export const login = (email, password, history) => async dispatch => {
 ///
 /// Register new user
 ///
-export const register = (formData, history) => async dispatch => {
+export const register = (formData, history) => async (dispatch) => {
   const config = setConfigHeader();
 
   const {
@@ -74,14 +74,14 @@ export const register = (formData, history) => async dispatch => {
     password1,
     streetName,
     city,
-    state
+    state,
   } = formData;
 
   const address = {
     streetName,
     city,
     state,
-    zipCode: parseInt(formData.zipCode)
+    zipCode: parseInt(formData.zipCode),
   };
 
   const body = JSON.stringify({
@@ -89,14 +89,14 @@ export const register = (formData, history) => async dispatch => {
     lastName,
     email,
     password: password1,
-    address
+    address,
   });
 
   try {
     const res = await axios.post("/api/users", body, config);
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
     dispatch(loadUser());
     history.push("/");
@@ -109,16 +109,18 @@ export const register = (formData, history) => async dispatch => {
 ///
 /// Logout current user
 ///
-export const logout = () => dispatch => {
-  dispatch({
-    type: CLEAR_AUTH
-  });
-};
+// export const logout = () => dispatch => {
+//   dispatch({
+//     type: CLEAR_AUTH
+//   });
+// };
+
+export const logout = () => ({ type: CLEAR_AUTH });
 
 ///
 /// Add tickets to user
 ///
-export const purchaseTickets = (amount, history) => async dispatch => {
+export const purchaseTickets = (amount, history) => async (dispatch) => {
   const config = setConfigHeader();
 
   const body = JSON.stringify({ amount });
@@ -126,9 +128,10 @@ export const purchaseTickets = (amount, history) => async dispatch => {
   try {
     const res = await axios.post("api/users/me/purchaseTickets", body, config);
 
+    console.log(res.data);
     dispatch({
       type: TICKETS_ADDED,
-      payload: res.data
+      payload: res.data,
     });
 
     history.push("/");

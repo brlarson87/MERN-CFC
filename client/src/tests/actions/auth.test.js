@@ -1,27 +1,42 @@
-// import configureStore from "redux-mock-store";
-// import thunk from "redux-thunk";
-
 // Action creators
 import {
   loadUser,
   login,
   register,
   logout,
-  purchaseTickets
+  purchaseTickets,
 } from "../../actions/auth";
-import { CLEAR_AUTH } from "../../actions/types";
 
-// const middlewares = [thunk];
-// const mockStore = configureStore(middlewares);
+//Types
+import {
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  CLEAR_AUTH,
+  REGISTER_SUCCESS,
+  TICKETS_ADDED,
+} from "../../actions/types";
+
+import { mock, store } from "../__mocks__/axiosReduxMock";
 
 // LOGOUT ACTION
 describe("**AUTH ACTIONS**", () => {
-  test("should setup logout user action object", () => {
-    // const initialState = {};
-    // const store = mockStore(initialState);
-    // store.dispatch(logout);
-    // const actions = store.getActions();
-    // const expectedPayload = { type: CLEAR_AUTH };
-    // expect(actions).toEqual([expectedPayload]);
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  test("should dispatch CLEAR_AUTH action object", () => {
+    const expectedAction = { type: CLEAR_AUTH };
+    store.dispatch(logout());
+
+    expect(store.getActions()).toEqual([expectedAction]);
+  });
+
+  test("should dispatch LOGIN_FAIL action object", () => {
+    const expectedAction = { type: LOGIN_FAIL };
+    store.dispatch(logout());
+
+    expect(store.getActions()).toEqual([expectedAction]);
   });
 });

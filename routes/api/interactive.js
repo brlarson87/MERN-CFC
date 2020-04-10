@@ -17,7 +17,7 @@ router.put(
   [
     check("amount", "Amount is required").exists(),
     check("prizeId", "prizeId is required").exists(),
-    check("activeUserTickets", "Active number of tickets is required").exists()
+    check("activeUserTickets", "Active number of tickets is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -38,9 +38,8 @@ router.put(
           prizeId: prize._id,
           userId: req.user.id,
           ticketNumber,
-          datePurchased: user.tickets[i].datePurchased
+          datePurchased: user.tickets[i].datePurchased,
         };
-        //console.log(overRidingTicket);
 
         user.tickets.set(i, overRidingTicket);
 
@@ -76,12 +75,12 @@ router.put("/enterCharity", auth, async (req, res) => {
     let charityUser = {
       userId,
       charityId,
-      name: charity.name
+      name: charity.name,
     };
 
     let prizeCharity = {
       prizeId,
-      charityId
+      charityId,
     };
 
     prize.charityPool.push(charityUser);
