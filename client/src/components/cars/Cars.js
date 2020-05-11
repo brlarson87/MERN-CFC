@@ -40,13 +40,13 @@ const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {
 Cars.propTypes = {
   loadPrizes: PropTypes.func,
   prizes: PropTypes.array,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   prizes: chunks(state.prizes.prizes),
   loading: state.prizes.loading,
-  user: state.auth.user
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { loadPrizes, enterTickets })(Cars);

@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 
 const GuestLinks = () => {
   useEffect(() => {
-    let open = false;
     let menuBtn = document.querySelector(".menu-btn");
     let popOut = document.querySelector(".pop-out-left");
     let navs = document.querySelector(".main-nav__menu");
     let overlay = document.querySelector(".overlay-all");
-    let body = document.getElementsByTagName("body")[0];
+
     let navLinks = document.querySelectorAll(".main-nav__menu--item-link");
 
     const close = () => {
-      open = false;
-      body.style.overflow = "scroll";
       menuBtn.classList.remove("open");
       overlay.classList.remove("show-overlay");
       popOut.classList.remove("show");
@@ -25,9 +22,6 @@ const GuestLinks = () => {
     }
 
     menuBtn.addEventListener("click", () => {
-      if (!open) {
-        body.style.overflow = "hidden";
-      }
       menuBtn.classList.toggle("open");
       overlay.classList.toggle("show-overlay");
       popOut.classList.toggle("show");
@@ -50,7 +44,7 @@ const GuestLinks = () => {
               to='/about'
               className='main-nav__menu--item-link menu-link-active'
             >
-              <i class='fas fa-hand-holding-medical'></i> &nbsp; About Us
+              <i className='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>
           <li className='main-nav__menu--item'>
@@ -70,7 +64,7 @@ const GuestLinks = () => {
           </li>
           <li className='main-nav__menu--item'>
             <Link to='/register' className='main-nav__menu--item-link'>
-              <i class='fas fa-registered'></i>&nbsp; Register
+              <i className='fas fa-registered'></i>&nbsp; Register
             </Link>
           </li>
         </ul>

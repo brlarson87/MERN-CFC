@@ -1,7 +1,7 @@
 .alert {
   padding: 0.8rem;
   opacity: 0.9;
-  color: $primary-color;
+  color: white;
   position: fixed;
   top: 1rem;
   left: 25%;
@@ -13,14 +13,12 @@
   transition: all 0.4s ease-in;
 
   &--error {
-    background-color: $primary-color;
-    color: #fff;
+    background: radial-gradient($primary-color, $primary-color-dark);
     z-index: 2000;
   }
 
   &--success {
-    background-color: $secondary-color;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   &--main-page {

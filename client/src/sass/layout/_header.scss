@@ -26,15 +26,16 @@
 
       &-title {
         display: inline-block;
-        background-image: linear-gradient(
-          to right,
-          $primary-color,
-          $primary-color-dark
-        );
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        // //background-image: linear-gradient(
+        //   to right,
+        //   $primary-color,
+        //   $primary-color-dark
+        // );
+        // //-webkit-background-clip: text;
+        // //-moz-background-clip: text;
+        // //background-clip: text;
+        // //color: transparent;
+        color: $primary-color-dark;
         font-size: 3rem;
         letter-spacing: 1rem;
         font-weight: 300;

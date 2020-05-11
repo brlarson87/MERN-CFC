@@ -9,18 +9,15 @@ import ticketStatus from "../../utils/ticketStatus";
 
 const AuthLinks = ({ user, loading, logout }) => {
   useEffect(() => {
-    let open = false;
     let menuBtn = document.querySelector(".menu-btn");
     let ticket = document.querySelector(".header__icon-ticket");
     let popOut = document.querySelector(".pop-out-left");
     let navs = document.querySelector(".main-nav__menu");
     let overlay = document.querySelector(".overlay-all");
-    let body = document.getElementsByTagName("body")[0];
+
     let navLinks = document.querySelectorAll(".main-nav__menu--item-link");
 
     const close = () => {
-      open = false;
-      body.style.overflow = "scroll";
       menuBtn.classList.remove("open");
       overlay.classList.remove("show-overlay");
       popOut.classList.remove("show");
@@ -33,10 +30,6 @@ const AuthLinks = ({ user, loading, logout }) => {
     }
 
     menuBtn.addEventListener("click", () => {
-      if (!open) {
-        body.style.overflow = "hidden";
-        open = !open;
-      }
       menuBtn.classList.toggle("open");
       overlay.classList.toggle("show-overlay");
       popOut.classList.toggle("show");
@@ -63,7 +56,7 @@ const AuthLinks = ({ user, loading, logout }) => {
         <ul className='main-nav__menu'>
           <li className='main-nav__menu--item'>
             <Link to='/about' className='main-nav__menu--item-link'>
-              <i class='fas fa-hand-holding-medical'></i> &nbsp; About Us
+              <i className='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>
           <li className='main-nav__menu--item'>

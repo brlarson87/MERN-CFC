@@ -174,7 +174,7 @@ body {
 .alert {
   padding: 0.8rem;
   opacity: 0.9;
-  color: #ca1111;
+  color: white;
   position: fixed;
   top: 1rem;
   left: 25%;
@@ -185,12 +185,10 @@ body {
   font-size: 2rem;
   transition: all 0.4s ease-in; }
   .alert--error {
-    background-color: #ca1111;
-    color: #fff;
+    background: radial-gradient(#ca1111, #520d0d);
     z-index: 2000; }
   .alert--success {
-    background-color: #b8a37b;
-    color: white; }
+    background-color: rgba(0, 0, 0, 0.75); }
   .alert--main-page {
     top: 8rem;
     z-index: 1; }
@@ -711,22 +709,23 @@ body {
   position: relative;
   margin: 0 auto;
   margin-top: 5.5rem;
-  width: 30%; }
+  width: 25%; }
   .search-form__input {
     display: inline-block;
     width: 100%;
     padding: 1rem 2rem;
+    border-width: 4px;
     border-radius: 0.5rem;
-    border-color: #711212;
+    border-color: #ca1111;
     font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem; }
+    font-weight: bold;
+    font-size: 1.4rem; }
     .search-form__input:focus {
       outline: none; }
   .search-form__submit-btn {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.8rem;
+    right: 0.9rem;
     font-size: 2.5rem;
     background-color: #fff;
     border: none; }
@@ -882,11 +881,7 @@ body {
       padding: 2rem 0; }
       .header .main-nav__logo-title {
         display: inline-block;
-        background-image: linear-gradient(to right, #ca1111, #520d0d);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        color: #520d0d;
         font-size: 3rem;
         letter-spacing: 1rem;
         font-weight: 300;

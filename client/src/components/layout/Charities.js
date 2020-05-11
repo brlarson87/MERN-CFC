@@ -115,7 +115,7 @@ const Charities = ({
         </table>
         {loading && <Spinner />}
         {charities && !totalCountOfCharities(charities, filter) && !loading && (
-          <div className='match-icon-box'>
+          <div className='match-icon-box u-margin-top-lg'>
             <h1>No matches...</h1>
             <i className='fas fa-sad-tear u-lg-font u-margin-top-lg'></i>
           </div>

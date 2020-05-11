@@ -1,17 +1,23 @@
 import React, { Fragment } from "react";
 
-//
-//props: prizeId, thumbnail, charityId, key, keyy, enterCharity, startLoader, endLoader, hideCharityConfirmation
-//
-const ConfirmationContainer = (props) => {
+const ConfirmationContainer = ({
+  prizeId,
+  thumbnail,
+  charityId,
+  keyy,
+  enterCharity,
+  startLoader,
+  endLoader,
+  hideCharityConfirmation,
+}) => {
   // STARTS LOADER and ENTERS CHARITY INTO USER AND PRIZE COLLECTIONS -- END LOADER
   const enterThisCharity = () => {
     const modalContent = document.getElementById("modal-content");
     modalContent.classList.add("flex");
-    props.startLoader();
-    props.enterCharity(props.prizeId, props.charityId).then(() => {
-      props.hideCharityConfirmation();
-      props.endLoader();
+    startLoader();
+    enterCharity(prizeId, charityId).then(() => {
+      hideCharityConfirmation();
+      endLoader();
       modalContent.classList.remove("flex");
     });
   };
@@ -21,7 +27,7 @@ const ConfirmationContainer = (props) => {
     clearNonActives();
     e.target.classList.add("active-container");
     let btns = document.querySelectorAll(".confirmation-btn");
-    btns[props.keyy].classList.add("opacity");
+    btns[keyy].classList.add("opacity");
   };
 
   // CLEARS HIGHLIGHTED PRIZEPOOLS and HIDES BUTTONS
@@ -38,7 +44,7 @@ const ConfirmationContainer = (props) => {
     <Fragment>
       <div className='charity-confirm-container' onClick={toggleBackground}>
         <div className='car-image'>
-          <img src={props.thumbnail} alt='hellcat' className='car-image__img' />
+          <img src={thumbnail} alt='hellcat' className='car-image__img' />
         </div>
         <p className='car-description'>Enter into this Prize Pool.</p>
         <button className='confirmation-btn' onClick={enterThisCharity}>

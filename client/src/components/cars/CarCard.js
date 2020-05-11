@@ -1,49 +1,48 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
 import progressBar from "../../utils/progressBar";
 
-const CarCard = props => {
+const CarCard = ({ prize, user }) => {
   return (
     <Fragment>
       <div className='car-card'>
-        <h2 className='car-card__title'>{props.prize.car}</h2>
+        <h2 className='car-card__title'>{prize.car}</h2>
         <img
-          src={props.prize.pictures[0]}
+          src={prize.pictures[0]}
           alt='2020-c8-1'
           className='car-card__image'
         />
 
         <div className='car-card__bg-overlay'>&nbsp;</div>
         <div className='car-card__details'>
-          {props.user ? (
+          {user ? (
             <div className='car-card__details--left u-color-secondary'>
               <i className='fas fa-ticket-alt'>
-                &nbsp; x {userTickets(props.user.tickets, props.prize._id)}
+                &nbsp; x {userTickets(user.tickets, prize._id)}
               </i>
               <div className='u-color-primary u-margin-top-sm'>
                 <i className='fas fa-ribbon'>
-                  &nbsp; x {props.prize.charityPool.length}
+                  &nbsp; x {prize.charityPool.length}
                 </i>
               </div>
             </div>
           ) : (
             <div className='car-card__details--left u-color-primary u-margin-top-sm'>
               <i className='fas fa-ribbon'>
-                &nbsp; x {props.prize.charityPool.length}
+                &nbsp; x {prize.charityPool.length}
               </i>
             </div>
           )}
           <div className='car-card__details--right'>
             <span className='car-card__tickets-in'>
-              {formatNumber(props.prize.ticketPool)}
+              {formatNumber(prize.ticketPool)}
             </span>{" "}
             /
             <span className='car-card__total-tickets'>
-              &nbsp;{formatNumber(props.prize.prizeTotal)}&nbsp;Tks
+              &nbsp;{formatNumber(prize.prizeTotal)}&nbsp;Tks
             </span>
           </div>
         </div>
@@ -51,7 +50,7 @@ const CarCard = props => {
           <span
             className='car-card__progress-bar__filler'
             style={{
-              width: progressBar(props.prize.ticketPool, props.prize.prizeTotal)
+              width: progressBar(prize.ticketPool, prize.prizeTotal),
             }}
           ></span>
         </div>
@@ -77,7 +76,7 @@ const CarCard = props => {
         </div>
 
         <Link
-          to={`/cardetails/${props.prize._id}`}
+          to={`/cardetails/${prize._id}`}
           className='btn btn--primary u-margin-bottom-sm'
           onClick={() => window.scrollTo(0, 0)}
         >
@@ -88,8 +87,4 @@ const CarCard = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.auth.user
-});
-
-export default connect(mapStateToProps)(CarCard);
+export default CarCard;

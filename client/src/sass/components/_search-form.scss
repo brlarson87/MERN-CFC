@@ -2,18 +2,18 @@
   position: relative;
   margin: 0 auto;
   margin-top: 5.5rem;
-  width: 30%;
+  width: 25%;
 
   &__input {
     display: inline-block;
     width: 100%;
     padding: 1rem 2rem;
+    border-width: 4px;
     border-radius: 0.5rem;
-    border-color: lighten($primary-color-dark, 7%);
-
+    border-color: $primary-color;
     font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
 
     &:focus {
       outline: none;
@@ -22,8 +22,8 @@
 
   &__submit-btn {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.8rem;
+    right: 0.9rem;
     font-size: 2.5rem;
     background-color: #fff;
     border: none;

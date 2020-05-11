@@ -3,7 +3,6 @@ import {
   CHARITIES_LOADED,
   USER_PLEDGE_SUCCESS,
   PRIZE_PLEDGE_SUCCESS,
-  HIDE_CHARITY_MODAL,
 } from "./types";
 
 //import { startLoader, endLoader } from "./loaders";

@@ -4,7 +4,14 @@ import { connect } from "react-redux";
 //Components
 import TicketConfirm from "../modals/TicketConfirm";
 
-const EnterTickets = (props) => {
+const EnterTickets = ({
+  id,
+  ticketTotal,
+  showConfirmModal,
+  activeUserTickets,
+  prizeName,
+  thumbnail,
+}) => {
   const [formData, setFormData] = useState({
     ticketAmount: "",
   });
@@ -19,16 +26,8 @@ const EnterTickets = (props) => {
     e.preventDefault();
     const amount = parseInt(ticketAmount);
     if (amount) {
-      props.showConfirmModal(
-        amount,
-        props.id,
-        props.activeUserTickets,
-        props.prizeName,
-        props.thumbnail
-      );
+      showConfirmModal(amount, id, activeUserTickets, prizeName, thumbnail);
     }
-
-    //props.enterTickets(amount, props.id, props.activeUserTickets);
   };
 
   return (

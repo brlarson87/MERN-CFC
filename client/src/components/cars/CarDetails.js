@@ -67,17 +67,21 @@ const CarDetails = ({
           <div className='details__group'>
             <span className='details__group--left'>Tickets Entered</span>
             <span className='details__group--right'>
-              {!loading && prize && prize.ticketPool}
+              {!loading && prize && formatNumber(prize.ticketPool)}
             </span>
           </div>
-          <div className='details__group'>
-            <span className='details__group--left'>Your Tickets</span>
-            <span className='details__group--right'>
-              {!loading && user && prize
-                ? ticketsEnteredInPool(user.tickets, match.params.id)
-                : 0}
-            </span>
-          </div>
+
+          {user && (
+            <div className='details__group'>
+              <span className='details__group--left'>Your Tickets</span>
+              <span className='details__group--right'>
+                {!loading && user && prize
+                  ? ticketsEnteredInPool(user.tickets, match.params.id)
+                  : 0}
+              </span>
+            </div>
+          )}
+
           <div className='details__group'>
             <span className='details__group--left'>Charity Donation</span>
             <span className='details__group--right'>
@@ -102,8 +106,8 @@ const CarDetails = ({
                 prize &&
                 prize.secondaryPrizes.places + 1 + prize.ticketsPrize.places}
             </span>
-            <span className='details__group--right'>
-              <i className='fas fa-ticket-alt'></i> x{" "}
+            <span className='details__group--right u-color-secondary'>
+              <i className='fas fa-ticket-alt'></i> x{"  "}
               {!loading && prize && prize.ticketsPrize.amount}
             </span>
           </div>
