@@ -2,24 +2,27 @@ import axios from "axios";
 import {
   CHARITIES_LOADED,
   USER_PLEDGE_SUCCESS,
-  PRIZE_PLEDGE_SUCCESS
+  PRIZE_PLEDGE_SUCCESS,
+  HIDE_CHARITY_MODAL,
 } from "./types";
+
+//import { startLoader, endLoader } from "./loaders";
 
 import setConfigHeader from "../utils/setConfigHeader";
 
-export const loadCharities = () => async dispatch => {
+export const loadCharities = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/charity");
     dispatch({
       type: CHARITIES_LOADED,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
   }
 };
 
-export const enterCharity = (prizeId, charityId) => async dispatch => {
+export const enterCharity = (prizeId, charityId) => async (dispatch) => {
   const config = setConfigHeader();
   const body = JSON.stringify({ prizeId, charityId });
 
@@ -28,12 +31,12 @@ export const enterCharity = (prizeId, charityId) => async dispatch => {
 
     dispatch({
       type: USER_PLEDGE_SUCCESS,
-      payload: res.data.user
+      payload: res.data.user,
     });
 
     dispatch({
       type: PRIZE_PLEDGE_SUCCESS,
-      payload: res.data.prize
+      payload: res.data.prize,
     });
   } catch (error) {
     console.log("Enter Charity Action generator error");

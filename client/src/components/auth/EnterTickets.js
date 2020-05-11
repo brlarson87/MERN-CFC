@@ -4,18 +4,18 @@ import { connect } from "react-redux";
 //Components
 import TicketConfirm from "../modals/TicketConfirm";
 
-const EnterTickets = props => {
+const EnterTickets = (props) => {
   const [formData, setFormData] = useState({
-    ticketAmount: ""
+    ticketAmount: "",
   });
 
   const { ticketAmount } = formData;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const amount = parseInt(ticketAmount);
     if (amount) {
@@ -23,7 +23,8 @@ const EnterTickets = props => {
         amount,
         props.id,
         props.activeUserTickets,
-        props.prizeName
+        props.prizeName,
+        props.thumbnail
       );
     }
 
@@ -36,15 +37,16 @@ const EnterTickets = props => {
       <div className='details__ticket-form'>
         <h5 className='details__ticket-form--title'>Enter Tickets</h5>
         <form
-          onSubmit={e => onSubmit(e)}
+          onSubmit={(e) => onSubmit(e)}
           className='details__ticket-form--form'
         >
           <input
             type='text'
             name='ticketAmount'
             value={ticketAmount}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             className='details__ticket-form--input'
+            autoComplete='off'
           />
           <input
             type='submit'

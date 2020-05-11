@@ -47,10 +47,11 @@
       opacity: 0;
       list-style: none;
       font-size: 2rem;
-
       transition: all 1s;
       transition-delay: 1s;
       padding-top: 5rem;
+      text-align: left;
+      margin-left: 3.5rem;
 
       &--item {
         display: block;
@@ -118,6 +119,10 @@
   }
 }
 
+.menu-btn.open {
+  transform: translateX(-19vw) rotate(180deg);
+}
+
 .menu-icon {
   position: absolute;
   top: 8%;
@@ -147,6 +152,11 @@
   text-align: center;
 }
 
+.pop-out-left.show {
+  width: 20vw;
+  opacity: 1;
+}
+
 .nav-showing {
   animation: moveUp;
   animation-duration: 0.5s;
@@ -174,4 +184,9 @@
 
 .move-ticket {
   transform: translateX(-19vw);
+}
+
+.menu-link-active {
+  background-color: $primary-color-dark;
+  color: white !important;
 }

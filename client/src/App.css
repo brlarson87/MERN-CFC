@@ -471,10 +471,16 @@ body {
       font-weight: 500;
       font-size: 1.6rem;
       margin: 1.5rem auto;
-      padding: 1rem 1rem;
-      border-radius: 3px; }
+      width: 40%;
+      padding: 1rem 1.75rem 1rem 1rem;
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #ca1111;
+      transition: all 0.3s;
+      text-align: center; }
       .details__ticket-form--input:focus {
-        outline: none; }
+        outline: none;
+        background-color: #000; }
 
 [class^="details__group--"] {
   padding: 2rem; }
@@ -649,47 +655,63 @@ body {
     padding: 1rem 0;
     margin-bottom: 1rem;
     text-decoration: underline; }
-  .modal-content .charity-confirm-container {
+  .modal-content .confirmation-btn {
+    cursor: pointer;
+    padding: 0.8rem;
+    border: none;
+    opacity: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: #520d0d;
+    transition: all 0.2s; }
+    .modal-content .confirmation-btn:hover {
+      background-color: #681010; }
+  .modal-content .charity-confirm-container,
+  .modal-content .ticket-confirm-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1.5rem;
     padding: 1rem 0;
     cursor: pointer; }
-    .modal-content .charity-confirm-container .car-image {
+    .modal-content .charity-confirm-container .car-image,
+    .modal-content .ticket-confirm-container .car-image {
       width: 20%;
       border-radius: 1rem;
       overflow: hidden;
       pointer-events: none;
       align-self: stretch; }
-      .modal-content .charity-confirm-container .car-image__img {
+      .modal-content .charity-confirm-container .car-image__img,
+      .modal-content .ticket-confirm-container .car-image__img {
         width: 100%;
         height: 100%; }
-    .modal-content .charity-confirm-container .car-description {
+    .modal-content .charity-confirm-container .car-description,
+    .modal-content .ticket-confirm-container .car-description {
       font-size: 1.4rem;
       font-weight: 500;
       pointer-events: none; }
+  .modal-content .ticket-confirm-container {
+    margin-top: 3rem; }
+    .modal-content .ticket-confirm-container .car-image {
+      width: 30%; }
+    .modal-content .ticket-confirm-container .ticket-icon {
+      font-size: 2rem;
+      color: #b8a37b;
+      font-weight: 500; }
+    .modal-content .ticket-confirm-container .confirmation-btn {
+      margin-top: 0 !important; }
 
 .active-container {
   background-color: rgba(0, 0, 0, 0.65); }
 
-.confirmation-btn {
-  cursor: pointer;
-  padding: 0.8rem;
-  border: none;
-  opacity: 0;
-  border-radius: 5px;
-  color: white;
-  background-color: #520d0d;
-  transition: all 0.2s; }
-  .confirmation-btn:hover {
-    background-color: #681010; }
+.flex {
+  padding: 12rem 0; }
 
 .search-form {
   position: relative;
   margin: 0 auto;
   margin-top: 5.5rem;
-  width: 40%; }
+  width: 30%; }
   .search-form__input {
     display: inline-block;
     width: 100%;
@@ -876,7 +898,9 @@ body {
       font-size: 2rem;
       transition: all 1s;
       transition-delay: 1s;
-      padding-top: 5rem; }
+      padding-top: 5rem;
+      text-align: left;
+      margin-left: 3.5rem; }
       .header .main-nav__menu--item {
         display: block;
         padding: 1.5rem; }
@@ -919,6 +943,9 @@ body {
     cursor: pointer;
     background-image: linear-gradient(#520d0d, #ca1111); }
 
+.menu-btn.open {
+  transform: translateX(-19vw) rotate(180deg); }
+
 .menu-icon {
   position: absolute;
   top: 8%;
@@ -940,6 +967,10 @@ body {
   height: 100vh;
   transition: all 0.35s;
   text-align: center; }
+
+.pop-out-left.show {
+  width: 20vw;
+  opacity: 1; }
 
 .nav-showing {
   animation: moveUp;
@@ -965,6 +996,10 @@ body {
 
 .move-ticket {
   transform: translateX(-19vw); }
+
+.menu-link-active {
+  background-color: #520d0d;
+  color: white !important; }
 
 .flex-row {
   display: flex;

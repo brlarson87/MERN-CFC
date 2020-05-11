@@ -23,7 +23,7 @@ const CarDetails = ({
   prize,
   loading,
   user,
-  showConfirmModal
+  showConfirmModal,
 }) => {
   useEffect(() => {
     loadSinglePrize(match.params.id);
@@ -47,7 +47,7 @@ const CarDetails = ({
     }
   };
 
-  const changeCount = x => {
+  const changeCount = (x) => {
     setCount(x);
   };
 
@@ -126,6 +126,7 @@ const CarDetails = ({
               showConfirmModal={showConfirmModal}
               activeUserTickets={ticketStatus(user.tickets).active}
               prizeName={prize.car}
+              thumbnail={prize.pictures[0]}
             />
           ) : (
             <Fragment>
@@ -177,13 +178,13 @@ const CarDetails = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   prize: state.prizes.prize,
   loading: state.auth.loading,
-  user: state.auth.user
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, {
   loadSinglePrize,
-  showConfirmModal
+  showConfirmModal,
 })(CarDetails);

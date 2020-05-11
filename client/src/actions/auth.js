@@ -128,7 +128,6 @@ export const purchaseTickets = (amount, history) => async (dispatch) => {
   try {
     const res = await axios.post("api/users/me/purchaseTickets", body, config);
 
-    console.log(res.data);
     dispatch({
       type: TICKETS_ADDED,
       payload: res.data,

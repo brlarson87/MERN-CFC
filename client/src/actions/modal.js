@@ -2,19 +2,19 @@ import {
   SHOW_CHARITY_MODAL,
   HIDE_CHARITY_MODAL,
   SHOW_CONFIRM_MODAL,
-  HIDE_CONFIRM_MODAL
+  HIDE_CONFIRM_MODAL,
 } from "./types";
 
-export const showCharityConfirmation = (arr, charityId) => dispatch => {
+export const showCharityConfirmation = (arr, charityId) => (dispatch) => {
   dispatch({
     type: SHOW_CHARITY_MODAL,
-    payload: { arr, charityId }
+    payload: { arr, charityId },
   });
 };
 
-export const hideCharityConfirmation = () => dispatch => {
+export const hideCharityConfirmation = () => (dispatch) => {
   dispatch({
-    type: HIDE_CHARITY_MODAL
+    type: HIDE_CHARITY_MODAL,
   });
 };
 
@@ -22,16 +22,17 @@ export const showConfirmModal = (
   ticketAmount,
   prizeId,
   activeTickets,
-  prizeName
-) => dispatch => {
+  prizeName,
+  thumbnail
+) => (dispatch) => {
   dispatch({
     type: SHOW_CONFIRM_MODAL,
-    payload: { ticketAmount, prizeId, activeTickets, prizeName }
+    payload: { ticketAmount, prizeId, activeTickets, prizeName, thumbnail },
   });
 };
 
-export const hideConfirmModal = () => dispatch => {
+export const hideConfirmModal = () => (dispatch) => {
   dispatch({
-    type: HIDE_CONFIRM_MODAL
+    type: HIDE_CONFIRM_MODAL,
   });
 };

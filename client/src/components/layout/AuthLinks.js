@@ -18,43 +18,33 @@ const AuthLinks = ({ user, loading, logout }) => {
     let body = document.getElementsByTagName("body")[0];
     let navLinks = document.querySelectorAll(".main-nav__menu--item-link");
 
-    overlay.addEventListener("click", () => {
-      close();
-    });
+    const close = () => {
+      open = false;
+      body.style.overflow = "scroll";
+      menuBtn.classList.remove("open");
+      overlay.classList.remove("show-overlay");
+      popOut.classList.remove("show");
+      ticket.classList.remove("move-ticket");
+      navs.classList.remove("nav-showing");
+    };
 
     for (let i = 0; i < navLinks.length; i++) {
-      navLinks[i].addEventListener("click", () => {
-        close();
-      });
+      navLinks[i].addEventListener("click", close);
     }
+
     menuBtn.addEventListener("click", () => {
       if (!open) {
-        openMenu();
-      } else {
-        close();
+        body.style.overflow = "hidden";
+        open = !open;
       }
-      open = !open;
+      menuBtn.classList.toggle("open");
+      overlay.classList.toggle("show-overlay");
+      popOut.classList.toggle("show");
+      ticket.classList.toggle("move-ticket");
+      navs.classList.toggle("nav-showing");
     });
 
-    function openMenu() {
-      popOut.style.opacity = "1";
-      popOut.style.width = "20%";
-      menuBtn.style.transform = "translateX(-19vw) rotate(180deg)";
-      navs.classList.add("nav-showing");
-      overlay.classList.add("show-overlay");
-      body.style.overflow = "hidden";
-      ticket.classList.add("move-ticket");
-    }
-
-    function close() {
-      popOut.style.opacity = "0";
-      popOut.style.width = "0";
-      menuBtn.style.transform = "translateX(0)";
-      navs.classList.remove("nav-showing");
-      overlay.classList.remove("show-overlay");
-      body.style.overflow = "auto";
-      ticket.classList.remove("move-ticket");
-    }
+    overlay.addEventListener("click", close);
   }, []);
 
   return (
@@ -73,7 +63,7 @@ const AuthLinks = ({ user, loading, logout }) => {
         <ul className='main-nav__menu'>
           <li className='main-nav__menu--item'>
             <Link to='/about' className='main-nav__menu--item-link'>
-              About Us
+              <i class='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>
           <li className='main-nav__menu--item'>
@@ -106,12 +96,12 @@ const AuthLinks = ({ user, loading, logout }) => {
 
 AuthLinks.propTypes = {
   user: PropTypes.object,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.auth.user,
-  loading: state.auth.loading
+  loading: state.auth.loading,
 });
 
 export default connect(mapStateToProps, { logout })(AuthLinks);

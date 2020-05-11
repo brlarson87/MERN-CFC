@@ -75,6 +75,7 @@ const Charities = ({
             onChange={(e) => onChange(e)}
             className='search-form__input'
             placeholder='Search charities...'
+            autoComplete='off'
           />
           <div className='search-form__submit-btn'>
             <i className='fas fa-search'></i>

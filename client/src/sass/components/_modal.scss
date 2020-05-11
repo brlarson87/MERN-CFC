@@ -35,7 +35,23 @@
     text-decoration: underline;
   }
 
-  .charity-confirm-container {
+  .confirmation-btn {
+    cursor: pointer;
+    padding: 0.8rem;
+    border: none;
+    opacity: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: $primary-color-dark;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: lighten($primary-color-dark, 5%);
+    }
+  }
+
+  .charity-confirm-container,
+  .ticket-confirm-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,23 +78,30 @@
       pointer-events: none;
     }
   }
+
+  .ticket-confirm-container {
+    margin-top: 3rem;
+
+    .car-image {
+      width: 30%;
+    }
+
+    .ticket-icon {
+      font-size: 2rem;
+      color: $secondary-color;
+      font-weight: 500;
+    }
+
+    .confirmation-btn {
+      margin-top: 0 !important;
+    }
+  }
 }
 
 .active-container {
   background-color: rgba(0, 0, 0, 0.65);
 }
 
-.confirmation-btn {
-  cursor: pointer;
-  padding: 0.8rem;
-  border: none;
-  opacity: 0;
-  border-radius: 5px;
-  color: white;
-  background-color: $primary-color-dark;
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: lighten($primary-color-dark, 5%);
-  }
+.flex {
+  padding: 12rem 0;
 }
