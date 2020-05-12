@@ -1,7 +1,8 @@
+//CORE REACT
 import React, { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
-//import { Link } from "react-router-dom";
 
+//Components
 import TableRow from "./TableRow";
 import CharityConfirm from "../modals/CharityConfirm";
 import Spinner from "./Spinner";
@@ -11,6 +12,7 @@ import { loadCharities } from "../../actions/charities";
 import { loadPrizes } from "../../actions/prizes";
 import { showCharityConfirmation } from "../../actions/modal";
 
+//Utils
 import { utilFilter } from "../../utils/utilFilter";
 import { totalCountOfCharities } from "../../utils/utilFilter";
 
@@ -65,6 +67,9 @@ const Charities = ({
 
   return (
     <Fragment>
+      {/*****************************************/}
+      {/*----------CHARITYCONFIRM COMPONENT----------*/}
+      {/*****************************************/}
       {modalShow && <CharityConfirm />}
       <div className='container'>
         <div className='search-form'>
@@ -96,8 +101,11 @@ const Charities = ({
               </th>
             </tr>
           </thead>
-          {/*----------Div cannot be child of tbody-----------*/}
+
           <tbody className='charity-table__body'>
+            {/*****************************************/}
+            {/*----------TABLEROW COMPONENT-----------*/}
+            {/*****************************************/}
             {charities &&
               !loading &&
               utilFilter(charities, filter)

@@ -1,10 +1,13 @@
+//CORE REACT
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+//Actions
 import { logout } from "../../actions/auth";
 
+//Utils
 import ticketStatus from "../../utils/ticketStatus";
 
 const AuthLinks = ({ user, loading, logout }) => {

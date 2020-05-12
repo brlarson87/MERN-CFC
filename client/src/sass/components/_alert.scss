@@ -18,7 +18,10 @@
   }
 
   &--success {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-image: radial-gradient(
+      darken($secondary-color, 10%),
+      darken($secondary-color, 30%)
+    );
   }
 
   &--main-page {

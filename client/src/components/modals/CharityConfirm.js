@@ -32,6 +32,9 @@ const CharityConfirm = ({
             <div className='exit-container' onClick={hideCharityConfirmation}>
               <i className='fas fa-times'></i>
             </div>
+            {/*****************************************/}
+            {/*-----CONFIRMATIONCONTAINER COMPONENT----*/}
+            {/*****************************************/}
             {!loader &&
               content &&
               charityId &&

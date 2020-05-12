@@ -1,5 +1,7 @@
+//CORE REACT
 import React, { Fragment } from "react";
 
+//Components
 import Footer from "../layout/Footer";
 
 const Layout = () => {

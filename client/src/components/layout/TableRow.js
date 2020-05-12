@@ -1,5 +1,7 @@
+//CORE REACT
 import React, { Fragment } from "react";
 
+//Utils
 import { checkIfEligibleForPledge } from "../../utils/charityEligible";
 
 const TableRow = ({ user, prizes, showCharityConfirmation, charity }) => {

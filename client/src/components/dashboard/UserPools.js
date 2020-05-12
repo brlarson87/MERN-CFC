@@ -1,19 +1,22 @@
+//CORE REACT
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
+//Components
 import TicketContainer from "./TicketContainer";
 
 import {
   atLeastOnePool,
   enteredPrizes,
-  ticketsInCertainPool
+  ticketsInCertainPool,
 } from "../../utils/numberPoolsEntered";
 
-const UserPool = props => {
+const UserPool = (props) => {
   return (
     <Fragment>
+      {/*----------TICKETCONTAINER COMPONENT-----------*/}
       {atLeastOnePool(props.tickets) ? (
-        enteredPrizes(props.tickets, props.prizes).map(prize => (
+        enteredPrizes(props.tickets, props.prizes).map((prize) => (
           <TicketContainer
             prize={prize}
             tickets={ticketsInCertainPool(props.tickets, prize._id)}

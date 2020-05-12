@@ -19,6 +19,7 @@ const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {
   return (
     <Fragment>
       <div className='container'>
+        {/*----------FLEXROW COMPONENT-----------*/}
         {!loading && prizes ? (
           prizes.map((chunk, index) => (
             <FlexRow

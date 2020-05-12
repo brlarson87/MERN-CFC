@@ -1,3 +1,4 @@
+//CORE REACT
 import React, { Fragment } from "react";
 
 export const QuickEnter = () => {

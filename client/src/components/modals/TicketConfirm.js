@@ -1,12 +1,15 @@
+//CORE REACT
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 
+//Components
 import Spinner from "../layout/Spinner";
 
 //Actions
 import { enterTickets } from "../../actions/prizes";
 import { hideConfirmModal } from "../../actions/modal";
 import { startLoader, endLoader } from "../../actions/loaders";
+import { setAlert } from "../../actions/alert";
 
 const TicketConfirm = ({
   showConfirm,
@@ -16,6 +19,7 @@ const TicketConfirm = ({
   loader,
   startLoader,
   endLoader,
+  setAlert,
 }) => {
   const {
     ticketAmount,
@@ -32,10 +36,13 @@ const TicketConfirm = ({
       startLoader();
       enterTickets(ticketAmount, prizeId, activeTickets).then(() => {
         hideConfirmModal();
+        setAlert("Good Luck!", "success alert--main-page");
         endLoader();
         modalContent.classList.remove("flex");
       });
-    } // ELSE SET ALERT ///// NOT ENOUGH TICKETS
+    } else {
+      setAlert("You don't have enough tickets", "error alert--main-page");
+    }
   };
   return (
     <Fragment>
@@ -88,4 +95,5 @@ export default connect(mapStateToProps, {
   hideConfirmModal,
   startLoader,
   endLoader,
+  setAlert,
 })(TicketConfirm);

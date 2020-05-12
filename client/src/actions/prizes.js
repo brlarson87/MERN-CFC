@@ -6,10 +6,9 @@ import {
   PRIZE_FAIL,
   ENTER_SUCCESS_PRIZE,
   ENTER_SUCCESS_USER,
-  //START_LOADER,
-  //END_LOADER,
 } from "./types";
 import setConfigHeader from "../utils/setConfigHeader";
+//import { setAlert } from "./alert";
 
 export const loadPrizes = () => async (dispatch) => {
   try {

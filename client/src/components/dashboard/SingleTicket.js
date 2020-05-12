@@ -1,8 +1,10 @@
+//CORE REACT
 import React, { Fragment } from "react";
 
+//Utils
 import { formatTicketNumber } from "../../utils/numberPoolsEntered";
 
-const SingleTicket = props => {
+const SingleTicket = (props) => {
   return (
     <Fragment>
       <div className='ticket-container__single-ticket'>

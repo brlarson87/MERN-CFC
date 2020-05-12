@@ -1,3 +1,4 @@
+//CORE REACT
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -103,7 +104,9 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
         </div>
         <h2 className='dashboard__title'>My pools</h2>
         <div className='breaker'>&nbsp;</div>
-        {/*----------POOLS-----------*/}
+        {/*****************************************/}
+        {/*----------USERPOOLS COMPONENT-----------*/}
+        {/*****************************************/}
         {user && prizes && <UserPools tickets={user.tickets} prizes={prizes} />}
       </div>
     </div>
@@ -111,14 +114,14 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
 };
 
 UserDashboard.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.auth.user,
-  prizes: state.prizes.prizes
+  prizes: state.prizes.prizes,
 });
 
 export default connect(mapStateToProps, {
-  loadPrizes
+  loadPrizes,
 })(UserDashboard);

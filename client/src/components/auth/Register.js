@@ -1,7 +1,10 @@
+//CORE REACT
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+//Actions
 import { register } from "../../actions/auth";
 
 const Register = ({ register, history }) => {
@@ -14,7 +17,7 @@ const Register = ({ register, history }) => {
     state: "",
     zipCode: "",
     password1: "",
-    password2: ""
+    password2: "",
   });
 
   const {
@@ -26,14 +29,14 @@ const Register = ({ register, history }) => {
     streetName,
     city,
     state,
-    zipCode
+    zipCode,
   } = formData;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (password1 !== password2) {
       alert("Passwords did not match");
@@ -48,7 +51,7 @@ const Register = ({ register, history }) => {
         <div className='form-container position-up'>
           <h2 className='form-container__title'>Sign Up</h2>
 
-          <form onSubmit={e => onSubmit(e)} className='form-container__form'>
+          <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
             <div className='form-container__form--group'>
               <h5 className='form-container__form--group--title'>First Name</h5>
               <input
@@ -56,7 +59,7 @@ const Register = ({ register, history }) => {
                 name='firstName'
                 className='form-container__form--group--input'
                 value={firstName}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-container__form--group'>
@@ -66,7 +69,7 @@ const Register = ({ register, history }) => {
                 name='lastName'
                 className='form-container__form--group--input'
                 value={lastName}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-container__form--group'>
@@ -76,7 +79,7 @@ const Register = ({ register, history }) => {
                 name='email'
                 className='form-container__form--group--input'
                 value={email}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
 
@@ -91,7 +94,7 @@ const Register = ({ register, history }) => {
                 name='streetName'
                 className='form-container__form--group--input'
                 value={streetName}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-container__form--group'>
@@ -101,7 +104,7 @@ const Register = ({ register, history }) => {
                 name='city'
                 className='form-container__form--group--input'
                 value={city}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-container__form--group'>
@@ -109,7 +112,7 @@ const Register = ({ register, history }) => {
               <select
                 className='form-container__form--group--input'
                 name='state'
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               >
                 <option value={state}></option>
                 <option>Alabama</option>
@@ -172,7 +175,7 @@ const Register = ({ register, history }) => {
                 name='zipCode'
                 className='form-container__form--group--input'
                 value={zipCode}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-container__form--password-container'>
@@ -185,7 +188,7 @@ const Register = ({ register, history }) => {
                     type='password'
                     name='password1'
                     value={password1}
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                     className='form-container__form--group--input'
                   />
                 </div>
@@ -199,7 +202,7 @@ const Register = ({ register, history }) => {
                     type='password'
                     name='password2'
                     value={password2}
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                     className='form-container__form--group--input'
                   />
                 </div>
@@ -227,7 +230,7 @@ const Register = ({ register, history }) => {
 };
 
 Register.propTypes = {
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
 };
 
 export default connect(null, { register })(Register);

@@ -188,7 +188,7 @@ body {
     background: radial-gradient(#ca1111, #520d0d);
     z-index: 2000; }
   .alert--success {
-    background-color: rgba(0, 0, 0, 0.75); }
+    background-image: radial-gradient(#a68c5a, #645436); }
   .alert--main-page {
     top: 8rem;
     z-index: 1; }
@@ -409,7 +409,8 @@ body {
       font-weight: 900;
       color: #af976a;
       letter-spacing: -1px;
-      text-shadow: 0 1px 0 #d2cec6, 0 2px 0 #c7c2b8; }
+      text-shadow: 2px 1px 0 rgba(0, 0, 0, 0.7), -1px 0 0 rgba(0, 0, 0, 0.35);
+      letter-spacing: 1px; }
     .car-card__details--left {
       float: left;
       margin-left: 2rem;
@@ -714,9 +715,8 @@ body {
     display: inline-block;
     width: 100%;
     padding: 1rem 2rem;
-    border-width: 4px;
     border-radius: 0.5rem;
-    border-color: #ca1111;
+    border-color: #000;
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
     font-size: 1.4rem; }
@@ -724,8 +724,8 @@ body {
       outline: none; }
   .search-form__submit-btn {
     position: absolute;
-    top: 0.8rem;
-    right: 0.9rem;
+    top: 0.6rem;
+    right: 0.7rem;
     font-size: 2.5rem;
     background-color: #fff;
     border: none; }
@@ -881,7 +881,7 @@ body {
       padding: 2rem 0; }
       .header .main-nav__logo-title {
         display: inline-block;
-        color: #520d0d;
+        color: #ca1111;
         font-size: 3rem;
         letter-spacing: 1rem;
         font-weight: 300;

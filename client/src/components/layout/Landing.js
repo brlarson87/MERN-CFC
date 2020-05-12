@@ -1,3 +1,4 @@
+//CORE REACT
 import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,7 +11,7 @@ const Landing = ({ loading, isAuthenticated, user }) => {
   useEffect(() => {
     let scroll =
       window.requestAnimationFrame ||
-      function(callback) {
+      function (callback) {
         window.setTimeout(callback, 1000 / 60);
       };
 
@@ -148,13 +149,13 @@ const Landing = ({ loading, isAuthenticated, user }) => {
 Landing.propTypes = {
   user: PropTypes.object,
   isAuthenticated: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   loading: state.auth.loading,
-  user: state.auth.user
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps)(Landing);

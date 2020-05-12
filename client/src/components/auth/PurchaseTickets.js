@@ -1,3 +1,4 @@
+//CORE REACT
 import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -7,15 +8,15 @@ import { purchaseTickets } from "../../actions/auth";
 
 const PurchaseTickets = ({ purchaseTickets, history }) => {
   const [formData, setFormData] = useState({
-    amount: ""
+    amount: "",
   });
 
   const { amount } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     purchaseTickets(parseInt(amount), history);
   };
@@ -25,7 +26,7 @@ const PurchaseTickets = ({ purchaseTickets, history }) => {
       <div className='full-container'>
         <div className='form-container'>
           <h2 className='form-container__title'>Get Tickets</h2>
-          <form onSubmit={e => onSubmit(e)} className='form-container__form'>
+          <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
             <div className='form-container__form--group'>
               <input
                 type='text'
@@ -33,7 +34,7 @@ const PurchaseTickets = ({ purchaseTickets, history }) => {
                 className='form-container__form--group--input'
                 value={amount}
                 placeholder='Amount'
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
                 required
               />
             </div>

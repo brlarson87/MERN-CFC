@@ -1,6 +1,8 @@
+//CORE REACT
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
+//Utils
 import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
 import progressBar from "../../utils/progressBar";

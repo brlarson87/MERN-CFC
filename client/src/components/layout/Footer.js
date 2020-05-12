@@ -1,10 +1,10 @@
+//CORE REACT
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className='footer'>
-      {/*<h2 class='footer__title'>CfC</h2>*/}
       <h4 className='footer__social-header'>Follow us</h4>
 
       <div className='footer__container'>

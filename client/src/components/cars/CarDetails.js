@@ -1,21 +1,21 @@
+//CORE REACT
 import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadSinglePrize } from "../../actions/prizes";
-import ticketStatus from "../../utils/ticketStatus";
 
-import CarThumb from "./CarThumb";
-
-//import Spinner from "../layout/Spinner";
-
+//Utils
 import formatNumber from "../../utils/formatNumber";
 import ticketsEnteredInPool from "../../utils/ticketsEnteredInPool";
+import ticketStatus from "../../utils/ticketStatus";
 
 //Actions
 import { showConfirmModal } from "../../actions/modal";
+import { loadSinglePrize } from "../../actions/prizes";
 
-//COMPONENT
+//COMPONENTS
 import EnterTickets from "../auth/EnterTickets";
+import CarThumb from "./CarThumb";
+//import Spinner from "../layout/Spinner";
 
 const CarDetails = ({
   loadSinglePrize,
@@ -122,15 +122,18 @@ const CarDetails = ({
             </a>
           </div>
 
-          {/*----------TICKET FORM-----------*/}
+          {/*****************************************/}
+          {/*---------ENTERTICKETS COMPONENT---------*/}
+          {/*****************************************/}
           {prize && user ? (
             <EnterTickets
               id={prize._id}
-              ticketTotal={prize.ticketPool.length}
+              ticketTotal={prize.ticketPool}
               showConfirmModal={showConfirmModal}
               activeUserTickets={ticketStatus(user.tickets).active}
               prizeName={prize.car}
               thumbnail={prize.pictures[0]}
+              prizeTotal={prize.prizeTotal}
             />
           ) : (
             <Fragment>
@@ -162,7 +165,9 @@ const CarDetails = ({
             </div>
           </div>
 
-          {/* --BOTTOM CONTAINER OF THUMBNAILS-- */}
+          {/*****************************************/}
+          {/*----------CARTHUMB COMPONENT-----------*/}
+          {/*****************************************/}
           <div className='images-container__bottom'>
             {/*----- Loop through prize pictures ---------*/}
             {prize &&
