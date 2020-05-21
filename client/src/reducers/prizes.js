@@ -4,16 +4,16 @@ import {
   PRIZE_SUCCESS,
   PRIZE_FAIL,
   ENTER_SUCCESS_PRIZE,
-  PRIZE_PLEDGE_SUCCESS
+  PRIZE_PLEDGE_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
   prizes: [],
   loading: true,
-  prize: null
+  prize: null,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -21,33 +21,41 @@ export default function(state = initialState, action) {
       return {
         ...state,
         prizes: payload,
-        loading: false
+        loading: false,
       };
     case PRIZE_SUCCESS:
       return {
         ...state,
         loading: false,
-        prize: payload[0]
+        prize: payload[0],
       };
     case CLEAR_PRIZES:
       return {
         ...state,
         prizes: [],
         loading: false,
-        prize: null
+        prize: null,
       };
     case PRIZE_FAIL:
       return {
         ...state,
         loading: false,
-        prize: null
+        prize: null,
       };
+    // ******** TODO: Update prizes and single prize so the ticketPool re-render happens on carcard  ****
+    // ******** DID 5/21  **********
     case ENTER_SUCCESS_PRIZE:
+      return {
+        ...state,
+        loading: false,
+        prize: payload.prize,
+        prizes: payload.prizes,
+      };
     case PRIZE_PLEDGE_SUCCESS:
       return {
         ...state,
         loading: false,
-        prize: payload
+        prize: payload,
       };
     default:
       return state;

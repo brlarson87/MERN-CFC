@@ -98,6 +98,9 @@
 .u-margin-bottom-sm {
   margin-bottom: 2.8rem; }
 
+.u-margin-bottom-xsm {
+  margin-bottom: 0.6rem; }
+
 .u-margin-right-sm {
   margin-right: 2rem !important; }
 
@@ -143,11 +146,18 @@
 .position-up {
   margin-top: -5rem; }
 
+.u-pos-fixed {
+  position: fixed !important; }
+
 .opacity {
   opacity: 1 !important; }
 
 .u-lg-font {
   font-size: 4.8rem !important; }
+
+.inactive {
+  pointer-events: none;
+  opacity: 0.35; }
 
 *,
 *::after,
@@ -173,7 +183,6 @@ body {
 
 .alert {
   padding: 0.8rem;
-  opacity: 0.9;
   color: white;
   position: fixed;
   top: 1rem;
@@ -181,7 +190,7 @@ body {
   right: 25%;
   text-align: center;
   border-radius: 1rem;
-  z-index: 1;
+  z-index: 15;
   font-size: 2rem;
   transition: all 0.4s ease-in; }
   .alert--error {
@@ -227,20 +236,43 @@ body {
 
 .btn--primary:link, .btn--primary:visited {
   display: block;
+  position: relative;
   color: white;
   letter-spacing: 1px;
-  transition: 0.3s;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
   font-size: 1.2rem;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 0.8rem;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.3s;
   background-image: linear-gradient(#ca1111, #520d0d); }
 
 .btn--primary:hover {
   background-image: linear-gradient(#520d0d, #ca1111);
   box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3); }
+
+.btn--secondary {
+  display: block;
+  position: relative;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 0.8rem;
+  z-index: 5;
+  cursor: pointer;
+  background-color: #b8a37b;
+  border: none; }
+  .btn--secondary:hover {
+    background-color: #af976a; }
+  .btn--secondary:focus {
+    outline: none; }
 
 .btn--submit--primary {
   position: relative;
@@ -371,7 +403,8 @@ body {
   text-align: center;
   overflow: hidden;
   box-shadow: 1rem 1.5rem 1rem rgba(0, 0, 0, 0.35);
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  transition: all 0.2s; }
   .car-card__title {
     padding: 2rem 0;
     text-transform: uppercase;
@@ -630,7 +663,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.35);
   width: 100vw;
   transition: all 0.4s; }
 
@@ -702,9 +735,6 @@ body {
 
 .active-container {
   background-color: rgba(0, 0, 0, 0.65); }
-
-.flex {
-  padding: 12rem 0; }
 
 .search-form {
   position: relative;
@@ -820,6 +850,12 @@ body {
     border-top: none;
     cursor: pointer;
     transition: all 0.2s; }
+    .quick-enter__btn:focus {
+      outline: none; }
+
+.quick-enter__btn.quick-enter-active {
+  background-image: linear-gradient(#ca1111, #520d0d);
+  color: white; }
 
 .enter-tickets-quick-btn {
   background-color: #b8a37b;
@@ -862,7 +898,7 @@ body {
   background-color: #fff;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
-  z-index: 6; }
+  z-index: 16; }
   .header::after {
     display: table;
     content: "";
@@ -893,7 +929,7 @@ body {
       font-size: 2rem;
       transition: all 1s;
       transition-delay: 1s;
-      padding-top: 5rem;
+      padding-top: 7rem;
       text-align: left;
       margin-left: 3.5rem; }
       .header .main-nav__menu--item {
@@ -916,7 +952,7 @@ body {
           border-bottom: none; }
   .header__icon-ticket {
     position: fixed;
-    top: 3.5rem;
+    top: 3rem;
     right: 10.5rem;
     z-index: 2000;
     font-size: 2rem;
@@ -925,7 +961,7 @@ body {
 
 .menu-btn {
   position: fixed;
-  top: 2.5rem;
+  top: 2rem;
   right: 3rem;
   height: 4.5rem;
   width: 4.5rem;
@@ -990,7 +1026,7 @@ body {
   width: 100%; }
 
 .move-ticket {
-  transform: translateX(-19vw); }
+  transform: translateX(-9vw); }
 
 .menu-link-active {
   background-color: #520d0d;
@@ -1000,7 +1036,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
-  margin-bottom: 15rem; }
+  margin-bottom: 10rem; }
 
 .footer {
   background-image: linear-gradient(to top right, #898989 0%, white 50%, transparent 51%), radial-gradient(#898989, white);
@@ -1066,13 +1102,20 @@ body {
     width: calc((100% - (10rem * 2)) / 3);
     float: left; }
 
-.spinner {
+.spinner-bg {
   position: fixed;
-  top: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.spinner {
+  position: absolute;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 5rem;
-  width: 5rem;
+  height: 7rem;
+  width: 7rem;
   border-radius: 50%;
   border: 1rem groove #b8a37b;
   animation: spin 2s infinite ease-in; }

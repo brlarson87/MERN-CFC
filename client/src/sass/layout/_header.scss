@@ -3,7 +3,7 @@
   background-color: #fff;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
-  z-index: 6;
+  z-index: 16;
 
   &::after {
     display: table;
@@ -26,15 +26,6 @@
 
       &-title {
         display: inline-block;
-        // //background-image: linear-gradient(
-        //   to right,
-        //   $primary-color,
-        //   $primary-color-dark
-        // );
-        // //-webkit-background-clip: text;
-        // //-moz-background-clip: text;
-        // //background-clip: text;
-        // //color: transparent;
         color: $primary-color;
         font-size: 3rem;
         letter-spacing: 1rem;
@@ -50,7 +41,7 @@
       font-size: 2rem;
       transition: all 1s;
       transition-delay: 1s;
-      padding-top: 5rem;
+      padding-top: 7rem;
       text-align: left;
       margin-left: 3.5rem;
 
@@ -91,7 +82,7 @@
 
   &__icon-ticket {
     position: fixed;
-    top: 3.5rem;
+    top: 3rem;
     right: 10.5rem;
     z-index: 2000;
     font-size: 2rem;
@@ -104,7 +95,7 @@
 
 .menu-btn {
   position: fixed;
-  top: 2.5rem;
+  top: 2rem;
   right: 3rem;
   height: 4.5rem;
   width: 4.5rem;
@@ -184,7 +175,7 @@
 }
 
 .move-ticket {
-  transform: translateX(-19vw);
+  transform: translateX(-9vw);
 }
 
 .menu-link-active {

@@ -2,12 +2,15 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
+//Components
+import QuickEnter from "./QuickEnter";
+
 //Utils
 import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
 import progressBar from "../../utils/progressBar";
 
-const CarCard = ({ prize, user }) => {
+const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
   return (
     <Fragment>
       <div className='car-card'>
@@ -40,6 +43,9 @@ const CarCard = ({ prize, user }) => {
           )}
           <div className='car-card__details--right'>
             <span className='car-card__tickets-in'>
+              {/* ************************************************************ */}
+              {/* NOT RE_RENDERING WHEN TICKETS ENTERED IN TICKETCONFIRM MODAL */}
+              {/* ************************************************************ */}
               {formatNumber(prize.ticketPool)}
             </span>{" "}
             /
@@ -57,26 +63,18 @@ const CarCard = ({ prize, user }) => {
           ></span>
         </div>
 
-        <h3>Quick Enter</h3>
-
-        <div className='quick-enter'>
-          <button className='quick-enter__btn' value='1'>
-            1
-          </button>
-          <button className='quick-enter__btn' value='1'>
-            5
-          </button>
-          <button className='quick-enter__btn' value='10'>
-            10
-          </button>
-          <button className='quick-enter__btn' value='25'>
-            25
-          </button>
-          <button className='quick-enter__btn' value='50'>
-            50
-          </button>
-        </div>
-
+        {user && (
+          <QuickEnter
+            prizeId={prize._id}
+            user={user}
+            showConfirmModal={showConfirmModal}
+            prizeName={prize.car}
+            thumbnail={prize.pictures[0]}
+            ticketTotal={prize.ticketPool}
+            prizeTotal={prize.prizeTotal}
+            setAlert={setAlert}
+          />
+        )}
         <Link
           to={`/cardetails/${prize._id}`}
           className='btn btn--primary u-margin-bottom-sm'

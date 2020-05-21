@@ -1,6 +1,5 @@
 .alert {
   padding: 0.8rem;
-  opacity: 0.9;
   color: white;
   position: fixed;
   top: 1rem;
@@ -8,7 +7,7 @@
   right: 25%;
   text-align: center;
   border-radius: 1rem;
-  z-index: 1;
+  z-index: 15;
   font-size: 2rem;
   transition: all 0.4s ease-in;
 

@@ -38,25 +38,32 @@
     }
   }
 
+  //MIXIN FOR BOTH CARCARD BUTTONS
   &--primary {
     &:link,
     &:visited {
-      display: block;
-      color: white;
-      letter-spacing: 1px;
+      @include carCardBtns;
       transition: 0.3s;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1.5rem;
-      font-size: 1.2rem;
-      width: 50%;
-      margin: 0 auto;
-      margin-bottom: 0.8rem;
       background-image: linear-gradient($primary-color, $primary-color-dark);
     }
 
     &:hover {
       background-image: linear-gradient($primary-color-dark, $primary-color);
       box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &--secondary {
+    @include carCardBtns;
+    background-color: $secondary-color;
+    border: none;
+
+    &:hover {
+      background-color: darken($secondary-color, 5%);
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 

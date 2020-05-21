@@ -4,13 +4,15 @@ const ConfirmationContainer = ({
   prizeId,
   thumbnail,
   charityId,
+  charityName,
   keyy,
   enterCharity,
   startLoader,
   endLoader,
   hideCharityConfirmation,
+  setAlert,
 }) => {
-  // STARTS LOADER and ENTERS CHARITY INTO USER AND PRIZE COLLECTIONS -- END LOADER
+  // STARTS LOADER and ENTERS CHARITY INTO USER AND PRIZE DOCUMENTS -- END LOADER
   const enterThisCharity = () => {
     const modalContent = document.getElementById("modal-content");
     modalContent.classList.add("flex");
@@ -19,6 +21,10 @@ const ConfirmationContainer = ({
       hideCharityConfirmation();
       endLoader();
       modalContent.classList.remove("flex");
+      setAlert(
+        `Successfully entered ${charityName}!!!`,
+        "success alert--main-page"
+      );
     });
   };
 

@@ -31,28 +31,29 @@ const TicketConfirm = ({
 
   const enter = () => {
     if (activeTickets >= ticketAmount) {
-      const modalContent = document.getElementById("modal-content");
-      modalContent.classList.add("flex");
       startLoader();
       enterTickets(ticketAmount, prizeId, activeTickets).then(() => {
         hideConfirmModal();
         setAlert("Good Luck!", "success alert--main-page");
         endLoader();
-        modalContent.classList.remove("flex");
       });
     } else {
       setAlert("You don't have enough tickets", "error alert--main-page");
     }
   };
+
   return (
     <Fragment>
       {showConfirm && confirmContent && (
         <div className='modal-overlay'>
-          <div className='modal-content modal-content--sm' id='modal-content'>
-            {loader ? (
-              <Spinner />
-            ) : (
-              <Fragment>
+          {loader ? (
+            <Spinner darken={true} />
+          ) : (
+            <Fragment>
+              <div
+                className='modal-content modal-content--sm'
+                id='modal-content'
+              >
                 <div className='ticket-confirm-container'>
                   <div className='car-image'>
                     <img
@@ -75,9 +76,9 @@ const TicketConfirm = ({
                 <div className='exit-container' onClick={hideConfirmModal}>
                   <i className='fas fa-times'></i>
                 </div>
-              </Fragment>
-            )}
-          </div>
+              </div>
+            </Fragment>
+          )}
         </div>
       )}
     </Fragment>

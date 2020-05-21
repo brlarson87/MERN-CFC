@@ -12,7 +12,7 @@ const TableRow = ({ user, prizes, showCharityConfirmation, charity }) => {
       user.charitiesPledged
     ).prizesEligibleFor;
 
-    showCharityConfirmation(prizeEligibleArray, charity._id);
+    showCharityConfirmation(prizeEligibleArray, charity._id, charity.name);
   };
 
   return (

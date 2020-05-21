@@ -20,6 +20,7 @@ const UserPool = (props) => {
           <TicketContainer
             prize={prize}
             tickets={ticketsInCertainPool(props.tickets, prize._id)}
+            userCharities={props.userCharities}
             key={prize._id}
           />
         ))

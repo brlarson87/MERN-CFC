@@ -107,7 +107,13 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
         {/*****************************************/}
         {/*----------USERPOOLS COMPONENT-----------*/}
         {/*****************************************/}
-        {user && prizes && <UserPools tickets={user.tickets} prizes={prizes} />}
+        {user && prizes && (
+          <UserPools
+            tickets={user.tickets}
+            prizes={prizes}
+            userCharities={user.charitiesPledged}
+          />
+        )}
       </div>
     </div>
   );

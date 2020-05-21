@@ -8,11 +8,19 @@ import Spinner from "../layout/Spinner";
 import Footer from "../layout/Footer";
 //Actions
 import { loadPrizes } from "../../actions/prizes";
-import { enterTickets } from "../../actions/prizes";
+import { setAlert } from "../../actions/alert";
+import { showConfirmModal } from "../../actions/modal";
 //Utilities
 import chunks from "../../utils/chunks";
 
-const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {
+const Cars = ({
+  loadPrizes,
+  prizes,
+  loading,
+  user,
+  showConfirmModal,
+  setAlert,
+}) => {
   useEffect(() => {
     loadPrizes();
   }, [loadPrizes]);
@@ -26,7 +34,8 @@ const Cars = ({ loadPrizes, enterTickets, prizes, loading, user }) => {
               chunk={chunk}
               key={index}
               user={user}
-              enterTickets={enterTickets}
+              showConfirmModal={showConfirmModal}
+              setAlert={setAlert}
             />
           ))
         ) : (
@@ -50,4 +59,8 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-export default connect(mapStateToProps, { loadPrizes, enterTickets })(Cars);
+export default connect(mapStateToProps, {
+  loadPrizes,
+  showConfirmModal,
+  setAlert,
+})(Cars);

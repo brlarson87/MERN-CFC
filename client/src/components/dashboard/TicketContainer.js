@@ -4,6 +4,9 @@ import React, { Fragment } from "react";
 //Components
 import SingleTicket from "./SingleTicket";
 
+//Utils
+//import { checkIfCharityIsEntered } from "../../utils/charityEligible";
+
 const TicketContainer = (props) => {
   return (
     <Fragment>

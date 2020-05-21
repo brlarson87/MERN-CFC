@@ -39,6 +39,10 @@
   margin-bottom: 2.8rem;
 }
 
+.u-margin-bottom-xsm {
+  margin-bottom: 0.6rem;
+}
+
 .u-margin-right-sm {
   margin-right: 2rem !important;
 }
@@ -97,10 +101,19 @@
   margin-top: -5rem;
 }
 
+.u-pos-fixed {
+  position: fixed !important;
+}
+
 .opacity {
   opacity: 1 !important;
 }
 
 .u-lg-font {
   font-size: 4.8rem !important;
+}
+
+.inactive {
+  pointer-events: none;
+  opacity: 0.35;
 }

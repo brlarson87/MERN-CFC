@@ -8,12 +8,12 @@ export const checkIfEligibleForPledge = (
 ) => {
   let total = 0;
   let arr = [];
-  let prizesPledged = charitiesPledged.map(c => c.prizeId);
+  let prizesPledged = charitiesPledged.map((c) => c.prizeId);
 
-  prizes.forEach(prize => {
+  prizes.forEach((prize) => {
     const ticketsBreakPoint = prize.charityPledgeAmount;
     let counter = 0;
-    tickets.forEach(ticket => {
+    tickets.forEach((ticket) => {
       if (ticket.prizeId === prize._id) {
         counter++;
         if (
@@ -23,7 +23,7 @@ export const checkIfEligibleForPledge = (
           total++;
           arr.push({
             prizeID: prize._id,
-            thumbnail: prize.pictures[0]
+            thumbnail: prize.pictures[0],
           });
         }
       }
@@ -32,6 +32,14 @@ export const checkIfEligibleForPledge = (
 
   return {
     eligible: total > 0,
-    prizesEligibleFor: arr
+    prizesEligibleFor: arr,
   };
+};
+
+export const checkIfCharityIsEntered = (id, userCharities) => {
+  const matches = userCharities.filter(
+    (charityObj) => charityObj.prizeId === id
+  );
+
+  return { pledged: matches.length > 0, name: matches[0].name };
 };

@@ -22,7 +22,16 @@
     border-top: none;
     cursor: pointer;
     transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+    }
   }
+}
+
+.quick-enter__btn.quick-enter-active {
+  background-image: linear-gradient($primary-color, $primary-color-dark);
+  color: white;
 }
 
 .enter-tickets-quick-btn {

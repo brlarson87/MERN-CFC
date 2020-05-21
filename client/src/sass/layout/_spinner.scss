@@ -1,10 +1,18 @@
-.spinner {
+.spinner-bg {
   position: fixed;
-  top: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.spinner {
+  position: absolute;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 5rem;
-  width: 5rem;
+  height: 7rem;
+  width: 7rem;
   border-radius: 50%;
   border: 1rem groove $secondary-color;
   animation: spin 2s infinite ease-in;

@@ -40,20 +40,21 @@ const EnterTickets = ({
     e.preventDefault();
     const obj = checkValidNumber(ticketAmount);
     let amount;
-    console.log(obj);
     if (obj.valid) {
       amount = obj.amount;
       const safeAmount = ticketTotal + amount <= prizeTotal;
-      if (amount && amount <= activeUserTickets) {
-        showConfirmModal(amount, id, activeUserTickets, prizeName, thumbnail);
-      } else if (!safeAmount) {
-        setAlert(
-          "Not enough open spots left. Try less tickets",
-          "error alert--main-page"
-        );
+      if (safeAmount) {
+        if (amount && amount <= activeUserTickets) {
+          showConfirmModal(amount, id, activeUserTickets, prizeName, thumbnail);
+        } else {
+          setAlert(
+            "You tried to enter more tickets than you currently have",
+            "error alert--main-page"
+          );
+        }
       } else {
         setAlert(
-          "You tried to enter more tickets than you currently have",
+          "Not enough tickets left in prize pool",
           "error alert--main-page"
         );
       }

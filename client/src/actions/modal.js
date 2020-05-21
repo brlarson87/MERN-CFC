@@ -5,10 +5,12 @@ import {
   HIDE_CONFIRM_MODAL,
 } from "./types";
 
-export const showCharityConfirmation = (arr, charityId) => (dispatch) => {
+export const showCharityConfirmation = (arr, charityId, charityName) => (
+  dispatch
+) => {
   dispatch({
     type: SHOW_CHARITY_MODAL,
-    payload: { arr, charityId },
+    payload: { arr, charityId, charityName },
   });
 };
 
@@ -19,11 +21,11 @@ export const hideCharityConfirmation = () => (dispatch) => {
 };
 
 export const showConfirmModal = (
-  ticketAmount,
-  prizeId,
-  activeTickets,
-  prizeName,
-  thumbnail
+  ticketAmount = undefined,
+  prizeId = undefined,
+  activeTickets = undefined,
+  prizeName = undefined,
+  thumbnail = undefined
 ) => (dispatch) => {
   dispatch({
     type: SHOW_CONFIRM_MODAL,

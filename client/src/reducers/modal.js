@@ -10,6 +10,7 @@ const initialState = {
   show: false,
   content: [],
   charityId: undefined,
+  charityName: undefined,
   showConfirm: false,
   confirmContent: {},
 };
@@ -25,6 +26,7 @@ export default function (state = initialState, action) {
         show: true,
         content: payload.arr,
         charityId: payload.charityId,
+        charityName: payload.charityName,
       };
     case HIDE_CHARITY_MODAL:
       return {
@@ -33,6 +35,7 @@ export default function (state = initialState, action) {
         show: false,
         content: [],
         charityId: undefined,
+        charityName: undefined,
       };
     case SHOW_CONFIRM_MODAL:
       return {

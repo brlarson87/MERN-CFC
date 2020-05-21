@@ -25,6 +25,7 @@ router.put(
       console.log(errors);
       return res.status(422).json({ errors: errors.array() });
     }
+
     try {
       let prize = await Prize.findById(req.body.prizeId);
 
@@ -50,7 +51,9 @@ router.put(
         await prize.save();
       }
 
-      res.json({ prize, user });
+      let allActivePrizes = await Prize.find({ active: true });
+
+      res.json({ prize, user, allActivePrizes });
     } catch (error) {
       console.log(error);
       res.status(404).json({ error: error });
@@ -81,6 +84,7 @@ router.put("/enterCharity", auth, async (req, res) => {
     let prizeCharity = {
       prizeId,
       charityId,
+      name: charity.name,
     };
 
     prize.charityPool.push(charityUser);

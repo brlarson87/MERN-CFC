@@ -9,15 +9,18 @@ import Spinner from "../layout/Spinner";
 import { hideCharityConfirmation } from "../../actions/modal";
 import { enterCharity } from "../../actions/charities";
 import { startLoader, endLoader } from "../../actions/loaders";
+import { setAlert } from "../../actions/alert";
 
 const CharityConfirm = ({
   hideCharityConfirmation,
   enterCharity,
   content,
   charityId,
+  charityName,
   startLoader,
   endLoader,
   loader,
+  setAlert,
 }) => {
   return (
     <div className='modal-overlay'>
@@ -43,12 +46,14 @@ const CharityConfirm = ({
                   prizeId={prize.prizeID}
                   thumbnail={prize.thumbnail}
                   charityId={charityId}
+                  charityName={charityName}
                   key={i}
                   keyy={i}
                   enterCharity={enterCharity}
                   startLoader={startLoader}
                   endLoader={endLoader}
                   hideCharityConfirmation={hideCharityConfirmation}
+                  setAlert={setAlert}
                 />
               ))}
           </Fragment>
@@ -61,6 +66,7 @@ const CharityConfirm = ({
 const mapStateToProps = (state) => ({
   content: state.modal.content,
   charityId: state.modal.charityId,
+  charityName: state.modal.charityName,
   modalLoading: state.modal.loading,
   loader: state.loader.loading,
 });
@@ -70,4 +76,5 @@ export default connect(mapStateToProps, {
   enterCharity,
   startLoader,
   endLoader,
+  setAlert,
 })(CharityConfirm);
