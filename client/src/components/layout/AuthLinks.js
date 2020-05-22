@@ -15,10 +15,10 @@ const AuthLinks = ({ user, loading, logout }) => {
     let menuBtn = document.querySelector(".menu-btn");
     let ticket = document.querySelector(".header__icon-ticket");
     let popOut = document.querySelector(".pop-out-left");
-    let navs = document.querySelector(".main-nav__menu");
+    let navs = document.querySelector(".main-nav-menu");
     let overlay = document.querySelector(".overlay-all");
 
-    let navLinks = document.querySelectorAll(".main-nav__menu--item-link");
+    let navLinks = document.querySelectorAll(".main-nav-menu__item__link");
 
     const close = () => {
       menuBtn.classList.remove("open");
@@ -56,31 +56,31 @@ const AuthLinks = ({ user, loading, logout }) => {
       </div>
 
       <div className='pop-out-left'>
-        <ul className='main-nav__menu'>
-          <li className='main-nav__menu--item'>
-            <Link to='/about' className='main-nav__menu--item-link'>
+        <ul className='main-nav-menu'>
+          <li className='main-nav-menu__item'>
+            <Link to='/about' className='main-nav-menu__item__link'>
               <i className='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>
-          <li className='main-nav__menu--item'>
-            <Link to='/cars' className='main-nav__menu--item-link'>
+          <li className='main-nav-menu__item'>
+            <Link to='/cars' className='main-nav-menu__item__link'>
               <i className='fas fa-car'></i>&nbsp; Cars
             </Link>
           </li>
-          <li className='main-nav__menu--item'>
-            <Link to='/charities' className='main-nav__menu--item-link'>
+          <li className='main-nav-menu__item'>
+            <Link to='/charities' className='main-nav-menu__item__link'>
               <i className='fas fa-ribbon'></i>&nbsp; Charities
             </Link>
           </li>
-          <li className='main-nav__menu--item'>
-            <Link to='/account' className='main-nav__menu--item-link'>
+          <li className='main-nav-menu__item'>
+            <Link to='/account' className='main-nav-menu__item__link'>
               <i className='far fa-user'>
                 &nbsp; {!loading && user && user.firstName}
               </i>
             </Link>
           </li>
-          <li className='main-nav__menu--item'>
-            <Link to='/' className='main-nav__menu--item-link' onClick={logout}>
+          <li className='main-nav-menu__item'>
+            <Link to='/' className='main-nav-menu__item__link' onClick={logout}>
               <i className='fas fa-sign-out-alt'></i>&nbsp; Logout
             </Link>
           </li>

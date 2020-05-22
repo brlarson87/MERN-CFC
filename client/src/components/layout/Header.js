@@ -12,13 +12,9 @@ const Header = ({ loading, isAuthenticated }) => {
   return (
     <Fragment>
       <header className='header'>
-        <nav className='main-nav'>
-          <div className='main-nav__logo'>
-            <Link to='/' style={{ textDecoration: "none" }}>
-              <h2 className='main-nav__logo-title'>CarsforCauses</h2>
-            </Link>
-          </div>
-        </nav>
+        <Link to='/' style={{ textDecoration: "none" }}>
+          <h2 className='header__title'>CarsforCauses</h2>
+        </Link>
 
         {!loading && isAuthenticated ? <AuthLinks /> : <GuestLinks />}
       </header>

@@ -1,88 +1,27 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #fff;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
+  padding: 1rem 0 1.7rem 0;
   z-index: 16;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 
-  &::after {
-    display: table;
-    content: "";
-    clear: both;
-  }
-  .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 100;
-    backface-visibility: hidden;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-
-    &__logo {
-      text-align: center;
-      padding: 2rem 0;
-
-      &-title {
-        display: inline-block;
-        color: $primary-color;
-        font-size: 3rem;
-        letter-spacing: 1rem;
-        font-weight: 300;
-        animation-name: moveInTop;
-        animation-duration: 1s;
-      }
-    }
-
-    &__menu {
-      opacity: 0;
-      list-style: none;
-      font-size: 2rem;
-      transition: all 1s;
-      transition-delay: 1s;
-      padding-top: 7rem;
-      text-align: left;
-      margin-left: 3.5rem;
-
-      &--item {
-        display: block;
-        padding: 1.5rem;
-
-        &-link {
-          &:link,
-          &:visited {
-            text-decoration: none;
-            color: $primary-color;
-            padding: 1.5rem;
-            display: block;
-            transition: all 0.6s;
-            backface-visibility: hidden;
-            text-transform: uppercase;
-            background-image: linear-gradient(
-              120deg,
-              transparent 0%,
-              transparent 50%,
-              $primary-color-dark 51%
-            );
-            background-size: 240%;
-          }
-
-          &:hover,
-          &:active {
-            background-position: 100%;
-            background-color: $primary-color-dark;
-            color: white;
-            border-bottom: none;
-          }
-        }
-      }
-    }
+  &__title {
+    color: $primary-color;
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    font-weight: 300;
+    animation-name: moveInTop;
+    animation-duration: 1s;
+    text-align: center;
+    padding-top: 1rem;
   }
 
   &__icon-ticket {
     position: fixed;
-    top: 3rem;
+    top: 2.8rem;
     right: 10.5rem;
     z-index: 2000;
     font-size: 2rem;
@@ -91,11 +30,56 @@
   }
 }
 
-// NAVIGATION SLIDE OUT
+.main-nav-menu {
+  opacity: 0;
+  list-style: none;
+  font-size: 2rem;
+  transition: all 1s;
+  transition-delay: 1s;
+  padding-top: 7rem;
+  text-align: left;
+  margin-left: 3.5rem;
 
+  &__item {
+    display: block;
+    padding: 1.5rem;
+
+    &__link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: $primary-color;
+        padding: 1.5rem;
+        display: block;
+        transition: all 0.6s;
+        backface-visibility: hidden;
+        text-transform: uppercase;
+        background-image: linear-gradient(
+          120deg,
+          transparent 0%,
+          transparent 50%,
+          $primary-color-dark 51%
+        );
+        background-size: 240%;
+      }
+
+      &:hover,
+      &:active {
+        background-position: 100%;
+        background-color: $primary-color-dark;
+        color: white;
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+//
+// NAVIGATION SLIDE OUT
+//
 .menu-btn {
   position: fixed;
-  top: 2rem;
+  top: 1.8rem;
   right: 3rem;
   height: 4.5rem;
   width: 4.5rem;
@@ -144,6 +128,21 @@
   text-align: center;
 }
 
+.overlay-all {
+  position: fixed;
+  z-index: 199;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  width: 0;
+}
+
+//
+// ADD ON TO CLASSLIST FOR POP OUT EFFECT
+//
 .pop-out-left.show {
   width: 20vw;
   opacity: 1;
@@ -155,18 +154,6 @@
   animation-delay: 0.2s;
   animation-fill-mode: forwards;
   opacity: 1;
-}
-
-.overlay-all {
-  position: fixed;
-  z-index: 199;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  width: 0;
 }
 
 .show-overlay {
