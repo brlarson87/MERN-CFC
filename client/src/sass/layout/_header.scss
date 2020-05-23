@@ -4,9 +4,13 @@
   left: 0;
   right: 0;
   background-color: #fff;
-  padding: 1rem 0 1.7rem 0;
+  padding: 2rem 0;
   z-index: 16;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+
+  @include respond(phone) {
+    padding: 2rem 0;
+  }
 
   &__title {
     color: $primary-color;
@@ -16,7 +20,12 @@
     animation-name: moveInTop;
     animation-duration: 1s;
     text-align: center;
-    padding-top: 1rem;
+
+    @include respond(phone) {
+      text-align: left;
+      letter-spacing: 3px;
+      margin-left: 2rem;
+    }
   }
 
   &__icon-ticket {
@@ -27,6 +36,10 @@
     font-size: 2rem;
     color: $secondary-color;
     transition: all 0.35s;
+
+    @include respond(phone) {
+      top: 3rem;
+    }
   }
 }
 
@@ -39,6 +52,11 @@
   padding-top: 7rem;
   text-align: left;
   margin-left: 3.5rem;
+
+  @include respond(phone) {
+    margin-left: 0;
+    padding-top: 5rem;
+  }
 
   &__item {
     display: block;
@@ -93,10 +111,10 @@
     cursor: pointer;
     background-image: linear-gradient($primary-color-dark, $primary-color);
   }
-}
 
-.menu-btn.open {
-  transform: translateX(-19vw) rotate(180deg);
+  @include respond(phone) {
+    top: 2rem;
+  }
 }
 
 .menu-icon {
@@ -107,6 +125,10 @@
   color: white;
   transition: all 0.35s;
   user-select: none;
+
+  @include respond(phone) {
+    top: 7%;
+  }
 }
 
 .pop-out-left {
@@ -143,9 +165,22 @@
 //
 // ADD ON TO CLASSLIST FOR POP OUT EFFECT
 //
+
+.menu-btn.open {
+  transform: translateX(-19vw) rotate(180deg);
+
+  @include respond(phone) {
+    transform: translateX(-43vw) rotate(180deg);
+  }
+}
+
 .pop-out-left.show {
   width: 20vw;
   opacity: 1;
+
+  @include respond(phone) {
+    width: 47vw;
+  }
 }
 
 .nav-showing {
@@ -163,6 +198,10 @@
 
 .move-ticket {
   transform: translateX(-9vw);
+
+  @include respond(phone) {
+    transform: translateX(-17vw);
+  }
 }
 
 .menu-link-active {

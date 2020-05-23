@@ -5,11 +5,15 @@
 
   &__top {
     position: relative;
-    width: 90%;
+    width: 99%;
     margin: 0 auto;
     border-radius: 0.5rem;
     overflow: hidden;
     margin-top: 4rem;
+
+    @include respond(phone) {
+      margin-top: 2rem;
+    }
 
     .main-image {
       width: 100%;
@@ -28,11 +32,17 @@
       &-left {
         top: 30%;
         left: 0.7rem;
+        @include respond(phone) {
+          top: 45%;
+        }
       }
 
       &-right {
         top: 30%;
         right: 0.5rem;
+        @include respond(phone) {
+          top: 45%;
+        }
       }
 
       &:hover {
@@ -53,7 +63,11 @@
     flex-wrap: wrap;
     width: 100%;
     margin-top: 2rem;
-    margin-left: 6rem;
+    margin-left: 6.5rem;
+
+    @include respond(phone) {
+      margin-left: 4rem;
+    }
 
     .secondary-image {
       width: 15%;
@@ -61,6 +75,10 @@
       transition: 0.2s;
       border-radius: 3px;
       overflow: hidden;
+
+      @include respond(phone) {
+        width: 25%;
+      }
 
       &__img {
         width: 100%;

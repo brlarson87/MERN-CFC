@@ -1,11 +1,18 @@
 .row {
   padding: 3rem 1rem;
-  margin: 8rem;
+  margin: 6rem;
   background-image: radial-gradient(
     rgba(#cdcdcd, 0.45),
     darken(rgba(#cdcdcd, 0.55), 1%)
   );
   border-radius: 1rem;
+
+  @include respond(phone) {
+    padding: 2rem 1rem;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 3rem;
+  }
 
   &::after {
     content: "";
@@ -15,10 +22,27 @@
 
   .col-1-3:not(:last-child) {
     margin-right: 10rem;
+    border-bottom: solid 1px lightgrey;
+
+    @include respond(phone) {
+      margin-bottom: 3rem;
+      padding-bottom: 1.75rem;
+    }
+  }
+
+  .col-1-3:last-child {
+    @include respond(phone) {
+      padding-bottom: 3rem;
+    }
   }
 
   .col-1-3 {
     width: calc((100% - (#{$gutter-horizontal} * 2)) / 3);
     float: left;
+
+    @include respond(phone) {
+      float: none;
+      width: 98%;
+    }
   }
 }

@@ -4,6 +4,10 @@
   width: 80%;
   padding-bottom: 3rem;
 
+  @include respond(phone) {
+    width: 98%;
+  }
+
   &__row {
     text-align: center;
 
@@ -41,6 +45,10 @@
     padding: 3.5rem 0;
     font-size: 1.3rem;
     font-weight: 500;
+
+    @include respond(phone) {
+      padding: 5rem 0;
+    }
 
     &--title {
       text-transform: uppercase;

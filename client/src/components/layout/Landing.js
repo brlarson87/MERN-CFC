@@ -69,7 +69,7 @@ const Landing = ({ loading, isAuthenticated, user }) => {
                     My Account
                   </Link>
                 </div>
-                <div className='arrow'>&rarr;</div>
+                <div className='arrow-main'>&rarr;</div>
                 <div className='landing-info--box'>
                   <h4 className='landing-info--box--heading'>
                     Purchase Tickets
@@ -95,7 +95,7 @@ const Landing = ({ loading, isAuthenticated, user }) => {
                     Signup/Login
                   </Link>
                 </div>
-                <div className='arrow'>&rarr;</div>
+                <div className='arrow-main'>&rarr;</div>
                 <div className='landing-info--box'>
                   <h4 className='landing-info--box--heading'>
                     Purchase Tickets

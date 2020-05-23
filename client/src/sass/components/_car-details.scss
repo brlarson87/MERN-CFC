@@ -22,6 +22,10 @@
     justify-content: space-between;
     border-bottom: 1px solid #e3e3e3;
 
+    @include respond(phone) {
+      font-size: 1.3rem;
+    }
+
     &--left {
       font-weight: 600;
       text-transform: uppercase;
@@ -30,17 +34,29 @@
     &--right {
       font-size: 1.3rem;
       text-transform: uppercase;
+
+      @include respond(phone) {
+        font-weight: bold;
+      }
     }
   }
 
   &__features {
     &--text {
       line-height: 2.5rem;
+
+      @include respond(phone) {
+        font-size: 1.2rem;
+      }
     }
   }
 
   &__ticket-form {
     margin-top: 3rem;
+
+    @include respond(phone) {
+      margin-top: 2rem;
+    }
 
     &--title {
       color: $primary-color-dark;
@@ -62,6 +78,10 @@
       color: $primary-color;
       transition: all 0.3s;
       text-align: center;
+
+      @include respond(phone) {
+        width: 25%;
+      }
 
       &:focus {
         outline: none;

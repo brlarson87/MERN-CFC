@@ -8,6 +8,13 @@ const Layout = () => {
   return (
     <Fragment>
       <div className='container'>
+        <h1
+          style={{
+            marginTop: "100px",
+          }}
+        >
+          WORK IN PROGRESS
+        </h1>
         <div className='about-us'>
           <div className='about-us__text-box'>
             <h2 className='about-us__text-box--title'>About Us</h2>

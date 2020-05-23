@@ -131,6 +131,11 @@
         color: white;
         text-decoration-color: transparent;
         border-radius: 1rem;
+
+        @include respond(phone) {
+          font-size: 6.5rem;
+          padding: 0;
+        }
       }
 
       &:hover {
@@ -175,6 +180,12 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       will-change: transform;
+
+      @include respond(phone) {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 1rem;
+      }
     }
 
     &--secondary {
@@ -213,6 +224,10 @@
     font-weight: 600;
     margin-bottom: 2rem;
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+    @include respond(phone) {
+      width: 50%;
+    }
   }
 
   &:hover {

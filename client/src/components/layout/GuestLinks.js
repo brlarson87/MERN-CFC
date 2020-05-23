@@ -41,10 +41,7 @@ const GuestLinks = () => {
       <div className='pop-out-left'>
         <ul className='main-nav-menu'>
           <li className='main-nav-menu__item'>
-            <Link
-              to='/about'
-              className='main-nav-menu__item__link menu-link-active'
-            >
+            <Link to='/about' className='main-nav-menu__item__link'>
               <i className='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>

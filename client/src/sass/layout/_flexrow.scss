@@ -1,5 +1,9 @@
 .flex-row:first-child {
   margin-top: 10rem;
+
+  @include respond(phone) {
+    margin-top: 5rem;
+  }
 }
 
 .flex-row {
@@ -7,4 +11,11 @@
   justify-content: space-between;
   margin-top: 3rem;
   margin-bottom: 10rem;
+
+  @include respond(phone) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
 }

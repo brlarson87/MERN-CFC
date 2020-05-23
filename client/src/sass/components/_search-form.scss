@@ -4,6 +4,11 @@
   margin-top: 5.5rem;
   width: 25%;
 
+  @include respond(phone) {
+    margin-top: 10rem;
+    width: 50%;
+  }
+
   &__input {
     display: inline-block;
     width: 100%;

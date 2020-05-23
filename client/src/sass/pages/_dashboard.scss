@@ -4,14 +4,25 @@
   &__title {
     width: 100%;
     margin-top: 3rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
     padding: 3rem 0;
     font-size: 3.2rem;
     font-weight: 300;
-    text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
-    color: #000;
+    //text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
+    color: $secondary-color;
     text-align: center;
     text-transform: uppercase;
+
+    &:first-child {
+      margin-top: 6rem;
+      @include respond(phone) {
+        margin: 7.5rem 0 0 0;
+      }
+    }
+
+    @include respond(phone) {
+      margin: 3rem 0 0 0;
+    }
 
     &--pool {
       width: 100%;
@@ -35,6 +46,10 @@
     font-weight: 300;
     text-shadow: 1px 1px 1px rgba($primary-color-dark, 0.4);
     color: #000;
+
+    @include respond(phone) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   .info {
@@ -80,6 +95,10 @@
       1.2rem -2.1rem 0 $secondary-color, -1.2rem 2.1rem 0 $secondary-color;
 
     @include scroller;
+    @include respond(phone) {
+      width: 95%;
+      margin: 0 auto;
+    }
 
     &__single-ticket {
       position: relative;
@@ -87,6 +106,10 @@
       width: 20%;
       margin: 1rem 0;
       color: $primary-color-dark;
+
+      @include respond(phone) {
+        width: 33%;
+      }
 
       &--number {
         position: absolute;

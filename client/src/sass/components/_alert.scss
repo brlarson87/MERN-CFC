@@ -11,6 +11,11 @@
   font-size: 2rem;
   transition: all 0.4s ease-in;
 
+  @include respond(phone) {
+    left: 1%;
+    right: 1%;
+  }
+
   &--error {
     background: radial-gradient($primary-color, $primary-color-dark);
     z-index: 2000;

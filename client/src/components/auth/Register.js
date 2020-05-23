@@ -48,7 +48,7 @@ const Register = ({ register, history }) => {
   return (
     <Fragment>
       <div className='full-container'>
-        <div className='form-container position-up'>
+        <div className='form-container position-up form__container--wide'>
           <h2 className='form-container__title'>Sign Up</h2>
 
           <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>

@@ -16,14 +16,29 @@
   padding-top: 2rem;
   height: 70rem;
 
+  @include respond(phone) {
+    flex-direction: column;
+    height: auto;
+  }
+
   .left-col {
     width: 30%;
+
+    @include respond(phone) {
+      width: 98%;
+    }
   }
 
   .right-col {
     width: 68%;
     overflow-y: auto;
     @include scroller;
+
+    @include respond(phone) {
+      width: 98%;
+      margin: 0 auto;
+      margin-bottom: 7rem;
+    }
   }
 }
 
