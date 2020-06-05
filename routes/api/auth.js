@@ -38,8 +38,10 @@ router.post(
     }
 
     const { email, password } = req.body;
+
     try {
       let user = await User.findOne({ email });
+
       if (!user) {
         return res.status(400).json({ msg: "Invalid credentials" });
       }
@@ -59,7 +61,9 @@ router.post(
         config.get("jwtSecret"),
         { expiresIn: 3600 },
         (err, token) => {
-          if (err) res.json({ err });
+          if (err) {
+            res.json({ err });
+          }
           res.json({ token });
         }
       );

@@ -28,6 +28,10 @@
     );
   }
 
+  &--updated {
+    background-color: green;
+  }
+
   &--main-page {
     top: 8rem;
     z-index: 1;

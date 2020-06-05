@@ -1,9 +1,6 @@
 //CORE REACT
 import React, { Fragment, useState } from "react";
 
-//Components
-import TicketConfirm from "../modals/TicketConfirm";
-
 //Utils
 import ticketStatus from "../../utils/ticketStatus";
 
@@ -56,6 +53,9 @@ const QuickEnter = ({
   //  CHECKS FOR EDGE CASES AND THEN SETS MODAL STATE FOR COFIRM MODAL
   //
   const enter = () => {
+    if (!user) {
+      return clearAll();
+    }
     let activeUserTickets = ticketStatus(user.tickets).active;
     const safeAmount = ticketTotal + quickData.val <= prizeTotal;
 
@@ -88,7 +88,6 @@ const QuickEnter = ({
 
   return (
     <Fragment>
-      <TicketConfirm />
       <h3>Quick Enter</h3>
       <div className='quick-enter'>
         <button

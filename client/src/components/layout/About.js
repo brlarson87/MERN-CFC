@@ -2,11 +2,13 @@
 import React, { Fragment } from "react";
 
 //Components
+import Header from "./Header";
 import Footer from "../layout/Footer";
 
 const Layout = () => {
   return (
     <Fragment>
+      <Header />
       <div className='container'>
         <h1
           style={{

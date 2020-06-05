@@ -13,15 +13,17 @@
   }
 
   &__title {
-    color: $primary-color;
     font-size: 3rem;
-    letter-spacing: 1rem;
-    font-weight: 300;
-    animation-name: moveInTop;
-    animation-duration: 1s;
-    text-align: center;
+    // animation-name: moveInTop;
+    // animation-duration: 1s;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: $primary-color;
+    transition: all 0.3s;
+    margin-left: 20.5rem;
+    display: inline-block;
 
-    @include respond(phone) {
+    @include respond(tab-port) {
       text-align: left;
       letter-spacing: 3px;
       margin-left: 2rem;
@@ -49,9 +51,13 @@
   font-size: 2rem;
   transition: all 1s;
   transition-delay: 1s;
-  padding-top: 7rem;
+  padding-top: 1rem;
   text-align: left;
   margin-left: 3.5rem;
+
+  @include respond(tab-port) {
+    margin-left: 1.5rem;
+  }
 
   @include respond(phone) {
     margin-left: 0;
@@ -102,7 +108,7 @@
   height: 4.5rem;
   width: 4.5rem;
   z-index: 998;
-  border: 1px solid $secondary-color;
+  border: none;
   border-radius: 50%;
   background-image: linear-gradient($primary-color, $primary-color-dark);
   transition: all 0.35s;
@@ -120,7 +126,7 @@
 .menu-icon {
   position: absolute;
   top: 8%;
-  left: 20%;
+  left: 21%;
   font-size: 2.5rem;
   color: white;
   transition: all 0.35s;
@@ -167,16 +173,32 @@
 //
 
 .menu-btn.open {
-  transform: translateX(-19vw) rotate(180deg);
+  transform: translateX(-24vw) rotate(180deg);
+
+  @include respond(mid) {
+    transform: translateX(-28vw) rotate(180deg);
+  }
+
+  @include respond(tab-port) {
+    transform: translateX(-40vw) rotate(180deg);
+  }
 
   @include respond(phone) {
-    transform: translateX(-43vw) rotate(180deg);
+    transform: translateX(-44vw) rotate(180deg);
   }
 }
 
 .pop-out-left.show {
-  width: 20vw;
+  width: 25vw;
   opacity: 1;
+
+  @include respond(mid) {
+    width: 30vw;
+  }
+
+  @include respond(tab-port) {
+    width: 42vw;
+  }
 
   @include respond(phone) {
     width: 47vw;
@@ -197,10 +219,18 @@
 }
 
 .move-ticket {
-  transform: translateX(-9vw);
+  transform: translateX(-24vw);
+
+  @include respond(mid) {
+    transform: translateX(-27vw);
+  }
+
+  @include respond(tab-port) {
+    transform: translateX(-38vw);
+  }
 
   @include respond(phone) {
-    transform: translateX(-17vw);
+    transform: translateX(-15vw);
   }
 }
 

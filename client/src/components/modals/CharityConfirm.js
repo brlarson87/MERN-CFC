@@ -24,7 +24,10 @@ const CharityConfirm = ({
 }) => {
   return (
     <div className='modal-overlay'>
-      <div className='modal-content modal-content--medium' id='modal-content'>
+      <div
+        className='modal-content modal-content--medium'
+        id='modal-content-charity'
+      >
         {loader ? (
           <Spinner />
         ) : (

@@ -14,7 +14,7 @@ const ConfirmationContainer = ({
 }) => {
   // STARTS LOADER and ENTERS CHARITY INTO USER AND PRIZE DOCUMENTS -- END LOADER
   const enterThisCharity = () => {
-    const modalContent = document.getElementById("modal-content");
+    const modalContent = document.getElementById("modal-content-charity");
     modalContent.classList.add("flex");
     startLoader();
     enterCharity(prizeId, charityId).then(() => {

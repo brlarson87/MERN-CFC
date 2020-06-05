@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 //Components
+import Header from "./Header";
 import TableRow from "./TableRow";
 import CharityConfirm from "../modals/CharityConfirm";
 import Spinner from "./Spinner";
@@ -67,6 +68,7 @@ const Charities = ({
 
   return (
     <Fragment>
+      <Header />
       {/*****************************************/}
       {/*----------CHARITYCONFIRM COMPONENT----------*/}
       {/*****************************************/}
@@ -121,7 +123,7 @@ const Charities = ({
                 ))}
           </tbody>
         </table>
-        {loading && <Spinner />}
+        {/* {loading && <Spinner />} */}
         {charities && !totalCountOfCharities(charities, filter) && !loading && (
           <div className='match-icon-box u-margin-top-lg'>
             <h1>No matches...</h1>

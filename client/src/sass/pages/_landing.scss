@@ -4,15 +4,15 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-  @include respond(phone) {
-    background-size: auto;
-  }
 }
 .landing-info {
-  background-color: #fff;
+  background-color: #eee;
   text-align: center;
   padding: 5rem 0 15rem 0;
+
+  @include respond(phone) {
+    padding: 4rem 0 15rem 0;
+  }
 
   &--title {
     font-size: 2.8rem;
@@ -24,6 +24,16 @@
     transition: all 0.3s;
     text-shadow: 1px 1px 2px #000;
 
+    @include respond(tab-port) {
+      font-size: 2.2rem;
+      margin-bottom: 6rem;
+      letter-spacing: 0;
+    }
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+
     &:hover {
       color: lighten($primary-color-dark, 10%);
     }
@@ -34,7 +44,11 @@
     justify-content: space-around;
     margin: 0 15rem;
 
-    @include respond(phone) {
+    @include respond(mid) {
+      margin: 0;
+    }
+
+    @include respond(tab-port) {
       flex-direction: column;
       align-items: center;
       margin: 0;
@@ -55,13 +69,17 @@
     padding-bottom: 5rem;
     box-shadow: 1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.35);
 
+    @include respond(mid) {
+      width: 30%;
+    }
+
     &:not(:last-child) {
-      @include respond(phone) {
+      @include respond(tab-port) {
         margin-bottom: 6rem;
       }
     }
 
-    @include respond(phone) {
+    @include respond(tab-port) {
       width: 75%;
       padding: 2.5rem 1rem 2rem 1rem;
     }
@@ -82,7 +100,7 @@
       line-height: 2.5rem;
       letter-spacing: 1px;
 
-      @include respond(phone) {
+      @include respond(tab-port) {
         padding-bottom: 15rem;
       }
     }
@@ -137,7 +155,7 @@
   font-size: 4rem;
   color: $primary-color;
 
-  @include respond(phone) {
+  @include respond(mid) {
     display: none;
   }
 }

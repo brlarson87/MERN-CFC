@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import Header from "./Header";
+
 //import Spinner from "./Spinner";
 import Footer from "./Footer";
 
@@ -45,6 +47,7 @@ const Landing = ({ loading, isAuthenticated, user }) => {
 
   return (
     <Fragment>
+      <Header />
       <div className='car-bg'>
         <div className='see-through--top'>&nbsp;</div>
         <div className='landing-info'>
@@ -107,7 +110,7 @@ const Landing = ({ loading, isAuthenticated, user }) => {
               </Fragment>
             )}
 
-            <div className='arrow'>&rarr;</div>
+            <div className='arrow-main'>&rarr;</div>
             <div className='landing-info--box'>
               <h4 className='landing-info--box--heading'>Enter tickets</h4>
               <p className='landing-info--box--text'>

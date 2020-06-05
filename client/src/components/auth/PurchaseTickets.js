@@ -25,16 +25,18 @@ const PurchaseTickets = ({ purchaseTickets, history }) => {
     <Fragment>
       <div className='full-container'>
         <div className='form-container'>
-          <h2 className='form-container__title'>Get Tickets</h2>
           <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
             <div className='form-container__form--group'>
+              <div className='form-container__form--group--title  form-container__form--group--title--sm'>
+                Amount
+              </div>
               <input
                 type='text'
                 name='amount'
-                className='form-container__form--group--input'
+                className='form-container__form--group--input form-container__form--group--input--sm'
                 value={amount}
-                placeholder='Amount'
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
                 required
               />
             </div>

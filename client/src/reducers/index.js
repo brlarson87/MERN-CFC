@@ -5,6 +5,7 @@ import charities from "./charities";
 import alert from "./alert";
 import modal from "./modal";
 import loader from "./loader";
+import results from "./results";
 
 export default combineReducers({
   auth,
@@ -13,4 +14,5 @@ export default combineReducers({
   alert,
   modal,
   loader,
+  results,
 });

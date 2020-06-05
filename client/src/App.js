@@ -7,7 +7,7 @@ import "./App.css";
 
 //COMPONENTS
 import Alert from "./components/layout/Alert";
-import Header from "./components/layout/Header";
+// import Header from "./components/layout/Header";
 import Landing from "./components/layout/Landing";
 import About from "./components/layout/About";
 import Charities from "./components/layout/Charities";
@@ -17,6 +17,8 @@ import PurchaseTickets from "./components/auth/PurchaseTickets";
 import Cars from "./components/cars/Cars";
 import CarDetails from "./components/cars/CarDetails";
 import UserDashboard from "./components/dashboard/UserDashboard";
+import Password from "./components/edits/Password";
+import Drawing from "./components/cars/Drawing";
 //import PrivateRoute from "./components/routing/PrivateRoute";
 
 //ACTIONS
@@ -34,7 +36,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
+        {/* <Header /> */}
         <Alert />
         <Route exact path='/' component={Landing} />
         <Switch>
@@ -46,6 +48,8 @@ const App = () => {
           <Route exact path='/carDetails/:id' component={CarDetails} />
           <Route exact path='/charities' component={Charities} />
           <Route exact path='/account' component={UserDashboard} />
+          <Route exact path='/cars/results/:id' component={Drawing} />
+          <Route exact path='/changePassword' component={Password} />
         </Switch>
       </Router>
     </Provider>

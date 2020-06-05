@@ -20,6 +20,7 @@ const TicketContainer = (props) => {
             number={ticket.ticketNumber}
             total={props.prize.prizeTotal}
             key={i}
+            dash={true}
           />
         ))}
       </div>

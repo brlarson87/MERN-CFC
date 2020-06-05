@@ -6,12 +6,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const User = require("../../models/User");
-const setTicket = require("../../utils/setTicket");
 
-// router.get("/", (req, res) => {
-//   console.log("connected");
-//   res.json({ name: "Blake" });
-// });
+//UTILS
+const setTicket = require("../../utils/setTicket");
 
 // @route   POST api/users
 // @desc    Register User
@@ -60,13 +57,13 @@ router.post(
         },
       });
 
-      const { admin } = req.body;
+      // const { admin } = req.body;
 
-      if (admin) {
-        user.admin = true;
-      } else {
-        user.admin = false;
-      }
+      // if (admin) {
+      //   user.admin = true;
+      // } else {
+      //   user.admin = false;
+      // }
 
       const salt = await bcrypt.genSalt(10);
 
@@ -140,6 +137,28 @@ router.delete("/deleteTickets", auth, async (req, res) => {
 
     res.json(user);
   } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
+// @route   POST api/users/me/changePassword
+// @desc    Changes user's password
+// @access  auth
+router.put("/me/changePassword", auth, async (req, res) => {
+  const { password } = req.body;
+
+  try {
+    let user = await User.findById(req.user.id);
+
+    const salt = await bcrypt.genSalt(10);
+
+    user.password = await bcrypt.hash(password, salt);
+
+    await user.save();
+
+    res.json({ msg: "updated" });
+  } catch (error) {
+    console.log("ERROR changePassword express");
     res.status(400).json({ error });
   }
 });

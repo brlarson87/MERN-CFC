@@ -6,8 +6,12 @@ import PropTypes from "prop-types";
 
 //Actions
 import { register } from "../../actions/auth";
+import { setAlert } from "../../actions/alert";
 
-const Register = ({ register, history }) => {
+//UTILS
+import validatePassword from "../../utils/validatePassword";
+
+const Register = ({ register, setAlert, history }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -39,9 +43,15 @@ const Register = ({ register, history }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (password1 !== password2) {
-      alert("Passwords did not match");
-    } else {
+      return setAlert("Passwords must match!", "error");
+    }
+    if (validatePassword(password1)) {
       register(formData, history);
+    } else {
+      return setAlert(
+        "Passwords must be 8 characters long containing 1 capital letter and 1 special character...",
+        "error"
+      );
     }
   };
 
@@ -60,6 +70,7 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={firstName}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <div className='form-container__form--group'>
@@ -70,6 +81,7 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={lastName}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <div className='form-container__form--group'>
@@ -80,10 +92,11 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={email}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
 
-            <h2 className='form-container__title secondary--title'>Address</h2>
+            {/* <h2 className='form-container__title secondary--title'>Address</h2> */}
 
             <div className='form-container__form--group'>
               <h5 className='form-container__form--group--title'>
@@ -95,6 +108,7 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={streetName}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <div className='form-container__form--group'>
@@ -105,6 +119,7 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={city}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <div className='form-container__form--group'>
@@ -113,6 +128,7 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 name='state'
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               >
                 <option value={state}></option>
                 <option>Alabama</option>
@@ -168,6 +184,7 @@ const Register = ({ register, history }) => {
                 <option>Wyoming</option>
               </select>
             </div>
+
             <div className='form-container__form--group'>
               <h5 className='form-container__form--group--title'>zip code</h5>
               <input
@@ -176,38 +193,41 @@ const Register = ({ register, history }) => {
                 className='form-container__form--group--input'
                 value={zipCode}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
-            <div className='form-container__form--password-container'>
-              <div className='password-input-block'>
-                <div className='form-container__form--group'>
-                  <h5 className='form-container__form--group--title'>
-                    Password
-                  </h5>
-                  <input
-                    type='password'
-                    name='password1'
-                    value={password1}
-                    onChange={(e) => onChange(e)}
-                    className='form-container__form--group--input'
-                  />
-                </div>
-              </div>
-              <div className='password-input-block'>
-                <div className='form-container__form--group'>
-                  <h5 className='form-container__form--group--title'>
-                    confirm password
-                  </h5>
-                  <input
-                    type='password'
-                    name='password2'
-                    value={password2}
-                    onChange={(e) => onChange(e)}
-                    className='form-container__form--group--input'
-                  />
-                </div>
-              </div>
+            {/* <div className='form-container__form--password-container'>
+              <div className='password-input-block'> */}
+
+            <div className='form-container__form--group'>
+              <h5 className='form-container__form--group--title'>Password</h5>
+              <input
+                type='password'
+                name='password1'
+                value={password1}
+                onChange={(e) => onChange(e)}
+                className='form-container__form--group--input'
+                autoComplete='off'
+              />
             </div>
+            {/* </div> */}
+
+            {/* <div className='password-input-block'> */}
+
+            <div className='form-container__form--group'>
+              <h5 className='form-container__form--group--title'>
+                confirm password
+              </h5>
+              <input
+                type='password'
+                name='password2'
+                value={password2}
+                onChange={(e) => onChange(e)}
+                className='form-container__form--group--input'
+              />
+            </div>
+            {/* </div>
+            </div> */}
             <input
               type='submit'
               className='btn--submit--primary'
@@ -233,4 +253,4 @@ Register.propTypes = {
   register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { register })(Register);
+export default connect(null, { register, setAlert })(Register);

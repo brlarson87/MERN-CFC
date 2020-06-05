@@ -54,6 +54,7 @@ export const login = (email, password, history) => async (dispatch) => {
     history.push("/cars");
     dispatch(setAlert("Welcome Back!!!", "success alert--main-page"));
   } catch (error) {
+    console.log(error);
     dispatch({
       type: LOGIN_FAIL,
     });
@@ -135,6 +136,26 @@ export const purchaseTickets = (amount, history) => async (dispatch) => {
 
     history.push("/");
   } catch (error) {
+    console.log(error);
+  }
+};
+
+///////////////
+/////////////// UPDATE ACTIONS ///////////////////////////////////////
+///////////////
+
+export const changePassword = (password, history) => async (dispatch) => {
+  const config = setConfigHeader();
+
+  const body = JSON.stringify({ password });
+
+  try {
+    const res = await axios.put("api/users/me/changePassword", body, config);
+
+    dispatch(setAlert("Password changed!", `${res.data.msg} alert--main-page`));
+    history.push("/account");
+  } catch (error) {
+    console.log("changePassword Action");
     console.log(error);
   }
 };

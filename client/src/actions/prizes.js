@@ -6,6 +6,7 @@ import {
   PRIZE_FAIL,
   ENTER_SUCCESS_PRIZE,
   ENTER_SUCCESS_USER,
+  LOAD_RESULT,
 } from "./types";
 import setConfigHeader from "../utils/setConfigHeader";
 //import { setAlert } from "./alert";
@@ -59,6 +60,22 @@ export const enterTickets = (amount, prizeId, activeUserTickets) => async (
     });
   } catch (error) {
     console.log("Enter Tickets Action generator error");
+    console.log(error);
+  }
+};
+
+//***********************************************************************//
+//******************LOAD RESULT FOR FILLED POOLS************************//
+
+export const loadResult = (prizeId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/results/${prizeId}`);
+
+    dispatch({
+      type: LOAD_RESULT,
+      payload: res.data,
+    });
+  } catch (error) {
     console.log(error);
   }
 };

@@ -20,7 +20,6 @@
 
 @mixin charityBtnsLinks {
   cursor: pointer;
-  padding: 1rem;
   border-radius: 2px;
   background-color: darken(#f6f6f6, 25%);
   color: $primary-color;
@@ -65,9 +64,35 @@
     }
   }
 
+  @if $breakpoint == mid {
+    @media (max-width: 85em) {
+      @content;
+    }
+  }
+
   @if $breakpoint == big-desktop {
     @media (min-width: 112.5em) {
       @content;
     }
+  }
+}
+
+@mixin whiteLinkBtns {
+  &:link,
+  &:visited {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    color: $primary-color;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
   }
 }

@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import FlexRow from "./FlexRow";
 import Spinner from "../layout/Spinner";
 import Footer from "../layout/Footer";
+import Header from "../layout/Header";
+import TicketConfirm from "../modals/TicketConfirm";
 //Actions
 import { loadPrizes } from "../../actions/prizes";
 import { setAlert } from "../../actions/alert";
@@ -26,7 +28,9 @@ const Cars = ({
   }, [loadPrizes]);
   return (
     <Fragment>
+      <Header />
       <div className='container'>
+        <TicketConfirm />
         {/*----------FLEXROW COMPONENT-----------*/}
         {!loading && prizes ? (
           prizes.map((chunk, index) => (

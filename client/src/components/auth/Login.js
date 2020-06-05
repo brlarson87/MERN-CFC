@@ -31,17 +31,18 @@ const Login = ({ isAuthenticated, login, user, history }) => {
     <Fragment>
       <div className='full-container'>
         <div className='form-container'>
-          <h2 className='form-container__title'>Login</h2>
+          <h2 className='form-container__title'>CfC</h2>
 
           <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
             <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>Email</h5>
+              <div className='form-container__form--group--title'>Email</div>
               <input
                 type='email'
                 name='email'
                 className='form-container__form--group--input form-container__form--group--input--login'
                 value={email}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <div className='form-container__form--group'>
@@ -52,11 +53,12 @@ const Login = ({ isAuthenticated, login, user, history }) => {
                 className='form-container__form--group--input form-container__form--group--input--login'
                 value={password}
                 onChange={(e) => onChange(e)}
+                autoComplete='off'
               />
             </div>
             <input
               type='submit'
-              className='btn--submit--primary'
+              className='btn--submit--primary u-margin-top-sm'
               value='Login'
             />
           </form>
