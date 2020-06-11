@@ -54,7 +54,6 @@ module.exports = function (
   // FIND CHARITY WINNER
   //
   // let cw = charityObjects[Math.floor(Math.random() * numberOfCharities)];
-  console.log(secondaryArr, ticketArr);
 
   return [gp, secondaryArr, ticketArr];
 };

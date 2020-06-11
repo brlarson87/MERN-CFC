@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Landing page on inital load 1`] = `
+<Fragment>
+  <Connect(Header) />
+  <div
+    className="car-bg"
+  >
+    <div
+      className="see-through--top"
+    >
+       
+    </div>
+    <div
+      className="landing-info"
+    >
+      <h2
+        className="landing-info--title"
+      >
+        Using the love of cars to crowdfund donations
+      </h2>
+      <div
+        className="landing-info--grid"
+      >
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Create an account
+          </h4>
+          <p
+            className="landing-info--box--text margin-bottom-lg"
+          >
+            Sign up, It's free!
+          </p>
+          <Link
+            className="btn-abs-bottom"
+            to="/login"
+          >
+            Signup/Login
+          </Link>
+        </div>
+        <div
+          className="arrow-main"
+        >
+          →
+        </div>
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Purchase Tickets
+          </h4>
+          <p
+            className="landing-info--box--text"
+          >
+            Tickets are $1 each.
+          </p>
+        </div>
+        <div
+          className="arrow-main"
+        >
+          →
+        </div>
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Enter tickets
+          </h4>
+          <p
+            className="landing-info--box--text"
+          >
+            Browse the collection of car pools and find your dream car! Enter enough tickets, and you can also enter a charity to the corresponding charity pool.
+          </p>
+          <Link
+            className="btn-abs-bottom"
+            onClick={[Function]}
+            to="/cars"
+          >
+            Check out the cars
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div
+      className="see-through--bottom"
+    >
+      <div
+        className="see-through--bottom__box show-on-scroll"
+      >
+        <h1
+          className="see-through--bottom__title"
+        >
+          Browse the many charities you can enter.. or sumbit your own!
+        </h1>
+        <Link
+          className="btn--link-2"
+          onClick={[Function]}
+          to="/charities"
+        >
+          →
+        </Link>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Fragment>
+`;
+
+exports[`renders Landing page with user authenticated 1`] = `
+<Fragment>
+  <Connect(Header) />
+  <div
+    className="car-bg"
+  >
+    <div
+      className="see-through--top"
+    >
+       
+    </div>
+    <div
+      className="landing-info"
+    >
+      <h2
+        className="landing-info--title"
+      >
+        Using the love of cars to crowdfund donations
+      </h2>
+      <div
+        className="landing-info--grid"
+      >
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Welcome Back 
+            Blake
+            !
+          </h4>
+          <p
+            className="landing-info--box--text margin-bottom-lg"
+          >
+            Good luck in the pools.
+          </p>
+          <Link
+            className="btn-abs-bottom"
+            onClick={[Function]}
+            to="/account"
+          >
+            My Account
+          </Link>
+        </div>
+        <div
+          className="arrow-main"
+        >
+          →
+        </div>
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Purchase Tickets
+          </h4>
+          <p
+            className="landing-info--box--text"
+          >
+            Tickets are $1 each.
+          </p>
+          <Link
+            className="btn-abs-bottom"
+            to="/purchaseTickets"
+          >
+            Buy Tickets
+          </Link>
+        </div>
+        <div
+          className="arrow-main"
+        >
+          →
+        </div>
+        <div
+          className="landing-info--box"
+        >
+          <h4
+            className="landing-info--box--heading"
+          >
+            Enter tickets
+          </h4>
+          <p
+            className="landing-info--box--text"
+          >
+            Browse the collection of car pools and find your dream car! Enter enough tickets, and you can also enter a charity to the corresponding charity pool.
+          </p>
+          <Link
+            className="btn-abs-bottom"
+            onClick={[Function]}
+            to="/cars"
+          >
+            Check out the cars
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div
+      className="see-through--bottom"
+    >
+      <div
+        className="see-through--bottom__box show-on-scroll"
+      >
+        <h1
+          className="see-through--bottom__title"
+        >
+          Browse the many charities you can enter.. or sumbit your own!
+        </h1>
+        <Link
+          className="btn--link-2"
+          onClick={[Function]}
+          to="/charities"
+        >
+          →
+        </Link>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Fragment>
+`;

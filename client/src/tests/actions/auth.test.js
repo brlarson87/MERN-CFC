@@ -32,11 +32,4 @@ describe("**AUTH ACTIONS**", () => {
 
     expect(store.getActions()).toEqual([expectedAction]);
   });
-
-  test("should dispatch LOGIN_FAIL action object", () => {
-    const expectedAction = { type: LOGIN_FAIL };
-    store.dispatch(logout());
-
-    expect(store.getActions()).toEqual([expectedAction]);
-  });
 });

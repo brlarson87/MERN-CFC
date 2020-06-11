@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CARS COMPONENT renders Cars Component successfully without user 1`] = `
+<Fragment>
+  <Connect(Header) />
+  <div
+    className="container"
+  >
+    <Connect(TicketConfirm) />
+    <FlexRow
+      chunk={
+        Object {
+          "_id": "1",
+          "active": true,
+          "car": "Audi R8",
+          "carDetails": "The 2020 V10 R8 is a real wheel drive coupe putting out 562 horspower.",
+          "charityAmount": 20000,
+          "charityPledgeAmount": 5,
+          "charityPool": Array [
+            Object {
+              "charityId": "1",
+              "name": "SecondHand Hounds",
+              "prizeId": "1",
+            },
+          ],
+          "dateAdded": "2020-01-30T02:15:09.284Z",
+          "pictures": Array [
+            "https://i.ibb.co/qrfRhvY/r8-5.jpg",
+            "https://i.ibb.co/D5VhSjy/r8-1.jpg",
+            "https://i.ibb.co/4Nh17yP/r8-2.jpg",
+          ],
+          "prizeTotal": 100,
+          "secondaryPrizes": Object {
+            "places": 75,
+            "prize": "Apple Airpods",
+          },
+          "ticketPool": 5,
+          "ticketsPrize": Object {
+            "amount": 15,
+            "places": 300,
+          },
+        }
+      }
+      key="0"
+    />
+    <FlexRow
+      chunk={
+        Object {
+          "_id": "2",
+          "active": true,
+          "car": "2019 Camaro Valkyrja",
+          "carDetails": "This restomod camaro from Ringbrothers is a masterpiece putting out 890 horsepower. The amount of detail put into this car is incredible.",
+          "charityAmount": 30000,
+          "charityPledgeAmount": 10,
+          "charityPool": Array [],
+          "dateAdded": "2020-01-30T02:21:06.224Z",
+          "pictures": Array [
+            "https://i.ibb.co/j6mx5C8/cv-13.jpg",
+            "https://i.ibb.co/swz5f4W/cv-16.jpg",
+            "https://i.ibb.co/FKt9vt0/cv-15.jpg",
+          ],
+          "prizeTotal": 200,
+          "secondaryPrizes": Object {
+            "places": 5,
+            "prize": "13.5in macbook pro",
+          },
+          "ticketPool": 2,
+          "ticketsPrize": Object {
+            "amount": 350,
+            "places": 15,
+          },
+        }
+      }
+      key="1"
+    />
+    <FlexRow
+      chunk={
+        Object {
+          "_id": "3",
+          "active": true,
+          "car": "2020 Mercedes AMG GT C",
+          "carDetails": "Powered by a 4.0L AMG V8 Biturbo engine making 550 horsepower, this car sounds as good as it looks.",
+          "charityAmount": 17500,
+          "charityPledgeAmount": 5,
+          "charityPool": Array [],
+          "dateAdded": "2020-01-30T02:21:34.161Z",
+          "pictures": Array [
+            "https://i.ibb.co/3h3WN2y/amg-1.jpg",
+            "https://i.ibb.co/fpGC1nP/amg-2.jpg",
+            "https://i.ibb.co/SKKgThZ/amg-3.jpg",
+          ],
+          "prizeTotal": 110,
+          "secondaryPrizes": Object {
+            "places": 10,
+            "prize": "60in 5k TV",
+          },
+          "ticketPool": 5,
+          "ticketsPrize": Object {
+            "amount": 150,
+            "places": 30,
+          },
+        }
+      }
+      key="2"
+    />
+    <FlexRow
+      chunk={
+        Object {
+          "_id": "4",
+          "active": true,
+          "car": "Hellcat Redeye Widebody",
+          "carDetails": "The Challenger Hellcat Widebody automatic hits 60 mph in 3.8 seconds and storms through the quarter in 11.8 seconds at 126 mph",
+          "charityAmount": 7500,
+          "charityPledgeAmount": 2,
+          "charityPool": Array [],
+          "dateAdded": "2020-01-30T02:48:25.004Z",
+          "pictures": Array [
+            "https://i.ibb.co/92mW0Qg/hellcat-12.jpg",
+            "https://i.ibb.co/Hhx9PPF/hellcat-14.jpg",
+            "https://i.ibb.co/m0CR204/hellcat-15.jpg",
+          ],
+          "prizeTotal": 80,
+          "secondaryPrizes": Object {
+            "places": 5,
+            "prize": "$200 Best Buy card",
+          },
+          "ticketPool": 8,
+          "ticketsPrize": Object {
+            "amount": 50,
+            "places": 10,
+          },
+        }
+      }
+      key="3"
+    />
+     
+  </div>
+  <Footer />
+</Fragment>
+`;

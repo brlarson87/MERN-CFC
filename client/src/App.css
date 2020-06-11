@@ -65,6 +65,12 @@
   margin-bottom: 10rem;
   padding-top: 3rem;
   position: relative; }
+  .container--colored {
+    background: linear-gradient(90deg, #520d0d, #641010);
+    padding-bottom: 6rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.8), 0 -4px 1rem rgba(0, 0, 0, 0.4); }
 
 .details-container {
   display: flex;
@@ -1657,34 +1663,39 @@ input:-webkit-autofill {
 .drawing-container {
   position: relative;
   margin: 0 auto;
-  padding-bottom: 4rem; }
+  background-color: grey;
+  padding: 4rem 0 4rem 0; }
   .drawing-container .car-title {
-    margin-bottom: 0.5rem; }
+    margin: 0 0 0.5rem 4rem;
+    color: white; }
   .drawing-container .timer {
     width: 15%;
     text-align: center;
     margin: 0 auto;
-    margin-top: 3rem; }
+    margin-top: 3rem;
+    color: #fff; }
     .drawing-container .timer__title {
       font-size: 2rem;
       margin-bottom: 1.5rem; }
     .drawing-container .timer__time {
-      display: inline-block;
-      width: 50%;
+      margin: 0 auto;
+      width: 65%;
       font-size: 2.6rem;
-      color: #fff;
-      background-color: #520d0d;
+      background-color: #000;
       font-weight: bold;
       padding: 1rem 1.5rem;
       border-radius: 4px;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      box-shadow: 1px 1px 3px #fff, -1px -1px 3px #fff; }
   .drawing-container .drawing-flex {
     display: flex;
     justify-content: space-between;
     background-image: linear-gradient(#898989, #fff, #fff, #898989);
     padding: 2rem 0.5rem;
     border-radius: 4px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
+    width: 95%;
+    margin: 0 auto; }
     .drawing-container .drawing-flex__box {
       display: flex;
       flex-direction: column;
@@ -1755,7 +1766,8 @@ input:-webkit-autofill {
       font-size: 2rem;
       margin-bottom: 1rem; }
       .drawing-container .winning-numbers-flex .result-title--gold {
-        color: #a68c5a; }
+        color: #a68c5a;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8); }
       .drawing-container .winning-numbers-flex .result-title--secondary {
         display: inline-block;
         margin-left: 3rem;

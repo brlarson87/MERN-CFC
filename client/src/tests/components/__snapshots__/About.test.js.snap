@@ -2,9 +2,19 @@
 
 exports[`renders About component without props 1`] = `
 <Fragment>
+  <Connect(Header) />
   <div
     className="container"
   >
+    <h1
+      style={
+        Object {
+          "marginTop": "100px",
+        }
+      }
+    >
+      WORK IN PROGRESS
+    </h1>
     <div
       className="about-us"
     >

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import TableRow from "./TableRow";
 import CharityConfirm from "../modals/CharityConfirm";
-import Spinner from "./Spinner";
+//import Spinner from "./Spinner";
 
 //Actions
 import { loadCharities } from "../../actions/charities";

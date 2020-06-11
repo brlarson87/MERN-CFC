@@ -9,7 +9,7 @@ import Header from "./Header";
 //import Spinner from "./Spinner";
 import Footer from "./Footer";
 
-const Landing = ({ loading, isAuthenticated, user }) => {
+export const Landing = ({ loading, isAuthenticated, user }) => {
   useEffect(() => {
     let scroll =
       window.requestAnimationFrame ||

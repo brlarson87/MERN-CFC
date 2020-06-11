@@ -7,14 +7,14 @@ import {
   LOGIN_SUCCESS,
   TICKETS_ADDED,
   ENTER_SUCCESS_USER,
-  USER_PLEDGE_SUCCESS
+  USER_PLEDGE_SUCCESS,
 } from "../../actions/types";
 
 const initialState = {
   token: null,
   isAuthenticated: null,
   loading: true,
-  user: null
+  user: null,
 };
 
 describe("AUTH REDUCER", () => {
@@ -29,7 +29,7 @@ describe("AUTH REDUCER", () => {
   test("should load state.user and set isAuth to true", () => {
     const state = authReducer(undefined, {
       type: USER_LOADED,
-      payload: users[0]
+      payload: users[0],
     });
 
     expect(state.user).toEqual(users[0]);
@@ -46,32 +46,32 @@ describe("AUTH REDUCER", () => {
       {
         prizeId: null,
         userId: "1",
-        ticketNumber: null
+        ticketNumber: null,
       },
       {
         prizeId: null,
         userId: "1",
-        ticketNumber: null
+        ticketNumber: null,
       },
       {
         prizeId: null,
         userId: "1",
-        ticketNumber: null
-      }
+        ticketNumber: null,
+      },
     ];
 
     tickets = [...tickets, ...newTickets];
 
     const updatedUser = {
       ...firstUser,
-      tickets
+      tickets,
     };
 
     const state = authReducer(
       { ...initialState, isAuthenticated: true, user: users[0] },
       {
         type: TICKETS_ADDED,
-        payload: updatedUser
+        payload: newTickets,
       }
     );
 
@@ -85,14 +85,14 @@ describe("AUTH REDUCER", () => {
     const pledgeArray = [
       {
         prizeId: "4",
-        charityId: "2"
-      }
+        charityId: "2",
+      },
     ];
     const updatedUser = { ...firstUser, charitiesPledged: pledgeArray };
 
     const state = authReducer(undefined, {
       type: USER_PLEDGE_SUCCESS,
-      payload: updatedUser
+      payload: updatedUser,
     });
 
     expect(state.user).toEqual(updatedUser);
@@ -106,17 +106,17 @@ describe("AUTH REDUCER", () => {
       token: "token",
       isAuthenticated: true,
       loading: true,
-      user: users[0]
+      user: users[0],
     };
 
     const state = authReducer(stateObject, {
-      type: AUTH_ERROR
+      type: AUTH_ERROR,
     });
 
     expect(state).toEqual({
       ...initialState,
       loading: false,
-      isAuthenticated: false
+      isAuthenticated: false,
     });
   });
 
@@ -124,7 +124,7 @@ describe("AUTH REDUCER", () => {
   test("should set token and isAuth state", () => {
     const state = authReducer(initialState, {
       type: LOGIN_SUCCESS,
-      payload: { token: "token" }
+      payload: { token: "token" },
     });
 
     expect(state.token).toBe("token");
@@ -138,18 +138,18 @@ describe("AUTH REDUCER", () => {
       token: "token",
       isAuthenticated: true,
       loading: false,
-      user: users[0]
+      user: users[0],
     };
 
     const ticketUpdate = {
       prizeId: "4",
       userId: "1",
-      ticketNumber: 9
+      ticketNumber: 9,
     };
 
     let { tickets } = users[0];
     const activeTickets = users[0].tickets.filter(
-      ticket => ticket.prizeId !== null
+      (ticket) => ticket.prizeId !== null
     ).length;
 
     tickets[activeTickets] = ticketUpdate;
@@ -158,7 +158,7 @@ describe("AUTH REDUCER", () => {
 
     const state = authReducer(preState, {
       type: ENTER_SUCCESS_USER,
-      payload: updatedUser
+      payload: updatedUser,
     });
 
     expect(state.user.tickets[activeTickets]).toEqual(ticketUpdate);

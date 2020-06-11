@@ -11,7 +11,7 @@ const formatNumber = (number, dollarSign) => {
 export default formatNumber;
 
 export const formatTime = (time) => {
-  if (!time) {
+  if (!time || time < 0) {
     return "00:00";
   }
   const minutes = Math.floor(time / 60);

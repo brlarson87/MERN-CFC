@@ -15,7 +15,7 @@ import { showConfirmModal } from "../../actions/modal";
 //Utilities
 import chunks from "../../utils/chunks";
 
-const Cars = ({
+export const Cars = ({
   loadPrizes,
   prizes,
   loading,

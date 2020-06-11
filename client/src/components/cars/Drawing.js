@@ -1,23 +1,44 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-// import Timer from "./Timer";
-import moment from "moment";
+import Timer from "./Timer";
+//import moment from "moment";
 
-import { loadResult, loadSinglePrize } from "../../actions/prizes";
+import { loadResultAndPrize } from "../../actions/prizes";
 
 //import formatNumber from "../../utils/formatNumber";
-import { formatTime } from "../../utils/formatNumber";
+//import { formatTime } from "../../utils/formatNumber";
 import { formatTicketNumber } from "../../utils/numberPoolsEntered";
 
 import SingleTicket from "../dashboard/SingleTicket";
 
-const Drawing = ({ match, loadResult, loadSinglePrize, result, prize }) => {
+const Drawing = ({ match, loadResultAndPrize, result, prize }) => {
   useEffect(() => {
-    loadResult(match.params.id);
-    loadSinglePrize(match.params.id);
-  }, [loadResult, loadSinglePrize, match.params.id]);
+    loadResultAndPrize(match.params.id);
+  }, [loadResultAndPrize, match.params.id]);
+
+  const [resultData, setResultData] = useState({
+    grandWinner: {},
+    secondaryWinners: [],
+    ticketWinners: [],
+    charityWinner: {},
+    stopTimer: false,
+  });
+
+  const startAnimation = () => {
+    setResultData({
+      ...resultData,
+      stopTimer: true,
+    });
+
+    setTimeout(() => {
+      setResultData({
+        ...resultData,
+        stopTimer: true,
+      });
+    }, 2000);
+  };
 
   return (
     <div className='drawing-container'>
@@ -26,16 +47,18 @@ const Drawing = ({ match, loadResult, loadSinglePrize, result, prize }) => {
           <Link to='/cars' style={{ textDecoration: "none" }}>
             <i className='fas fa-arrow-alt-circle-left drawing-back-arrow'></i>
           </Link>
-          <div className='container'>
+          <div className='container container--colored'>
             <div className='timer'>
-              <div className='timer__title'>Winners are picked in</div>
-              <div className='timer__time'>
-                {formatTime(
-                  moment(result.drawingTime)
-                    .add("60", "minutes")
-                    .diff(Date.now(), "seconds")
-                )}
-              </div>
+              {/* <div className='timer__time'>{formatTime(time)}</div> */}
+              {!resultData.stopTimer && (
+                <Fragment>
+                  <div className='timer__title'>Winners are picked in</div>
+                  <Timer
+                    time={result.drawingTime}
+                    startAnimation={startAnimation}
+                  />
+                </Fragment>
+              )}
             </div>
             <h1 className='car-title'>{prize.car}</h1>
             <div className='drawing-flex'>
@@ -76,18 +99,20 @@ const Drawing = ({ match, loadResult, loadSinglePrize, result, prize }) => {
                 <h2 className='result-title result-title--gold'>
                   Grand Prize Winner
                 </h2>
-                <div className='ticket-container ticket-container--single'>
-                  <div className='ticket-container__single-ticket ticket-container__single-ticket--single'>
-                    <i className='fas fa-ticket-alt'>
-                      <span className='ticket-container__single-ticket--number ticket-container__single-ticket--number--single'>
-                        {formatTicketNumber(
-                          result.grandPrizeTicketNumber,
-                          prize.prizeTotal
-                        )}
-                      </span>
-                    </i>
+                {resultData.stopTimer && (
+                  <div className='ticket-container ticket-container--single'>
+                    <div className='ticket-container__single-ticket ticket-container__single-ticket--single'>
+                      <i className='fas fa-ticket-alt'>
+                        <span className='ticket-container__single-ticket--number ticket-container__single-ticket--number--single'>
+                          {formatTicketNumber(
+                            result.grandPrizeTicketNumber,
+                            prize.prizeTotal
+                          )}
+                        </span>
+                      </i>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <div className='winner-box'>
@@ -103,14 +128,15 @@ const Drawing = ({ match, loadResult, loadSinglePrize, result, prize }) => {
                 </h2>
                 <div className='ticket-container ticket-container--secondary'>
                   {/* Map Secondary Tickets into SingleTicket Component */}
-                  {result.secondaryPrizes.map((num, index) => (
-                    <SingleTicket
-                      number={num}
-                      total={prize.prizeTotal}
-                      key={index}
-                      dash={false}
-                    />
-                  ))}
+                  {resultData.stopTimer &&
+                    result.secondaryPrizes.map((num, index) => (
+                      <SingleTicket
+                        number={num}
+                        total={prize.prizeTotal}
+                        key={index}
+                        dash={false}
+                      />
+                    ))}
                 </div>
               </div>
               <div className='item ticket-winner-box'>
@@ -119,14 +145,15 @@ const Drawing = ({ match, loadResult, loadSinglePrize, result, prize }) => {
                 </h2>
                 <div className='ticket-container ticket-container--secondary'>
                   {/* Map ticketPrize Tickets into SingleTicket Component */}
-                  {result.ticketPrizes.map((num, index) => (
-                    <SingleTicket
-                      number={num}
-                      total={prize.prizeTotal}
-                      key={index}
-                      dash={false}
-                    />
-                  ))}
+                  {resultData.stopTimer &&
+                    result.ticketPrizes.map((num, index) => (
+                      <SingleTicket
+                        number={num}
+                        total={prize.prizeTotal}
+                        key={index}
+                        dash={false}
+                      />
+                    ))}
                 </div>
               </div>
             </div>
@@ -142,6 +169,6 @@ const mapStateToProps = (state) => ({
   prize: state.prizes.prize,
 });
 
-export default connect(mapStateToProps, { loadResult, loadSinglePrize })(
-  Drawing
-);
+export default connect(mapStateToProps, {
+  loadResultAndPrize,
+})(Drawing);

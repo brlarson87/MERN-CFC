@@ -67,13 +67,19 @@ export const enterTickets = (amount, prizeId, activeUserTickets) => async (
 //***********************************************************************//
 //******************LOAD RESULT FOR FILLED POOLS************************//
 
-export const loadResult = (prizeId) => async (dispatch) => {
+export const loadResultAndPrize = (prizeId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/results/${prizeId}`);
+    const res1 = await axios.get(`/api/results/${prizeId}`);
+    const res2 = await axios.get(`/api/prizes/${prizeId}`);
 
     dispatch({
       type: LOAD_RESULT,
-      payload: res.data,
+      payload: res1.data,
+    });
+
+    dispatch({
+      type: PRIZE_SUCCESS,
+      payload: res2.data,
     });
   } catch (error) {
     console.log(error);

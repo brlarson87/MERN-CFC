@@ -4,6 +4,18 @@
   margin-bottom: 10rem;
   padding-top: 3rem;
   position: relative;
+
+  &--colored {
+    background: linear-gradient(
+      90deg,
+      $primary-color-dark,
+      lighten($primary-color-dark, 4%)
+    );
+    padding-bottom: 6rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.8), 0 -4px 1rem rgba(0, 0, 0, 0.4);
+  }
 }
 
 .details-container {
