@@ -1,3 +1,14 @@
+.spinner-container {
+  position: relative;
+  height: 20rem;
+
+  &--fixed {
+    position: fixed;
+    top: 30%;
+    left: 48%;
+  }
+}
+
 .spinner {
   position: absolute;
   top: 50%;

@@ -58,22 +58,38 @@ const AuthLinks = ({ user, loading, logout }) => {
       <div className='pop-out-left'>
         <ul className='main-nav-menu'>
           <li className='main-nav-menu__item'>
-            <Link to='/about' className='main-nav-menu__item__link'>
+            <Link
+              to='/about'
+              className='main-nav-menu__item__link'
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <i className='fas fa-hand-holding-medical'></i> &nbsp; About Us
             </Link>
           </li>
           <li className='main-nav-menu__item'>
-            <Link to='/cars' className='main-nav-menu__item__link'>
+            <Link
+              to='/cars'
+              className='main-nav-menu__item__link'
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <i className='fas fa-car'></i>&nbsp; Cars
             </Link>
           </li>
           <li className='main-nav-menu__item'>
-            <Link to='/charities' className='main-nav-menu__item__link'>
+            <Link
+              to='/charities'
+              className='main-nav-menu__item__link'
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <i className='fas fa-ribbon'></i>&nbsp; Charities
             </Link>
           </li>
           <li className='main-nav-menu__item'>
-            <Link to='/account' className='main-nav-menu__item__link'>
+            <Link
+              to='/account'
+              className='main-nav-menu__item__link'
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <i className='far fa-user'>
                 &nbsp; {!loading && user && user.firstName}
               </i>

@@ -1,24 +1,44 @@
 .drawing-container {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin: 0 auto;
-  background-color: grey;
-  padding: 4rem 0 4rem 0;
+  overflow-y: auto;
+  background-color: lighten(grey, 5%);
+  padding: 4rem 0 3rem 0;
+
+  @include scroller;
+
+  @include respond(tab-land) {
+    padding: 4rem 0;
+  }
 
   .car-title {
     margin: 0 0 0.5rem 4rem;
     color: white;
+
+    @include respond(phone) {
+      margin-left: 1.5rem;
+    }
   }
 
   .timer {
     width: 15%;
     text-align: center;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 0.5rem;
     color: #fff;
+
+    @include respond(phone) {
+      width: 35%;
+      margin-bottom: 2rem;
+    }
 
     &__title {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     &__time {
@@ -38,27 +58,51 @@
   .drawing-flex {
     display: flex;
     justify-content: space-between;
-    background-image: linear-gradient($color-grey, #fff, #fff, $color-grey);
+    background-image: linear-gradient(
+      $color-grey,
+      #fff,
+      #fff,
+      lighten($color-grey, 5%)
+    );
     padding: 2rem 0.5rem;
     border-radius: 4px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
     width: 95%;
     margin: 0 auto;
 
+    @include respond(phone) {
+      flex-wrap: wrap;
+      padding: 0 1.5rem;
+    }
+
     &__box {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 20%;
 
+      @include respond(phone) {
+        width: 49%;
+        margin: 3.5rem 0;
+      }
+
       &__title {
         border-bottom: 1px solid $primary-color-dark;
         margin-bottom: 0.5rem;
+
+        @include respond(phone) {
+          font-size: 1.9rem;
+        }
       }
 
       &__value {
         color: $secondary-color;
+
+        @include respond(phone) {
+          font-size: 1.8rem;
+        }
       }
     }
 
@@ -80,12 +124,30 @@
     border-radius: 4px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
 
+    @include respond(phone) {
+      width: 75%;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+    }
+
     &--lg {
       width: 90%;
       background: #fff;
 
+      @include respond(phone) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 98%;
+      }
+
       .item {
         width: 49%;
+
+        @include respond(phone) {
+          width: 95%;
+        }
       }
     }
 
@@ -144,14 +206,28 @@
       }
     }
   }
+}
 
-  .drawing-back-arrow {
-    position: absolute;
-    font-size: 4.5rem;
-    top: 2rem;
-    left: 2rem;
-    cursor: pointer;
-    color: $primary-color-dark;
-    z-index: 40;
+.drawing-back-arrow {
+  position: absolute;
+  display: inline-block;
+  padding: 4px;
+  font-size: 5rem;
+  top: -3rem;
+  left: -1rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1;
+  background-color: $primary-color-dark;
+  border-radius: 30px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: lighten($primary-color-dark, 5%);
+    color: #eee;
+  }
+
+  @include respond(mid) {
+    left: 1.5rem;
   }
 }

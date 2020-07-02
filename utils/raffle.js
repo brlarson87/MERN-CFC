@@ -15,12 +15,6 @@ module.exports = function (
   // LOAD SECONDARY PRIZES ARRAY
   //
   let secondaryArr = [];
-  // for (let i = 0; i < secondaryPlaces; i++) {
-  //   let randomNumber = Math.floor(Math.random() * prizeTotal) + 1;
-  //   if (randomNumber !== gp && !secondaryArr.includes(randomNumber))
-  //     secondaryArr.push(randomNumber);
-  // }
-
   while (secondaryArr.length < secondaryPlaces) {
     let randomNumber = Math.floor(Math.random() * prizeTotal) + 1;
     if (randomNumber !== gp && !secondaryArr.includes(randomNumber))
@@ -31,15 +25,7 @@ module.exports = function (
   // LOAD TICKET PRIZES ARRAY
   //
   let ticketArr = [];
-  // for (let i = 0; i < ticketPlaces; i++) {
-  //   let randomNumber = Math.floor(Math.random() * prizeTotal) + 1;
-  //   if (
-  //     randomNumber !== gp &&
-  //     !secondaryArr.includes(randomNumber) &&
-  //     !ticketArr.includes(randomNumber)
-  //   )
-  //     ticketArr.push(randomNumber);
-  // }
+
   while (ticketArr.length < ticketPlaces) {
     let randomNumber = Math.floor(Math.random() * prizeTotal) + 1;
     if (

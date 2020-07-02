@@ -6,15 +6,21 @@
   position: relative;
 
   &--colored {
+    position: relative;
     background: linear-gradient(
       90deg,
       $primary-color-dark,
       lighten($primary-color-dark, 4%)
     );
-    padding-bottom: 6rem;
+    padding-bottom: 5rem;
     margin-bottom: 1rem;
     border-radius: 4px;
     box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.8), 0 -4px 1rem rgba(0, 0, 0, 0.4);
+
+    @include respond(phone) {
+      padding: 3rem 0;
+      margin-bottom: 4rem;
+    }
   }
 }
 
@@ -103,7 +109,7 @@
 }
 
 .u-font-med {
-  font-size: 2rem !important;
+  font-size: 1.8rem !important;
 }
 
 .font-sm {
@@ -175,4 +181,8 @@
 
 .u-display-none {
   display: none !important;
+}
+
+.fa .fas {
+  position: relative;
 }

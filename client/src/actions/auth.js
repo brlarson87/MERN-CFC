@@ -52,7 +52,7 @@ export const login = (email, password, history) => async (dispatch) => {
     });
     dispatch(loadUser());
     history.push("/cars");
-    dispatch(setAlert("Welcome Back!!!", "success alert--main-page"));
+    //dispatch(setAlert("Welcome Back!!!", "success alert--main-page"));
   } catch (error) {
     console.log(error);
     dispatch({

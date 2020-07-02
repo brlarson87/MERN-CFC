@@ -17,7 +17,7 @@ const SingleTicket = (props) => {
         </div>
       ) : (
         <div className='ticket-container__single-ticket ticket-container__single-ticket--secondary'>
-          <i className='fas fa-ticket-alt'>
+          <i className='fas fa-ticket-alt u.position-relative'>
             <span className='ticket-container__single-ticket--number'>
               {formatTicketNumber(props.number, props.total)}
             </span>

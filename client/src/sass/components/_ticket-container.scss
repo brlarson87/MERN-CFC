@@ -8,13 +8,14 @@
   margin-bottom: 12rem;
   padding: 1rem;
   border-radius: 5px;
-  box-shadow: 0rem -1rem 0 #fff, 0rem -2rem 0 #fff,
-    0rem -3rem 1.2rem rgba(0, 0, 0, 0.55), 0rem -4rem 0 $secondary-color,
-    0rem 1rem 0 #fff, 0rem 2rem 0 #fff, 0rem 3rem 1.2rem rgba(0, 0, 0, 0.35),
-    0rem 4rem 0 $secondary-color, -1px -1px 2rem rgba(0, 0, 0, 0.2),
-    1.2rem -2.1rem 0 $secondary-color, -1.2rem 2.1rem 0 $secondary-color;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
 
   @include scroller;
+
+  @include respond(mid) {
+    width: 94%;
+    margin: 0 auto;
+  }
 
   &--secondary {
     box-shadow: none;
@@ -44,13 +45,19 @@
     margin: 1rem 0;
     color: $primary-color-dark;
 
-    @include respond(phone) {
+    @include respond(tab-land) {
+      width: 25%;
+    }
+
+    @include respond(tab-port) {
       width: 33%;
     }
 
     &--secondary {
       font-size: 10rem;
       margin: 0 3rem;
+      display: flex;
+      justify-content: center;
     }
 
     &--single {

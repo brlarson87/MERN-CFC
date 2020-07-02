@@ -31,14 +31,11 @@ const TicketConfirm = ({
 
   const enter = () => {
     if (activeTickets >= ticketAmount) {
-      let modalBackdrop = document.getElementById("modal-content");
-      modalBackdrop.classList.add("flex");
       startLoader();
       enterTickets(ticketAmount, prizeId, activeTickets).then(() => {
         hideConfirmModal();
         setAlert("Good Luck!", "success alert--main-page");
         endLoader();
-        modalBackdrop.classList.remove("flex");
       });
     } else {
       setAlert("You don't have enough tickets", "error alert--main-page");

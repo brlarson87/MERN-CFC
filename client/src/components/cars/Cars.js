@@ -12,6 +12,7 @@ import TicketConfirm from "../modals/TicketConfirm";
 import { loadPrizes } from "../../actions/prizes";
 import { setAlert } from "../../actions/alert";
 import { showConfirmModal } from "../../actions/modal";
+//import { startLoader, endLoader } from "../../actions/loaders";
 //Utilities
 import chunks from "../../utils/chunks";
 
@@ -19,34 +20,40 @@ export const Cars = ({
   loadPrizes,
   prizes,
   loading,
+  loader,
   user,
   showConfirmModal,
   setAlert,
+  startLoader,
+  endLoader,
 }) => {
   useEffect(() => {
     loadPrizes();
   }, [loadPrizes]);
   return (
     <Fragment>
-      <Header />
-      <div className='container'>
-        <TicketConfirm />
-        {/*----------FLEXROW COMPONENT-----------*/}
-        {!loading && prizes ? (
-          prizes.map((chunk, index) => (
-            <FlexRow
-              chunk={chunk}
-              key={index}
-              user={user}
-              showConfirmModal={showConfirmModal}
-              setAlert={setAlert}
-            />
-          ))
-        ) : (
-          <Spinner />
-        )}{" "}
-      </div>
-      {!loading && <Footer />}
+      {loading ? (
+        <Spinner fixer={true} />
+      ) : (
+        <Fragment>
+          <Header />
+          <div className='container'>
+            <TicketConfirm />
+            {/*----------FLEXROW COMPONENT-----------*/}
+            {prizes &&
+              prizes.map((chunk, index) => (
+                <FlexRow
+                  chunk={chunk}
+                  key={index}
+                  user={user}
+                  showConfirmModal={showConfirmModal}
+                  setAlert={setAlert}
+                />
+              ))}
+          </div>
+          <Footer />
+        </Fragment>
+      )}
     </Fragment>
   );
 };
@@ -61,6 +68,7 @@ const mapStateToProps = (state) => ({
   prizes: chunks(state.prizes.prizes),
   loading: state.prizes.loading,
   user: state.auth.user,
+  loader: state.loader.loading,
 });
 
 export default connect(mapStateToProps, {
