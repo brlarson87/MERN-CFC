@@ -136,6 +136,7 @@ router.put("/enterCharity", auth, async (req, res) => {
   const { prizeId, charityId } = req.body;
   const userId = req.user.id;
 
+  //USE CONST VARIABLES ^^^
   try {
     let prize = await Prize.findById(req.body.prizeId);
 

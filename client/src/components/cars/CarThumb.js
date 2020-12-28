@@ -1,14 +1,16 @@
 import React from "react";
 
-const CarThumb = ({ pic, keyy, alternate, changeCount }) => {
+const CarThumb = ({ pic, keyy, alternate, changeCount, count }) => {
   return (
     <div
       className='secondary-image'
       onClick={() => {
+        console.log(keyy)
         changeCount(keyy);
       }}
     >
-      <img src={pic} alt={alternate} className='secondary-image__img' />
+    <img src={pic} alt={alternate} className='secondary-image__img'/>
+      
     </div>
   );
 };

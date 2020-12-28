@@ -6,7 +6,6 @@
   right: 0;
   margin: 0 auto;
   overflow-y: auto;
-  background-color: lighten(grey, 5%);
   padding: 4rem 0 3rem 0;
 
   @include scroller;
@@ -15,9 +14,12 @@
     padding: 4rem 0;
   }
 
+  @include respond(phone) {
+    background-color: #fffdf3;
+  }
+
   .car-title {
     margin: 0 0 0.5rem 4rem;
-    color: white;
 
     @include respond(phone) {
       margin-left: 1.5rem;
@@ -124,8 +126,11 @@
     border-radius: 4px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
 
+    @include respond(tab-land) {
+      width: 55%;
+    }
     @include respond(phone) {
-      width: 75%;
+      width: 95%;
       margin-top: 3rem;
       margin-bottom: 3rem;
       padding: 2rem 0;
@@ -216,7 +221,7 @@
   top: -3rem;
   left: -1rem;
   cursor: pointer;
-  color: #fff;
+  color: #fffdf3;
   z-index: 1;
   background-color: $primary-color-dark;
   border-radius: 30px;
@@ -228,6 +233,6 @@
   }
 
   @include respond(mid) {
-    left: 1.5rem;
+    left: 0;
   }
 }

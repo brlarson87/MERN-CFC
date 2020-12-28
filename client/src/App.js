@@ -19,6 +19,7 @@ import CarDetails from "./components/cars/CarDetails";
 import UserDashboard from "./components/dashboard/UserDashboard";
 import Password from "./components/edits/Password";
 import Drawing from "./components/cars/Drawing";
+import Admin from "./components/auth/Admin"
 //import PrivateRoute from "./components/routing/PrivateRoute";
 
 //ACTIONS
@@ -43,6 +44,7 @@ const App = () => {
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/purchaseTickets' component={PurchaseTickets} />
+          <Route exact path='/admin-priv' component={Admin} />
           <Route exact path='/about' component={About} />
           <Route exact path='/cars' component={Cars} />
           <Route exact path='/carDetails/:id' component={CarDetails} />

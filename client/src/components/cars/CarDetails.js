@@ -188,6 +188,7 @@ const CarDetails = ({
                       key={i}
                       alternate={prize.car}
                       changeCount={changeCount}
+                      count={count}
                     />
                   ))}
               </div>

@@ -67,15 +67,19 @@
   position: relative; }
   .container--colored {
     position: relative;
-    background: linear-gradient(90deg, #520d0d, #641010);
+    background-color: #fffdf3;
     padding-bottom: 5rem;
     margin-bottom: 1rem;
     border-radius: 4px;
-    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.8), 0 -4px 1rem rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.35), 0 -4px 1rem rgba(0, 0, 0, 0.2); }
+    @media (max-width: 85em) {
+      .container--colored {
+        margin: 0 2rem 1rem; } }
     @media (max-width: 37.5em) {
       .container--colored {
         padding: 3rem 0;
-        margin-bottom: 4rem; } }
+        margin-bottom: 4rem;
+        box-shadow: none; } }
 
 .details-container {
   display: flex;
@@ -372,7 +376,7 @@ input:-webkit-autofill {
   padding: 1rem;
   text-transform: uppercase;
   border-radius: 0.5rem;
-  transition: all 0.5s; }
+  transition: all 0.2s; }
 
 .btn--link:hover, .btn--link:active {
   background-image: radial-gradient(#ca1111, #520d0d);
@@ -710,7 +714,6 @@ input:-webkit-autofill {
         width: 100%; }
       .images-container__bottom .secondary-image:hover {
         cursor: pointer;
-        transform: scale(1.02);
         filter: contrast(60%); }
 
 .full-container {
@@ -1166,6 +1169,9 @@ input:-webkit-autofill {
       margin: 0 3rem;
       display: flex;
       justify-content: center; }
+      @media (max-width: 37.5em) {
+        .ticket-container__single-ticket--secondary {
+          margin: 0 2rem; } }
     .ticket-container__single-ticket--single {
       position: absolute;
       top: 50%;
@@ -1626,9 +1632,8 @@ input:-webkit-autofill {
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     font-weight: 400;
-    color: #520d0d;
-    transition: all 0.3s;
-    text-shadow: 1px 1px 2px #000; }
+    color: #7e1414;
+    transition: all 0.3s; }
     @media (max-width: 56.25em) {
       .landing-info--title {
         font-size: 2.2rem;
@@ -1637,8 +1642,6 @@ input:-webkit-autofill {
     @media (max-width: 37.5em) {
       .landing-info--title {
         font-size: 2rem; } }
-    .landing-info--title:hover {
-      color: #7e1414; }
   .landing-info--grid {
     display: flex;
     justify-content: space-around;
@@ -1738,7 +1741,6 @@ input:-webkit-autofill {
   right: 0;
   margin: 0 auto;
   overflow-y: auto;
-  background-color: #8d8d8d;
   padding: 4rem 0 3rem 0; }
   .drawing-container::-webkit-scrollbar {
     width: 0.7rem; }
@@ -1751,9 +1753,11 @@ input:-webkit-autofill {
   @media (max-width: 75em) {
     .drawing-container {
       padding: 4rem 0; } }
+  @media (max-width: 37.5em) {
+    .drawing-container {
+      background-color: #fffdf3; } }
   .drawing-container .car-title {
-    margin: 0 0 0.5rem 4rem;
-    color: white; }
+    margin: 0 0 0.5rem 4rem; }
     @media (max-width: 37.5em) {
       .drawing-container .car-title {
         margin-left: 1.5rem; } }
@@ -1829,9 +1833,12 @@ input:-webkit-autofill {
     padding: 1rem 0;
     border-radius: 4px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4); }
+    @media (max-width: 75em) {
+      .drawing-container .winning-numbers-flex {
+        width: 55%; } }
     @media (max-width: 37.5em) {
       .drawing-container .winning-numbers-flex {
-        width: 75%;
+        width: 95%;
         margin-top: 3rem;
         margin-bottom: 3rem;
         padding: 2rem 0; } }
@@ -1904,7 +1911,7 @@ input:-webkit-autofill {
   top: -3rem;
   left: -1rem;
   cursor: pointer;
-  color: #fff;
+  color: #fffdf3;
   z-index: 1;
   background-color: #520d0d;
   border-radius: 30px;
@@ -1914,4 +1921,4 @@ input:-webkit-autofill {
     color: #eee; }
   @media (max-width: 85em) {
     .drawing-back-arrow {
-      left: 1.5rem; } }
+      left: 0; } }

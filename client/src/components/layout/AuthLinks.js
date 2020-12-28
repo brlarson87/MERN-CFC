@@ -100,6 +100,13 @@ const AuthLinks = ({ user, loading, logout }) => {
               <i className='fas fa-sign-out-alt'></i>&nbsp; Logout
             </Link>
           </li>
+          {user && user.admin && 
+          <li className='main-nav-menu__item'>
+            <Link to='/admin-priv' className='main-nav-menu__item__link' onClick={logout}>
+              <i className='fas fa-sign-out-alt'></i>&nbsp; Admin
+            </Link>
+          </li>}
+          
         </ul>
       </div>
     </Fragment>

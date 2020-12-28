@@ -7,19 +7,20 @@
 
   &--colored {
     position: relative;
-    background: linear-gradient(
-      90deg,
-      $primary-color-dark,
-      lighten($primary-color-dark, 4%)
-    );
+    background-color: #fffdf3;
     padding-bottom: 5rem;
     margin-bottom: 1rem;
     border-radius: 4px;
-    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.8), 0 -4px 1rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.35), 0 -4px 1rem rgba(0, 0, 0, 0.2);
+
+    @include respond(mid) {
+      margin: 0 2rem 1rem;
+    }
 
     @include respond(phone) {
       padding: 3rem 0;
       margin-bottom: 4rem;
+      box-shadow: none;
     }
   }
 }

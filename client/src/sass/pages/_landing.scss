@@ -20,9 +20,8 @@
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     font-weight: 400;
-    color: $primary-color-dark;
+    color: lighten($primary-color-dark, 10%);
     transition: all 0.3s;
-    text-shadow: 1px 1px 2px #000;
 
     @include respond(tab-port) {
       font-size: 2.2rem;
@@ -32,10 +31,6 @@
 
     @include respond(phone) {
       font-size: 2rem;
-    }
-
-    &:hover {
-      color: lighten($primary-color-dark, 10%);
     }
   }
 
