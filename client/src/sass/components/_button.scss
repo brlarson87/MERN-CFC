@@ -32,9 +32,11 @@
       transition: background-color 0.2s;
     }
 
-    &:hover {
-      background-color: darken($secondary-color, 5%);
-      box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+    @media not all and (hover: none) {
+      &:hover {
+        background-color: darken($secondary-color, 5%);
+        box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+      }
     }
   }
 
@@ -47,9 +49,11 @@
       background-image: linear-gradient($primary-color, $primary-color-dark);
     }
 
-    &:hover {
-      background-image: linear-gradient($primary-color-dark, $primary-color);
-      box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+    @media not all and (hover: none) {
+      &:hover {
+        background-image: linear-gradient($primary-color-dark, $primary-color);
+        box-shadow: 0rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+      }
     }
   }
 
@@ -58,9 +62,11 @@
     background-color: $secondary-color;
     border: none;
 
-    &:hover {
-      background-color: darken($secondary-color, 5%);
-    }
+    @media not all and (hover: none) {
+      &:hover {
+        background-color: darken($secondary-color, 5%);
+      }
+   }
 
     &:focus {
       outline: none;
@@ -86,9 +92,12 @@
     cursor: pointer;
     transition: all 0.3s;
 
-    &:hover {
-      box-shadow: 0rem 1.2rem 1.5rem rgba(0, 0, 0, 0.55);
+    @media not all and (hover: none) {
+      &:hover {
+        box-shadow: 0rem 1.2rem 1.5rem rgba(0, 0, 0, 0.55);
+      }
     }
+    
 
     &:active,
     &:focus {
@@ -99,23 +108,28 @@
   &--link {
     &:link,
     &:visited {
+      display: inline-block;
       text-decoration: none;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 600;
-      color: $primary-color;
+      color: #fff; //$primary-color;
       letter-spacing: 1px;
-      padding: 1rem;
+      padding: .9rem;
+      margin-top: .4rem;
       text-transform: uppercase;
       border-radius: 0.5rem;
       transition: all 0.2s;
+      background-image: radial-gradient($primary-color, $primary-color-dark);
     }
 
-    &:hover,
-    &:active {
-      background-image: radial-gradient($primary-color, $primary-color-dark);
-      color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: 0rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
+    @media not all and (hover: none) {
+      &:hover,
+      &:active {
+        background-image: radial-gradient($primary-color, $primary-color-dark);
+        color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
+      }
     }
 
     &-2 {
@@ -137,9 +151,11 @@
         }
       }
 
-      &:hover {
-        color: $secondary-color;
-        text-decoration-color: $secondary-color;
+      @media not all and (hover: none) {
+        &:hover {
+          color: $secondary-color;
+          text-decoration-color: $secondary-color;
+        }
       }
     }
   }
@@ -194,11 +210,13 @@
       }
     }
 
-    &:hover,
-    &:active {
-      transform: translateY(-1px);
-      box-shadow: 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.4);
-    }
+    @media not all and (hover: none) {
+      &:hover,
+      &:active {
+        transform: translateY(-1px);
+        box-shadow: 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.4);
+      }
+   }
   }
 }
 
@@ -207,15 +225,18 @@
   bottom: 1.5rem;
   width: 80%;
   transition: all 0.3s;
+  padding: .8rem;
 
   &--small {
     bottom: -1.5rem;
     text-align: center;
   }
 
-  &:hover {
-    background-color: #eee;
-    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+  @media not all and (hover: none) {
+    &:hover {
+      background-color: #eee;
+      box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+    }
   }
 
   @include respond(tab-port) {
@@ -226,7 +247,7 @@
   @include whiteLinkBtns;
   top: 7rem;
   width: 35%;
-  z-index: 12;
+  z-index: 17;
   transition: all 0.6s;
 
   @include respond(tab-port) {

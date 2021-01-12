@@ -18,16 +18,6 @@
   }
 }
 
-@mixin charityBtnsLinks {
-  cursor: pointer;
-  border-radius: 2px;
-  background-color: darken(#f6f6f6, 25%);
-  color: $primary-color;
-
-  &:hover {
-    background-color: darken(#f6f6f6, 38%);
-  }
-}
 
 @mixin carCardBtns {
   display: block;
@@ -43,6 +33,19 @@
   z-index: 5;
   cursor: pointer;
   text-transform: uppercase;
+
+  @media only screen and (max-height: 785px), screen and (max-width: 845px) {
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 830px) {
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (max-width: 415px) {
+    width: 65%;
+  }
 }
 
 @mixin respond($breakpoint) {
@@ -95,4 +98,11 @@
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
+}
+
+@mixin charityBtnsLinks {
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: darken(#f6f6f6, 25%);
+  color: $primary-color;
 }

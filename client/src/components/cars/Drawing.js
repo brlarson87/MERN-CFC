@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 //COMPONENTS
 import Timer from "./Timer";
 import Spinner from "../layout/Spinner";
+import SingleTicket from "../dashboard/SingleTicket";
 
 //ACTIONS
 import { loadResultAndPrize } from "../../actions/prizes";
@@ -13,7 +14,9 @@ import { startLoader, endLoader } from "../../actions/loaders";
 //UTILS
 import { formatTicketNumber } from "../../utils/numberPoolsEntered";
 
-import SingleTicket from "../dashboard/SingleTicket";
+
+import ticketSvg from "../../img/ticket.svg";
+
 
 const Drawing = ({
   match,
@@ -67,7 +70,7 @@ const Drawing = ({
                 </div>
                 <h1 className='car-title'>{prize.car}</h1>
                 <div className='drawing-flex'>
-                  <div className='drawing-flex__box'>
+                  <div className='drawing-flex__box drawing-flex__box--car-image'>
                     <img
                       className='thumbnail__car-image'
                       src={prize.pictures[0]}
@@ -75,7 +78,7 @@ const Drawing = ({
                     />
                     <Link
                       to={`/cardetails/${prize._id}`}
-                      className='btn-abs-bottom btn-abs-bottom--small'
+                      className='drawing-btn'
                       onClick={() => window.scrollTo(0, 0)}
                     >
                       Details
@@ -93,10 +96,12 @@ const Drawing = ({
 
                   <div className='drawing-flex__box'>
                     <h2 className='drawing-flex__box__title'>Ticket Prize</h2>
-                    <h3>
-                      <i className='fas fa-ticket-alt u-color-secondary u-font-sm'>
+                    <h3 className="u-flex drawing-flex__box__value">
+                      <img className="drawing-ticket" src={ticketSvg} alt=""/>
+                      {/* <i className='fas fa-ticket-alt u-color-secondary u-font-sm'>
                         &nbsp; x {prize.ticketsPrize.amount}
-                      </i>
+                      </i> */}
+                      x {prize.ticketsPrize.amount}
                     </h3>
                   </div>
 
@@ -143,7 +148,8 @@ const Drawing = ({
                       Secondary Winners
                     </h2>
                     <div className='ticket-container ticket-container--secondary'>
-                      {/* Map Secondary Tickets into SingleTicket Component */}
+
+                      {/********** Map Secondary Tickets into SingleTicket Component *********/}
                       {resultData.stopTimer &&
                         result.secondaryPrizes.map((num, index) => (
                           <SingleTicket
@@ -160,7 +166,8 @@ const Drawing = ({
                       Ticket Winners
                     </h2>
                     <div className='ticket-container ticket-container--secondary'>
-                      {/* Map ticketPrize Tickets into SingleTicket Component */}
+
+                      {/***************** Map ticketPrize Tickets into SingleTicket Component *****************/}
                       {resultData.stopTimer &&
                         result.ticketPrizes.map((num, index) => (
                           <SingleTicket

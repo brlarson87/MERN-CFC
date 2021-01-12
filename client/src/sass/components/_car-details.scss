@@ -1,6 +1,14 @@
 .details {
   text-align: center;
-  padding: 4rem;
+  padding: 4rem 4rem 1rem 4rem;
+
+  @media only screen and (max-width: 960px) {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+
+  @media only screen and (max-width: 845px) {
+    padding: 4rem 1rem;
+  }
 
   &__heading--1 {
     color: $primary-color;
@@ -8,6 +16,14 @@
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1rem;
+
+    @media only screen and (max-height: 785px) {
+      font-size: 1.6rem;
+    }
+
+    @media only screen and (max-width: 845px) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__heading--2 {
@@ -15,6 +31,20 @@
     font-size: 1.8rem;
     letter-spacing: 0.4rem;
     margin: 1.8rem 0;
+
+    @media only screen and (max-width: 1536px) {
+      margin: 1.6rem 0;
+    }
+
+    @media only screen and (max-height: 785px) {
+      margin: 1.2rem 0;
+      font-size: 1.4rem;
+    }
+
+    @media only screen and (max-width: 845px) {
+      margin: 2.5rem 0;
+      font-size: 1.6rem;
+    }
   }
 
   &__group {
@@ -42,11 +72,18 @@
   }
 
   &__features {
+
     &--text {
       line-height: 2.5rem;
+      font-weight: 500;
 
-      @include respond(phone) {
-        font-size: 1.2rem;
+      @media only screen and (min-width: 2220px) {
+        font-size: 1.1rem;
+      }
+
+      @media only screen and (max-width: 845px) {
+        margin-top: .5rem;
+        font-size: 1.3rem;
       }
     }
   }
@@ -54,8 +91,12 @@
   &__ticket-form {
     margin-top: 3rem;
 
-    @include respond(phone) {
+    @media only screen and (max-width: 1536px) {
       margin-top: 2rem;
+    }
+
+    @media only screen and (max-width: 845px) {
+      margin-top: 3rem;
     }
 
     &--title {
@@ -63,6 +104,8 @@
       font-size: 1.5rem;
       letter-spacing: 3px;
       text-transform: uppercase;
+      font-size: 1.35rem;
+
     }
 
     &--input {
@@ -71,7 +114,7 @@
       font-weight: 600;
       font-size: 1.6rem;
       margin: 1.5rem auto;
-      width: 40%;
+      width: 90px;
       padding: 1rem 1.75rem 1rem 1rem;
       border-radius: 3px;
       background-color: rgba(0, 0, 0, 0.85);
@@ -79,8 +122,17 @@
       transition: all 0.3s;
       text-align: center;
 
-      @include respond(phone) {
-        width: 25%;
+      @media only screen and (max-width: 960px) {
+        width: 70px;
+        padding: 1rem;
+      }
+
+      @media only screen and (max-height: 785px) {
+        padding: .5rem 1rem;
+      }
+
+      @media only screen and (max-width: 845px) {
+        width: 90px;
       }
 
       &:focus {
@@ -93,4 +145,20 @@
 
 [class^="details__group--"] {
   padding: 2rem;
+
+  @media only screen and (min-width: 2220px) {
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: 1536px) {
+    padding: 1.5rem;
+  }
+
+  @media only screen and (max-height: 785px) {
+    padding: 1.3rem;
+  }
+
+  @media only screen and (max-width: 845px) {
+    padding: 1.75rem;
+  }
 }

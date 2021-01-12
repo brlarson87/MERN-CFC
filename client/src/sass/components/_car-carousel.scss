@@ -5,11 +5,15 @@
 
   &__top {
     position: relative;
-    width: 99%;
+    width: 90%;
     margin: 0 auto;
     border-radius: 0.5rem;
     overflow: hidden;
     margin-top: 4rem;
+
+    @media only screen and (max-width: 845px) {
+      width: 98%;
+    }
 
     @include respond(phone) {
       margin-top: 2rem;
@@ -22,27 +26,35 @@
 
     .arrow {
       position: absolute;
-      width: 5rem;
-      height: 5rem;
-      font-size: 5rem;
-      color: white;
+      color: $primary-color-dark;
       transform: translateY(-50%);
       transition: all 0.3s;
+      cursor: pointer;
+
+      .fa, .fas {
+        font-size: 5rem;
+
+        @media only screen and (max-width: 440px) {
+          font-size: 3.5rem;
+        }
+      }
 
       &-left {
-        top: 48%;
-        left: 0.7rem;
+        top: 50%;
+        left: 0.5rem;
+
+        @media only screen and (max-width: 845px) {
+          left: 2.25rem
+        }
       }
 
       &-right {
-        top: 48%;
+        top: 50%;
         right: 0.5rem;
-      }
 
-      &:hover {
-        cursor: pointer;
-        font-size: 5.5rem;
-        color: $primary-color-dark;
+        @media only screen and (max-width: 845px) {
+          right: 2.25rem
+        }
       }
 
       &:active {
@@ -52,27 +64,56 @@
   }
 
   &__bottom {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-top: 2rem;
-    // margin-left: 6.5rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: max-content;
+    grid-gap: 10px;
+    width: 92%;
+    margin: 2rem auto 0;
+    max-height: 220px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 5px;
+    
+    @include scroller;
 
-    @include respond(phone) {
-      margin-left: 4rem;
+    @media only screen and (min-width: 2220px) {
+      max-height: 280px;
+    }
+
+    @media only screen and (min-width: 2420px) {
+      max-height: 330px;
+    }
+
+    @media only screen and (max-width: 1536px) {
+      max-height: 195px;
+    }
+
+    @media only screen and (max-width: 1080px) {
+      max-height: 180px;
+    }
+
+    @media only screen and (max-width: 900px) {
+      max-height: 170px;
+    }
+
+    @media only screen and (max-width: 845px) {
+      max-height: 315px;
+      width: 98%;
+    }
+
+    @media only screen and (max-width: 550px) {
+      grid-template-columns: repeat(2,1fr);
+      max-height: 330px;
     }
 
     .secondary-image {
-      width: 17.5%;
+      width: 100%;
       margin: 0 1rem;
       transition: 0.2s;
       border-radius: 3px;
       overflow: hidden;
-
-      @include respond(phone) {
-        width: 25%;
-      }
+      justify-self: center;
 
       &__img {
         width: 100%;

@@ -3,20 +3,40 @@
   display: flex;
   padding: 1.5rem;
   justify-content: space-around;
-  width: 60%;
+  max-width: 300px;
   margin: 0 auto;
   z-index: 5;
   cursor: pointer;
 
-  @include respond(phone) {
-    width: 65%;
+  @media only screen and (min-width: 2225px) {
+    max-width: 340px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    max-width: 275px;
+  }
+
+  @media only screen and (max-height: 785px) and (max-width: 1145px) {
+    max-width: 235px;
+  }
+
+  @media only screen and (max-width: 950px) {
+    max-width: 240px;
+  }
+
+  @media only screen and (max-width: 830px) {
+    max-width: 275px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    max-width: 235px;
   }
 
   &__btn {
     background-color: lighten(rgba(0, 0, 0, 0.25), 10%);
     font-size: 1.4rem;
     border-radius: 5px;
-    padding: 0.8rem 2rem;
+    padding: 0.6rem 1.6rem;
     font-weight: 600;
     color: $primary-color;
     transition: transform 0.3s ease;
@@ -26,6 +46,25 @@
     border-top: none;
     cursor: pointer;
     transition: all 0.2s;
+
+    @media only screen and (max-height: 785px) and (max-width: 1145px) {
+      font-size: 1.2rem;
+      padding: .5rem 1.5rem;
+    }
+
+    @media only screen and (max-width: 950px) {
+      font-size: 1.2rem;
+    }
+
+    @media only screen and (max-width: 830px) {
+      font-size: 1.4rem;
+      padding: 1rem 1.9rem;
+    }
+
+    @media only screen and (max-width: 375px) {
+      font-size: 1.3rem;
+      padding: .8rem 1.6rem;
+    }
 
     &:focus {
       outline: none;

@@ -5,7 +5,7 @@
   align-items: flex-start;
   height: 40rem;
   overflow-y: scroll;
-  margin-bottom: 12rem;
+  margin-bottom: 12vh;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), 0px -1px 5px rgba(0, 0, 0, 0.4);
@@ -14,13 +14,33 @@
 
   @include respond(mid) {
     width: 94%;
-    margin: 0 auto;
+    // margin: 4vh auto;
+    margin: 0 auto 12vh;
   }
 
   &--secondary {
     box-shadow: none;
-    height: 25rem;
+    height: 20rem;
     margin-bottom: 0;
+
+    @include respond(mid) {
+      width: 94%;
+      margin: 0 auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+      justify-content: space-between;
+      height: 25rem;
+    }
+
+    @media only screen and (max-width: 400px) {
+      padding: 2rem;
+      height: 30rem;
+    }
+
+    @media only screen and (max-width: 315px) {
+      padding: 1rem;
+    }
   }
 
   &--single {
@@ -53,14 +73,46 @@
       width: 33%;
     }
 
+    
+    @media only screen and (max-width: 450px) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 300px) {
+      width: 100%;
+    }
+
     &--secondary {
       font-size: 10rem;
       margin: 0 3rem;
       display: flex;
       justify-content: center;
 
-      @include respond(phone) {
+      @media only screen and (max-width: 1200px) {
+        width: 20%;
+      }
+
+      @media only screen and (max-width: 1020px) {
+        width: 30%;
+      }
+
+      @media only screen and (max-width: 660px) {
         margin: 0 2rem;
+      }
+
+      @media only screen and (max-width: 600px) {
+        width: 20%;
+        font-size: 12rem;
+      }
+
+      @media only screen and (max-width: 400px) {
+        width: 30%;
+        font-size: 14rem;
+      }
+
+      @media only screen and (max-width: 315px) {
+        width: 75%;
+        font-size: 15rem;
       }
     }
 
@@ -84,6 +136,7 @@
       color: white;
       transform: translate(-50%, -50%);
       letter-spacing: 1px;
+      font-weight: 300;
     }
   }
 }

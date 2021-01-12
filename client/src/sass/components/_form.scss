@@ -14,34 +14,66 @@
     position: absolute;
     top: 10%;
     background-size: cover;
-    padding: 2rem 8rem;
+    padding: 2rem 0;
     text-align: center;
     border-radius: 0.5rem;
     box-shadow: 0.5rem 1.5rem 2rem rgba(0, 0, 0, 0.35);
     border: solid 1px #ddd;
     animation: moveInForm 0.6s linear forwards;
-    width: 33%;
     z-index: 1000;
-    background: #eee;
+    background-color: #eee;
+    width: 600px;
 
-    @include respond(big-desktop) {
-      width: 27%;
+
+    @media only screen and (max-width: 665px) {
+      width: 350px;
     }
 
-    @include respond(mid) {
-      width: 38%;
+    @media only screen and (max-width: 360px) {
+      width: 100%;
     }
 
-    @include respond(tab-land) {
-      width: 45%;
+    &--login {
+      width: 475px;
+
+      @media only screen and (max-width: 500px) {
+        width: 350px;
+      }
+
+      @media only screen and (max-width: 320px) {
+        width: 100%;
+      }
     }
 
-    @include respond(tab-port) {
-      width: 60%;
+    &--buy {
+      width: 460px;
+      padding: 1rem 0;
+
+      @media only screen and (max-width: 475px) {
+        width: 98%;
+      }
     }
 
-    @include respond(phone) {
-      width: 90%;
+    select {
+      padding: .9rem;
+    }
+
+    .form-flex {
+      display: flex;
+      justify-content: center;
+
+      @media only screen and (max-width: 665px) {
+        flex-direction: column;
+      }
+
+      div {
+        width: 95%;
+        margin: 1rem auto;
+
+        @media only screen and (max-width: 665px) {
+          margin: 0 auto;
+        }
+      }
     }
 
     &__title {
@@ -50,23 +82,50 @@
       font-weight: 600;
       color: $primary-color;
       letter-spacing: 0.5rem;
+
+      @media only screen and (max-width: 665px) {
+        margin-bottom: 8px;
+      }
     }
 
     &__form {
       position: relative;
+      width: 100%;
+      justify-content: center;
 
-      @include respond(phone) {
-        width: 75%;
+      &--login {
         margin: 0 auto;
+      
+        .form-container__form--group {
+          width: 65%;
+          margin: 1rem auto;
+
+          @media only screen and (max-width: 565px) {
+            margin: 0 auto;
+            width: 70%;
+          }
+
+          @media only screen and (max-width: 360px) {
+            width: 85%;
+          }
+        }
       }
 
       &--group:not(:last-child) {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+
+        @media only screen and (max-width: 665px) {
+          margin: 1rem auto;
+        }
       }
 
       &--group {
         padding: 0.8rem;
         position: relative;
+
+        @media only screen and (max-width: 665px) {
+          padding: 0.6rem;
+        }
 
         &--title {
           position: absolute;
@@ -88,7 +147,7 @@
         &--input {
           display: block;
           margin: 0 auto;
-          padding: 1rem 2rem 0.8rem 2rem;
+          padding: 1rem;
           font-family: Quicksand, sans-serif;
           font-weight: bold;
           border: none;
@@ -108,10 +167,10 @@
           }
 
           &--sm {
-            width: 30%;
-            padding: 1.5rem 5px 1.5rem 0;
+            width: 90px;
+            padding: 1.2rem 1.4rem;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
           }
 
           &:focus {
@@ -141,12 +200,12 @@
       text-decoration: none;
       color: $primary-color;
       font-weight: 600;
-      margin-top: 4.5rem;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
     }
 
     &__link-title {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       font-size: 1.4rem;
 
       &--link {
@@ -170,7 +229,7 @@
 // PURCHASE AMOUNT STYLES
 
 .purchase-title {
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 1.5rem 0;
   text-align: center;
   font-size: 1.6rem;
 
@@ -178,17 +237,29 @@
 }
 
 .purchase-amount {
-  margin: 2rem 0 2rem 0;
+  margin: 2rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 70%;
+
+  @media only screen and (max-width: 400px) {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 350px) {
+    width: 95%;
+    max-width: 300px;
+  }
 
   &__value {
-    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
     border: 1px solid $primary-color-dark;
     border-radius: 4px;
-    padding: 1.5rem 2rem;
-    text-align: center;
+    padding: 16px 20px;
     cursor: pointer;
     background-color: #fff;
     color: $primary-color-dark;
@@ -201,4 +272,28 @@
 .active-amount {
   background-color: $primary-color-dark;
   color: #fff;
+}
+
+
+.solo {
+  width: 275px;
+  margin: .75rem auto;
+
+  @media only screen and (max-width: 665px) {
+    margin: 0 auto;
+  }
+}
+
+.zip {
+  width: 125px;
+  margin: .75rem auto;
+  text-align: center;
+
+  @media only screen and (max-width: 665px) {
+    margin: 0 auto;
+  }
+}
+
+.zip input {
+  text-align: center;
 }

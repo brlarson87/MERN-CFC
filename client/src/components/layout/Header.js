@@ -12,7 +12,7 @@ const Header = ({ loading, isAuthenticated }) => {
   return (
     <Fragment>
       <header className='header'>
-        <Link to='/' style={{ textDecoration: "none" }}>
+        <Link to='/' style={{ textDecoration: "none" }} onClick={() => window.scrollTo(0, 0)}>
           <h2 className='header__title'>CarsforCauses</h2>
         </Link>
 

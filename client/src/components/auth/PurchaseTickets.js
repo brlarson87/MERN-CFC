@@ -52,7 +52,7 @@ const PurchaseTickets = ({
   return (
     <Fragment>
       <div className='full-container'>
-        <div className='form-container'>
+        <div className='form-container form-container--buy'>
           {loader ? (
             <Spinner />
           ) : (
@@ -112,6 +112,7 @@ const PurchaseTickets = ({
                     onChange={(e) => onChange(e)}
                     autoComplete='off'
                     required
+                    maxLength="3"
                   />
                 </div>
                 <div className='form-container__form--group'>

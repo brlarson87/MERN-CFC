@@ -134,7 +134,7 @@ export const purchaseTickets = (amount, history) => async (dispatch) => {
       payload: res.data,
     });
 
-    history.push("/");
+    history.push("/cars");
   } catch (error) {
     console.log(error);
   }

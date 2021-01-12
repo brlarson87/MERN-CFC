@@ -41,23 +41,29 @@ export const loadSinglePrize = (id) => async (dispatch) => {
   }
 };
 
-export const enterTickets = (amount, prizeId, activeUserTickets) => async (
+
+export const enterTickets = (amount, prizeId) => async (
   dispatch
 ) => {
   const config = setConfigHeader();
-  const body = JSON.stringify({ amount, prizeId, activeUserTickets });
+  const body = JSON.stringify({ amount, prizeId });
 
   try {
     const res = await axios.put("/api/interactive/enterTickets", body, config);
 
+    let { activeReturn, prize, allActivePrizes } = res.data;
+
     dispatch({
       type: ENTER_SUCCESS_USER,
-      payload: res.data.user,
+      payload: { activeReturn, amount: activeReturn.length },
     });
+    
     dispatch({
       type: ENTER_SUCCESS_PRIZE,
-      payload: { prize: res.data.prize, prizes: res.data.allActivePrizes },
+      payload: { prize, allActivePrizes },
     });
+ 
+
   } catch (error) {
     console.log("Enter Tickets Action generator error");
     console.log(error);

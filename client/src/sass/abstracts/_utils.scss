@@ -5,6 +5,11 @@
   padding-top: 3rem;
   position: relative;
 
+  @media only screen and (min-width: 2225px) {
+    max-width: 150rem;
+  }
+
+
   &--colored {
     position: relative;
     background-color: #fffdf3;
@@ -13,13 +18,21 @@
     border-radius: 4px;
     box-shadow: 0 7px 1rem rgba(0, 0, 0, 0.35), 0 -4px 1rem rgba(0, 0, 0, 0.2);
 
-    @include respond(mid) {
-      margin: 0 2rem 1rem;
+    @media only screen and (max-height: 775px) {
+      margin: 0 auto;
     }
 
+    @media only screen and (max-width: 600px) {
+      padding: 6rem 0
+    }
+
+    // @include respond(mid) {
+    //   margin: 0 2rem 1rem;
+    // }
+
     @include respond(phone) {
-      padding: 3rem 0;
-      margin-bottom: 4rem;
+      // padding: 3rem 0;
+      // margin-bottom: 4rem;
       box-shadow: none;
     }
   }
@@ -27,42 +40,81 @@
 
 .details-container {
   display: flex;
-  justify-content: space-between;
-  max-width: $row-width;
+  justify-content: space-evenly;
+  max-width: 134rem;
   margin: 0 auto;
-  margin-bottom: 5rem;
-  margin-top: 9.75rem;
-  //padding-top: 2rem;
-  height: 77rem;
+  margin-bottom: .5rem;
+  margin-top: 8.5vh;
 
-  @include respond(phone) {
+  @media only screen and (min-width: 2620px) {
+    max-width: 150rem;
+    margin-top: 11.5vh;
+  }
+
+  @media only screen and (max-width: 1536px) {
+    max-width: 120rem;
+  }
+
+  @media only screen and (max-width: 845px) {
     flex-direction: column;
-    height: auto;
+    justify-content: center;
+    align-items: center;
   }
 
   .left-col {
-    width: 30%;
+    max-width: 475px;
 
-    @include respond(phone) {
+    @media only screen and (max-width: 845px) {
       width: 98%;
+      max-width: 450px;
     }
   }
 
   .right-col {
-    width: 68%;
-    overflow-y: auto;
-    @include scroller;
+    max-width: 800px;
+    align-self: center;
 
-    @include respond(phone) {
-      width: 98%;
+
+    @media only screen and (min-width: 2220px) {
+      max-width: 875px;
+    }
+
+    @media only screen and (min-width: 2420px) {
+      max-width: 1050px;
+    }
+
+    @media only screen and (max-width: 1536px) {
+      max-width: 650px;
+    }
+
+    @media only screen and (max-width: 1280px) {
+      max-width: 625px;
+    }
+
+    @media only screen and (max-width: 1080px) {
+      max-width: 600px;
+    }
+
+    @media only screen and (max-width: 900px) {
+      max-width: 550px;
+    }
+
+    @media only screen and (max-width: 845px) {
+      max-width: 700px;
       margin: 0 auto;
       margin-bottom: 7rem;
     }
   }
 }
 
+
+
 .u-color-primary {
   color: $primary-color;
+}
+
+.u-color-primary-dark {
+  color: $primary-color-dark;
 }
 
 .u-color-secondary {
@@ -153,9 +205,11 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  &:hover {
-    background-color: #eee;
-    color: $primary-color-dark;
+  @media not all and (hover: none) {
+    &:hover {
+      background-color: #eee;
+      color: $primary-color-dark;
+    }
   }
 }
 
@@ -186,4 +240,9 @@
 
 .fa .fas {
   position: relative;
+}
+
+.u-flex {
+  display: flex;
+  align-items: center;
 }

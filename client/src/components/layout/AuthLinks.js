@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 //Actions
 import { logout } from "../../actions/auth";
 
-//Utils
-import ticketStatus from "../../utils/ticketStatus";
+import ticketSvg from "../../img/ticket.svg"
+
 
 const AuthLinks = ({ user, loading, logout }) => {
   useEffect(() => {
@@ -50,9 +50,8 @@ const AuthLinks = ({ user, loading, logout }) => {
         <span className='menu-icon'>&larr;</span>
       </label>
       <div className='header__icon-ticket'>
-        <i className='fas fa-ticket-alt'>
-          &nbsp; x {!loading && user && ticketStatus(user.tickets).active}
-        </i>
+        <img src={ticketSvg} alt=""/>
+        <span>&nbsp; x {!loading && user && user.useableTickets.length}</span>
       </div>
 
       <div className='pop-out-left'>

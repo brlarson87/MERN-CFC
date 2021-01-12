@@ -1,5 +1,5 @@
 {
   "mongo_URI": "mongodb+srv://blake:blake@cluster0-nn6rs.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "dieseldori1",
-  "adminId": "5d5853fcf7d5284150f911e4"
+  "adminId": ""
 }
