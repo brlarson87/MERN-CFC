@@ -42,7 +42,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  tickets: {
+  useableTickets: {
+    type: [Object]
+  },                          //*********************CHANGE**************************//
+  activeTickets: {
     type: [Object]
   },
   charitiesPledged: {

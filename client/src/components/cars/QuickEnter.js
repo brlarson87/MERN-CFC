@@ -1,9 +1,6 @@
 //CORE REACT
 import React, { Fragment, useState } from "react";
 
-//Utils
-import ticketStatus from "../../utils/ticketStatus";
-
 const QuickEnter = ({
   prizeId,
   user,
@@ -56,18 +53,18 @@ const QuickEnter = ({
     if (!user) {
       return clearAll();
     }
-    let activeUserTickets = ticketStatus(user.tickets).active;
+    
     const safeAmount = ticketTotal + quickData.val <= prizeTotal;
 
     //
     // EDGE CASES: -Make sure there is enough room in the pool -Then User has enough active tickets
     //             compared to the value they entered
     if (safeAmount) {
-      if (quickData.val <= activeUserTickets) {
+      if (quickData.val <= user.useableTickets.length) {
         showConfirmModal(
           quickData.val,
           quickData.prizeId,
-          activeUserTickets,
+          user.useableTickets.length,
           prizeName,
           thumbnail
         );

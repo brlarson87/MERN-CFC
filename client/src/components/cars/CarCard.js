@@ -1,5 +1,5 @@
 //CORE REACT
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 //Components
@@ -10,16 +10,24 @@ import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
 import progressBar from "../../utils/progressBar";
 
+import ticketSvg from "../../img/ticket.svg"
+
 const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
-  let { prizeTotal, ticketPool, car, _id, pictures, charityPool } = prize;
+  let { prizeTotal, ticketPool, car, _id, pictures, charityPool, charityAmount, charityPledgeAmount } = prize;
+
+  const [showCharityList, setShowCharityList] = useState(false);
+  const [locked, setLocked] = useState(false);
+
+  let charityNames = charityPool.map(c => c.name);
 
   if (ticketPool === prizeTotal) {
+    //setLocked({locked: true});
     setTimeout(() => {
       let overlays = document.querySelectorAll(".car-card__bg-overlay");
       [...overlays].forEach((overlay) => {
         if (overlay.getAttribute("value") === _id) {
           overlay.style.backgroundColor = "rgba(0,0,0,.9)";
-          overlay.style.zIndex = 11;
+          overlay.style.zIndex = 17;
         }
       });
 
@@ -35,7 +43,14 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
     <Fragment>
       <div className='car-card'>
         <h2 className='car-card__title'>{car}</h2>
-        <img src={pictures[0]} alt='2020-c8-1' className='car-card__image' />
+        <div className="carImage-container">
+          <img src={pictures[0]} alt='2020-c8-1' className='car-card__image' />
+
+          <div className="charity-amount">
+            <h5>Charity Amount:</h5>
+            <div className="charity-amount__amount">${formatNumber(charityAmount)}</div>
+          </div>
+        </div>
 
         <div className='car-card__bg-overlay' value={_id}>
           &nbsp;
@@ -53,16 +68,18 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
         <div className='car-card__details'>
           {user ? (
             <div className='car-card__details--left u-color-secondary'>
-              <i className='fas fa-ticket-alt'>
-                &nbsp; x {userTickets(user.tickets, _id)}
-              </i>
-              <div className='u-color-primary u-margin-top-sm'>
-                <i className='fas fa-ribbon'>&nbsp; x {charityPool.length}</i>
+              <div className="left-image-container">
+                <img src={ticketSvg} alt="" />
               </div>
+              <span>x {userTickets(user.activeTickets, _id)} </span>
+
+              <i className='fas fa-ribbon' onClick={() => setShowCharityList(true)}></i>
+              <span>x {charityPool.length}</span>
             </div>
           ) : (
-            <div className='car-card__details--left u-color-primary u-margin-top-sm'>
-              <i className='fas fa-ribbon'>&nbsp; x {charityPool.length}</i>
+            <div className='car-card__details--left car-card__details--left--out'>
+              <i className='fas fa-ribbon u-color-secondary' onClick={() => setShowCharityList(true)}></i>
+              <span>x {charityPool.length}</span>
             </div>
           )}
           <div className='car-card__details--right'>
@@ -97,11 +114,27 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
 
         <Link
           to={`/cardetails/${_id}`}
-          className='btn btn--primary u-margin-bottom-sm'
+          className={`btn btn--primary u-margin-bottom-sm ${locked && "inactive"}`}
           onClick={() => window.scrollTo(0, 0)}
         >
           Details
         </Link>
+
+            {/* CHARITY LIST */}
+        {showCharityList && <div className="car-card__charity-list">
+          <h2 className='modal-title'>
+              Charities entered for this pool
+          </h2>
+          <p className="u-margin-top-sm u-color-primary-dark">It takes <strong>{charityPledgeAmount}</strong> tickets entered to pledge a charity</p>
+          <ul className="charity-ul">
+            {charityNames.length ? charityNames.map((name, i) =>  <li className="charity-ul__li" key={i}>{name}</li>) : <li className="charity-ul__li">No charites entered yet</li> }
+          </ul>
+          <div className='exit-container' onClick={() => setShowCharityList(false)}>
+            <i className='fas fa-times'></i>
+          </div>
+        </div> }
+
+
       </div>
     </Fragment>
   );

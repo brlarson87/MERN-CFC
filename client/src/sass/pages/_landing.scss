@@ -4,6 +4,12 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+
+  // @media only screen and (max-width: 1000px) {
+  //   background: url("./img/mobile-lambo-1.jpg") no-repeat center center fixed;
+  // }
+  
 }
 .landing-info {
   background-color: #eee;
@@ -39,7 +45,7 @@
     justify-content: space-around;
     margin: 0 15rem;
 
-    @include respond(mid) {
+    @media only screen and (max-width: 1500px) {
       margin: 0;
     }
 
@@ -52,31 +58,38 @@
 
   &--box {
     position: relative;
-    width: 25%;
+    width: 350px;
     background-image: linear-gradient(
       to bottom right,
       $primary-color,
       $primary-color-dark
     );
     color: white;
-    padding: 2rem;
+    padding: 20px 30px 80px 30px;
     border-radius: 0.5rem;
-    padding-bottom: 5rem;
     box-shadow: 1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.35);
 
-    @include respond(mid) {
-      width: 30%;
+    @media only screen and (min-width: 2000px) {
+      width: 475px;
+      padding: 30px 30px 200px 30px;
+    }
+
+    @media only screen and (max-width: 1125px) {
+      width: 275px;
+    }
+
+    @media only screen and (max-width: 900px) {
+      width: 450px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      width: 90%;
     }
 
     &:not(:last-child) {
       @include respond(tab-port) {
         margin-bottom: 6rem;
       }
-    }
-
-    @include respond(tab-port) {
-      width: 75%;
-      padding: 2.5rem 1rem 2rem 1rem;
     }
 
     &--heading {
@@ -129,11 +142,14 @@
 
     &__title {
       color: white;
-      font-size: 3rem;
+      font-size: 2.7rem;
       font-weight: 300;
       text-transform: uppercase;
       white-space: nowrap;
-      //margin-bottom: 2rem;
+
+      @media only screen and (max-width: 1125px) {
+        font-size: 2rem;
+      }
 
       @include respond(phone) {
         font-size: 2rem;
@@ -150,9 +166,10 @@
   font-size: 4rem;
   color: $primary-color;
 
-  @include respond(mid) {
+  @media only screen and (max-width: 1500px) {
     display: none;
   }
+
 }
 
 .is-visible {

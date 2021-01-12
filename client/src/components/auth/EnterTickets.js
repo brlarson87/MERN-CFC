@@ -44,7 +44,7 @@ const EnterTickets = ({
       amount = obj.amount;
       const safeAmount = ticketTotal + amount <= prizeTotal;
       if (safeAmount) {
-        if (amount && amount <= activeUserTickets) {
+        if (safeAmount && safeAmount <= activeUserTickets) {
           showConfirmModal(amount, id, activeUserTickets, prizeName, thumbnail);
         } else {
           setAlert(
@@ -85,6 +85,7 @@ const EnterTickets = ({
             onChange={(e) => onChange(e)}
             className='details__ticket-form--input'
             autoComplete='off'
+            maxLength="3"
           />
           <input
             type='submit'

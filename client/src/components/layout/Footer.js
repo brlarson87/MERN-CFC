@@ -31,7 +31,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <ul className='footer__nav footer__nav--right u-margin-top-sm'>
+        <ul className='footer__nav footer__nav--right'>
           <li className='footer__nav--item footer__nav--item--sub'>
             <Link to='/' className='footer__nav--link'>
               Support the site

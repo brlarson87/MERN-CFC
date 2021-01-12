@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
         ...state,
         user: {
           ...state.user,
-          tickets: [...state.user.tickets, ...payload],
+          useableTickets: [...state.user.useableTickets, ...payload],
         },
         loading: false,
       };
@@ -62,7 +62,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        user: payload,
+        user: {
+          ...state.user,
+          activeTickets: [...state.user.activeTickets, ...payload.activeReturn],
+          useableTickets: state.user.useableTickets.slice(0, state.user.useableTickets.length - payload.amount)
+        },
       };
     default:
       return state;

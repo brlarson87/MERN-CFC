@@ -5,7 +5,7 @@ const CarThumb = ({ pic, keyy, alternate, changeCount, count }) => {
     <div
       className='secondary-image'
       onClick={() => {
-        console.log(keyy)
+        console.log(count)
         changeCount(keyy);
       }}
     >

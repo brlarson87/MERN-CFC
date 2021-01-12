@@ -30,10 +30,10 @@ const Login = ({ isAuthenticated, login, user, history }) => {
   return (
     <Fragment>
       <div className='full-container'>
-        <div className='form-container'>
+        <div className='form-container form-container--login'>
           <h2 className='form-container__title'>CfC</h2>
 
-          <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
+          <form onSubmit={(e) => onSubmit(e)} className='form-container__form form-container__form--login'>
             <div className='form-container__form--group'>
               <div className='form-container__form--group--title'>Email</div>
               <input

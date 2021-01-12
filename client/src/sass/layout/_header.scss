@@ -5,8 +5,9 @@
   right: 0;
   background-color: #fff;
   padding: 2rem 0;
-  z-index: 16;
+  z-index: 20;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+
 
   @include respond(phone) {
     padding: 2rem 0;
@@ -14,33 +15,70 @@
 
   &__title {
     font-size: 3rem;
-    // animation-name: moveInTop;
-    // animation-duration: 1s;
     letter-spacing: 0.5rem;
     font-weight: 300;
-    color: $primary-color;
+    color: lighten($primary-color-dark, 10%);
     transition: all 0.3s;
-    margin-left: 20.5rem;
+    margin-left: 6.5rem;
     display: inline-block;
+
+    @media only screen and (max-height: 785px), screen and (max-width: 845px) {
+      font-size: 2.2rem;
+    }
 
     @include respond(tab-port) {
       text-align: left;
       letter-spacing: 3px;
       margin-left: 2rem;
     }
+
+    @media only screen and (max-width: 308px) {
+      letter-spacing: 1px;
+      margin-left: 7px;
+    }
   }
 
   &__icon-ticket {
+    display: flex;
+    align-items: center;
     position: fixed;
-    top: 2.8rem;
-    right: 10.5rem;
+    top: 2.6rem;
+    right: 9.5rem;
     z-index: 2000;
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: $secondary-color;
     transition: all 0.35s;
 
-    @include respond(phone) {
-      top: 3rem;
+    @media only screen and (max-height: 785px) {
+      top: 1.8rem;
+      right: 8.5rem;
+      font-size: 1.6rem;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      top: 2rem;
+    }
+
+    @media only screen and (max-width: 845px) {
+      top: 1.6rem;
+      right: 8rem;
+    }
+
+    @media only screen and (max-width: 400px) {
+      font-size: 1.4rem;
+      top: 1.75rem;
+    }
+
+    span {
+      font-weight: 500;
+    }
+
+    img {
+      width: 40px;
+
+      @media only screen and (max-width: 400px) {
+        width: 35px;
+      }
     }
   }
 }
@@ -48,12 +86,12 @@
 .main-nav-menu {
   opacity: 0;
   list-style: none;
-  font-size: 2rem;
+  font-size: 1.7rem;
   transition: all 1s;
   transition-delay: 1s;
   padding-top: 1rem;
   text-align: left;
-  margin-left: 3.5rem;
+  margin-left: 2rem;
 
   @include respond(tab-port) {
     margin-left: 1.5rem;
@@ -61,19 +99,23 @@
 
   @include respond(phone) {
     margin-left: 0;
-    padding-top: 5rem;
+    padding-top: 7rem;
   }
 
   &__item {
     display: block;
-    padding: 1.5rem;
+    padding: 1.2rem;
+
+    @include respond(phone) {
+      padding: 1rem;
+    }
 
     &__link {
       &:link,
       &:visited {
         text-decoration: none;
         color: $primary-color;
-        padding: 1.5rem;
+        padding: 1.2rem;
         display: block;
         transition: all 0.6s;
         backface-visibility: hidden;
@@ -87,12 +129,20 @@
         background-size: 240%;
       }
 
-      &:hover,
-      &:active {
+      
+
+      @media not all and (hover: none) {
+        &:hover,
+        &:active {
         background-position: 100%;
         background-color: $primary-color-dark;
         color: white;
         border-bottom: none;
+      }
+      }
+
+      @include respond(phone) {
+        font-size: 1.8rem;
       }
     }
   }
@@ -112,14 +162,18 @@
   border-radius: 50%;
   background-image: linear-gradient($primary-color, $primary-color-dark);
   transition: all 0.35s;
+  cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-    background-image: linear-gradient($primary-color-dark, $primary-color);
-  }
+  @media not all and (hover: none) {
+    &:hover {
+      background-image: linear-gradient($primary-color-dark, $primary-color);
+    }
+  } 
 
-  @include respond(phone) {
-    top: 2rem;
+  @media only screen and (max-height: 785px), screen and (max-width: 845px)  {
+    top: 1.6rem;
+    height: 4rem;
+    width: 4rem;
   }
 }
 
@@ -132,8 +186,9 @@
   transition: all 0.35s;
   user-select: none;
 
-  @include respond(phone) {
-    top: 7%;
+  @media only screen and (max-height: 785px), screen and (max-width: 845px) {
+    top: 8%;
+    font-size: 2.2rem;
   }
 }
 
@@ -147,7 +202,7 @@
     lighten($secondary-color, 30%),
     #fff
   );
-  border-left: solid 2px $primary-color;
+  border-left: solid 14px lighten($secondary-color, 15%);
   top: 0;
   z-index: 200;
   right: 0rem;
@@ -173,35 +228,19 @@
 //
 
 .menu-btn.open {
-  transform: translateX(-24vw) rotate(180deg);
-
-  @include respond(mid) {
-    transform: translateX(-28vw) rotate(180deg);
-  }
-
-  @include respond(tab-port) {
-    transform: translateX(-40vw) rotate(180deg);
-  }
+  transform: translateX(-340px) rotate(180deg);
 
   @include respond(phone) {
-    transform: translateX(-44vw) rotate(180deg);
+    transform: translateX(-148px) rotate(180deg);
   }
 }
 
 .pop-out-left.show {
-  width: 25vw;
+  width: 350px;
   opacity: 1;
 
-  @include respond(mid) {
-    width: 30vw;
-  }
-
-  @include respond(tab-port) {
-    width: 42vw;
-  }
-
   @include respond(phone) {
-    width: 47vw;
+    width: 225px;
   }
 }
 
@@ -219,18 +258,18 @@
 }
 
 .move-ticket {
-  transform: translateX(-24vw);
+  transform: translateX(-335px);
 
-  @include respond(mid) {
-    transform: translateX(-27vw);
+  @media only screen and (max-width: 830px) {
+    transform: translateX(-345px);
   }
 
-  @include respond(tab-port) {
-    transform: translateX(-38vw);
+  @media only screen and (max-width: 600px) {
+    transform: translateX(-20px);
   }
 
-  @include respond(phone) {
-    transform: translateX(-15vw);
+  @media only screen and (max-width: 400px) {
+    transform: translateX(-38px);
   }
 }
 

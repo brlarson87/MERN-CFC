@@ -42,14 +42,12 @@ export default function (state = initialState, action) {
         loading: false,
         prize: null,
       };
-    // ******** TODO: Update prizes and single prize so the ticketPool re-render happens on carcard  ****
-    // ******** DID 5/21  **********
     case ENTER_SUCCESS_PRIZE:
       return {
         ...state,
         loading: false,
         prize: payload.prize,
-        prizes: payload.prizes,
+        prizes: payload.allActivePrizes,
       };
     case PRIZE_PLEDGE_SUCCESS:
       return {
@@ -61,3 +59,4 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+

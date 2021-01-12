@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 import Header from "../layout/Header";
 import UserPools from "./UserPools";
 //Utils
-import ticketStatus from "../../utils/ticketStatus";
 import { numberPoolsEntered } from "../../utils/numberPoolsEntered";
 import { checkIfEligibleForPledge } from "../../utils/charityEligible";
 //Actions
@@ -25,7 +24,9 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
       <div className='container'>
         <div className='dashboard'>
           <h2 className='dashboard__title'>My Account</h2>
-          <div className='breaker'>&nbsp;</div>
+          {/* <div className='breaker'>&nbsp;</div> */}
+
+          {/************ ROW OF INFORMATION *********/}
           <div className='row'>
             <div className='col-1-3'>
               <h4 className='cover-title'>Personal</h4>
@@ -42,7 +43,7 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
                   {user.address.zipCode}
                 </span>
               )}
-              <a href='/' className='btn--link'>
+              <a href='/' className='btn--link u-margin-right-sm'>
                 Edit
               </a>
               <Link to='/changePassword' className='btn--link'>
@@ -52,21 +53,21 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
             <div className='col-1-3'>
               <h4 className='cover-title'>Ticket</h4>
               <span className='info'>
-                Pending Tickets... &nbsp; &times;&nbsp;
-                <span className='number number-live'>
-                  {user && ticketStatus(user.tickets).live}
+                Unused Tickets... &nbsp; &times;&nbsp;
+                <span className='number'>
+                  {user && user.useableTickets.length}
                 </span>
               </span>
               <span className='info'>
                 Active Tickets... &nbsp; &times;&nbsp;
-                <span className='number number-active'>
-                  {user && ticketStatus(user.tickets).active}
+                <span className='number'>
+                  {user && user.activeTickets.length}
                 </span>
               </span>
               <span className='info'>
                 Pools entered... &nbsp; &times;&nbsp;
-                <span className='number number-pools'>
-                  {user && numberPoolsEntered(user.tickets)}
+                <span className='number'>
+                  {user && numberPoolsEntered(user.activeTickets)}
                 </span>
               </span>
               <Link to='/purchaseTickets' className='btn--link'>
@@ -85,11 +86,11 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
               {user &&
                 prizes &&
                 checkIfEligibleForPledge(
-                  user.tickets,
+                  user.activeTickets,
                   prizes,
                   user.charitiesPledged
                 ).eligible && (
-                  <span className='info'>
+                  <span className='info u-margin-bottom-sm'>
                     you're elible to pick a charity
                     <Link
                       to='/charities'
@@ -105,14 +106,16 @@ const UserDashboard = ({ user, prizes, loadPrizes }) => {
               </a>
             </div>
           </div>
+
+
           <h2 className='dashboard__title'>My pools</h2>
-          <div className='breaker'>&nbsp;</div>
+          {/* <div className='breaker'>&nbsp;</div> */}
           {/*****************************************/}
           {/*----------USERPOOLS COMPONENT-----------*/}
           {/*****************************************/}
           {user && prizes && (
             <UserPools
-              tickets={user.tickets}
+              tickets={user.activeTickets}
               prizes={prizes}
               userCharities={user.charitiesPledged}
             />

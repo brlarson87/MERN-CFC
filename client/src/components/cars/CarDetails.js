@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 //Utils
 import formatNumber from "../../utils/formatNumber";
 import ticketsEnteredInPool from "../../utils/ticketsEnteredInPool";
-import ticketStatus from "../../utils/ticketStatus";
 
 //Actions
 import { showConfirmModal } from "../../actions/modal";
@@ -82,7 +81,7 @@ const CarDetails = ({
                   <span className='details__group--left'>Your Tickets</span>
                   <span className='details__group--right'>
                     {!loading && user && prize
-                      ? ticketsEnteredInPool(user.tickets, match.params.id)
+                      ? ticketsEnteredInPool(user.activeTickets, match.params.id)
                       : 0}
                   </span>
                 </div>
@@ -140,7 +139,7 @@ const CarDetails = ({
                   id={prize._id}
                   ticketTotal={prize.ticketPool}
                   showConfirmModal={showConfirmModal}
-                  activeUserTickets={ticketStatus(user.tickets).active}
+                  activeUserTickets={user.activeTickets.length}
                   prizeName={prize.car}
                   thumbnail={prize.pictures[0]}
                   prizeTotal={prize.prizeTotal}

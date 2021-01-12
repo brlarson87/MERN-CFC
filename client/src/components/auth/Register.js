@@ -49,11 +49,13 @@ const Register = ({ register, setAlert, history }) => {
       register(formData, history);
     } else {
       return setAlert(
-        "Passwords must be 8 characters long containing 1 capital letter and 1 special character...",
+        "Passwords must be 8 characters long containing 1 capital letter and 1 special character...",  //**********VALIDATE PASSWORD NOT WORKING*************/
         "error"
       );
     }
   };
+  // register(formData, history);
+  // };
 
   return (
     <Fragment>
@@ -62,144 +64,151 @@ const Register = ({ register, setAlert, history }) => {
           <h2 className='form-container__title'>CfC</h2>
 
           <form onSubmit={(e) => onSubmit(e)} className='form-container__form'>
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>First Name</h5>
-              <input
-                type='text'
-                name='firstName'
-                className='form-container__form--group--input'
-                value={firstName}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
-            </div>
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>Last Name</h5>
-              <input
-                type='text'
-                name='lastName'
-                className='form-container__form--group--input'
-                value={lastName}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
-            </div>
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>Email</h5>
-              <input
-                type='email'
-                name='email'
-                className='form-container__form--group--input'
-                value={email}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
-            </div>
+          <div className="form-flex">
+              <div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>First Name</h5>
+                  <input
+                    type='text'
+                    name='firstName'
+                    className='form-container__form--group--input'
+                    value={firstName}
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  />
+                </div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>Last Name</h5>
+                  <input
+                    type='text'
+                    name='lastName'
+                    className='form-container__form--group--input'
+                    value={lastName}
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  />
+                </div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>Email</h5>
+                  <input
+                    type='email'
+                    name='email'
+                    className='form-container__form--group--input'
+                    value={email}
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  />
+                </div>
+              </div>
 
-            {/* <h2 className='form-container__title secondary--title'>Address</h2> */}
+              {/* <h2 className='form-container__title secondary--title'>Address</h2> */}
+              <div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>
+                    Street Name
+                  </h5>
+                  <input
+                    type='text'
+                    name='streetName'
+                    className='form-container__form--group--input'
+                    value={streetName}
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  />
+                </div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>city</h5>
+                  <input
+                    type='text'
+                    name='city'
+                    className='form-container__form--group--input'
+                    value={city}
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  />
+                </div>
+                <div className='form-container__form--group'>
+                  <h5 className='form-container__form--group--title'>state</h5>
+                  <select
+                    className='form-container__form--group--input'
+                    name='state'
+                    onChange={(e) => onChange(e)}
+                    autoComplete='off'
+                  >
+                    <option value={state}></option>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>Arizona</option>
+                    <option>Arkansas</option>
+                    <option>California</option>
+                    <option>Colorado</option>
+                    <option>Connecticut</option>
+                    <option>Delaware</option>
+                    <option>District Of Columbia</option>
+                    <option>Florida</option>
+                    <option>Georgia</option>
+                    <option>Hawaii</option>
+                    <option>Idaho</option>
+                    <option>Illinois</option>
+                    <option>Indiana</option>
+                    <option>Iowa</option>
+                    <option>Kansas</option>
+                    <option>Kentucky</option>
+                    <option>Louisiana</option>
+                    <option>Maine</option>
+                    <option>Maryland</option>
+                    <option>Massachusetts</option>
+                    <option>Michigan</option>
+                    <option>Minnesota</option>
+                    <option>Mississippi</option>
+                    <option>Missouri</option>
+                    <option>Montana</option>
+                    <option>Nebraska</option>
+                    <option>Nevada</option>
+                    <option>New Hampshire</option>
+                    <option>New Jersey</option>
+                    <option>New Mexico</option>
+                    <option>New York</option>
+                    <option>North Carolina</option>
+                    <option>North Dakota</option>
+                    <option>Ohio</option>
+                    <option>Oklahoma</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Rhode Island</option>
+                    <option>South Carolina</option>
+                    <option>South Dakota</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Utah</option>
+                    <option>Vermont</option>
+                    <option>Virginia</option>
+                    <option>Washington</option>
+                    <option>West Virginia</option>
+                    <option>Wisconsin</option>
+                    <option>Wyoming</option>
+                  </select>
+                </div>
 
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>
-                Street Name
-              </h5>
-              <input
-                type='text'
-                name='streetName'
-                className='form-container__form--group--input'
-                value={streetName}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
-            </div>
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>city</h5>
-              <input
-                type='text'
-                name='city'
-                className='form-container__form--group--input'
-                value={city}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
-            </div>
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>state</h5>
-              <select
-                className='form-container__form--group--input'
-                name='state'
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              >
-                <option value={state}></option>
-                <option>Alabama</option>
-                <option>Alaska</option>
-                <option>Arizona</option>
-                <option>Arkansas</option>
-                <option>California</option>
-                <option>Colorado</option>
-                <option>Connecticut</option>
-                <option>Delaware</option>
-                <option>District Of Columbia</option>
-                <option>Florida</option>
-                <option>Georgia</option>
-                <option>Hawaii</option>
-                <option>Idaho</option>
-                <option>Illinois</option>
-                <option>Indiana</option>
-                <option>Iowa</option>
-                <option>Kansas</option>
-                <option>Kentucky</option>
-                <option>Louisiana</option>
-                <option>Maine</option>
-                <option>Maryland</option>
-                <option>Massachusetts</option>
-                <option>Michigan</option>
-                <option>Minnesota</option>
-                <option>Mississippi</option>
-                <option>Missouri</option>
-                <option>Montana</option>
-                <option>Nebraska</option>
-                <option>Nevada</option>
-                <option>New Hampshire</option>
-                <option>New Jersey</option>
-                <option>New Mexico</option>
-                <option>New York</option>
-                <option>North Carolina</option>
-                <option>North Dakota</option>
-                <option>Ohio</option>
-                <option>Oklahoma</option>
-                <option>Oregon</option>
-                <option>Pennsylvania</option>
-                <option>Rhode Island</option>
-                <option>South Carolina</option>
-                <option>South Dakota</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Utah</option>
-                <option>Vermont</option>
-                <option>Virginia</option>
-                <option>Washington</option>
-                <option>West Virginia</option>
-                <option>Wisconsin</option>
-                <option>Wyoming</option>
-              </select>
-            </div>
-
-            <div className='form-container__form--group'>
-              <h5 className='form-container__form--group--title'>zip code</h5>
-              <input
-                type='text'
-                name='zipCode'
-                className='form-container__form--group--input'
-                value={zipCode}
-                onChange={(e) => onChange(e)}
-                autoComplete='off'
-              />
+              </div>
             </div>
             {/* <div className='form-container__form--password-container'>
               <div className='password-input-block'> */}
 
-            <div className='form-container__form--group'>
+            <div className='form-container__form--group zip'>
+                <h5 className='form-container__form--group--title'>zip code</h5>
+                <input
+                  type='text'
+                  name='zipCode'
+                  className='form-container__form--group--input'
+                  value={zipCode}
+                  onChange={(e) => onChange(e)}
+                  autoComplete='off'
+                  maxLength="5"
+                />
+              </div>  
+
+            <div className='form-container__form--group solo'>
               <h5 className='form-container__form--group--title'>Password</h5>
               <input
                 type='password'
@@ -214,7 +223,7 @@ const Register = ({ register, setAlert, history }) => {
 
             {/* <div className='password-input-block'> */}
 
-            <div className='form-container__form--group'>
+            <div className='form-container__form--group solo'>
               <h5 className='form-container__form--group--title'>
                 confirm password
               </h5>

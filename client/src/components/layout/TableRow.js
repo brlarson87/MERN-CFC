@@ -7,7 +7,7 @@ import { checkIfEligibleForPledge } from "../../utils/charityEligible";
 const TableRow = ({ user, prizes, showCharityConfirmation, charity }) => {
   const showModal = () => {
     let prizeEligibleArray = checkIfEligibleForPledge(
-      user.tickets,
+      user.activeTickets,
       prizes,
       user.charitiesPledged
     ).prizesEligibleFor;
@@ -38,7 +38,7 @@ const TableRow = ({ user, prizes, showCharityConfirmation, charity }) => {
           {user &&
             prizes &&
             checkIfEligibleForPledge(
-              user.tickets,
+              user.activeTickets,
               prizes,
               user.charitiesPledged
             ).eligible && (

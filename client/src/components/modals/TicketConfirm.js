@@ -32,7 +32,7 @@ const TicketConfirm = ({
   const enter = () => {
     if (activeTickets >= ticketAmount) {
       startLoader();
-      enterTickets(ticketAmount, prizeId, activeTickets).then(() => {
+      enterTickets(ticketAmount, prizeId).then(() => {
         hideConfirmModal();
         setAlert("Good Luck!", "success alert--main-page");
         endLoader();
@@ -51,6 +51,7 @@ const TicketConfirm = ({
               <Spinner />
             ) : (
               <Fragment>
+                <h3 className="confirm-warning">You sure you want to enter? Tickets can not be refunded once entered!</h3>
                 <div className='ticket-confirm-container'>
                   <div className='car-image'>
                     <img

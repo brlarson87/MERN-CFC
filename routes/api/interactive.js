@@ -7,7 +7,6 @@ const Prize = require("../../models/PrizePool");
 const Ticket = require("../../models/Ticket");
 const Charity = require("../../models/Charity");
 const Result = require("../../models/Result");
-//const { ObjectId } = require("mongodb");
 
 //UTILS
 const raffle = require("../../utils/raffle");
@@ -21,7 +20,6 @@ router.put(
   [
     check("amount", "Amount is required").exists(),
     check("prizeId", "prizeId is required").exists(),
-    check("activeUserTickets", "Active number of tickets is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -30,35 +28,64 @@ router.put(
       return res.status(422).json({ errors: errors.array() });
     }
 
+    const { prizeId, amount } = req.body;
+
     try {
-      let prize = await Prize.findById(req.body.prizeId);
+      let prize = await Prize.findById(prizeId);
+      let { prizeTotal } = prize;
 
       let user = await User.findById(req.user.id);
-      let startingIndex = user.tickets.length - req.body.activeUserTickets;
+      let { _id, useableTickets, activeTickets} = user;
 
-      for (
-        let i = startingIndex;
-        i < startingIndex + req.body.amount &&
-        prize.ticketPool < prize.prizeTotal;
-        i++
-      ) {
-        let ticketNumber = prize.ticketPool + 1;
+      let activeReturn = [];
 
-        let overRidingTicket = {
-          prizeId: prize._id,
-          userId: req.user.id,
-          ticketNumber,
-          datePurchased: user.tickets[i].datePurchased,
-        };
+      if(prize.ticketPool + amount <= prizeTotal) {
+        for (let i = 0; i < amount; i++) {
+          let ticketNumber = prize.ticketPool + 1;
 
-        user.tickets.set(i, overRidingTicket);
+          let activeTicket = {
+            prizeId,
+            userId: _id,
+            ticketNumber,
+            datePurchased: useableTickets[useableTickets.length - 1].datePurchased,
+          };
 
-        await user.save();
-        let ticket = new Ticket(overRidingTicket);
-        prize.ticketPool += 1;
-        await ticket.save();
-        await prize.save();
+          useableTickets.pop();
+          activeTickets.push(activeTicket);
+          activeReturn.push(activeTicket);
+
+          await user.save();
+          prize.ticketPool += 1;
+          await prize.save();
+          let ticket = new Ticket(activeTicket);
+          await ticket.save();
+          
+        }
       }
+      // for (
+      //   let i = startingIndex;
+      //   i < startingIndex + req.body.amount &&
+      //   prize.ticketPool < prize.prizeTotal;
+      //   i++
+      // ) {
+      //   let ticketNumber = prize.ticketPool + 1;
+
+      //   let overRidingTicket = {
+      //     prizeId: prize._id,
+      //     userId: req.user.id,
+      //     ticketNumber,
+      //     datePurchased: user.tickets[i].datePurchased,
+      //   };
+
+      //   user.tickets.set(i, overRidingTicket);
+
+
+      //   await user.save();
+      //   let ticket = new Ticket(overRidingTicket);
+      //   prize.ticketPool += 1;
+      //   await ticket.save();
+      //   await prize.save();
+      // }
 
       //*****************************************************************//
       //************* CREATE RESULT IF PRIZEPOOL FILLS*******************//
@@ -121,7 +148,8 @@ router.put(
 
       let allActivePrizes = await Prize.find({ active: true });
 
-      res.json({ prize, user, allActivePrizes });
+      res.json({ prize, activeReturn, allActivePrizes });
+
     } catch (error) {
       console.log(error);
       res.status(404).json({ error: error });
@@ -136,13 +164,12 @@ router.put("/enterCharity", auth, async (req, res) => {
   const { prizeId, charityId } = req.body;
   const userId = req.user.id;
 
-  //USE CONST VARIABLES ^^^
   try {
-    let prize = await Prize.findById(req.body.prizeId);
+    let prize = await Prize.findById(prizeId);
 
-    let user = await User.findById(req.user.id);
+    let user = await User.findById(userId);
 
-    let charity = await Charity.findById(req.body.charityId);
+    let charity = await Charity.findById(charityId);
 
     let charityUser = {
       userId,

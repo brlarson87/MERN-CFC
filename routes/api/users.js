@@ -57,13 +57,13 @@ router.post(
         },
       });
 
-      // const { admin } = req.body;
+      const { admin } = req.body;
 
-      // if (admin) {
-      //   user.admin = true;
-      // } else {
-      //   user.admin = false;
-      // }
+      if (admin) {
+        user.admin = true;
+      } else {
+        user.admin = false;
+      }
 
       const salt = await bcrypt.genSalt(10);
 
@@ -106,16 +106,14 @@ router.post(
     }
 
     const ticketAmount = req.body.amount;
-    let returnArray = [];
 
     try {
       let user = await User.findById({ _id: req.user.id });
 
-      for (let i = 0; i < ticketAmount; i++) {
-        returnArray.push(setTicket(user._id));
-        user.tickets.push(setTicket(user._id));
-        await user.save();
-      }
+      let returnArray = setTicket(user._id, ticketAmount);
+
+      user.useableTickets.push(...returnArray);
+      await user.save();
 
       res.json(returnArray);
     } catch (error) {
@@ -130,7 +128,8 @@ router.delete("/deleteTickets", auth, async (req, res) => {
   try {
     let user = await User.findById(req.user.id);
 
-    user.tickets = [];
+    user.useableTickets = [];
+    user.activeTickets = [];                         //***************************************CLEARED BOTH ARRAYS***************************************//
     user.charitiesPledged = [];
 
     await user.save();
