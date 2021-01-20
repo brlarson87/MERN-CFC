@@ -131,6 +131,10 @@
 
 #modal-content-charity {
   padding: 0;
+  max-height: 80vh;
+  overflow-y: scroll;
+
+  @include scroller;
 
   .car-image {
     width: 40%;

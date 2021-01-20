@@ -242,12 +242,13 @@
     transform: translateX(-50%);
 
     @media only screen and (max-width: 845px) {
-      height: 350px;
+      height: 370px;
       top: 12%;
     }
 
     @media only screen and (max-width: 400px) {
       width: 90%;
+      height: 400px;
     }
 
     p {

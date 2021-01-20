@@ -288,7 +288,7 @@ input:-webkit-autofill {
   right: 25%;
   text-align: center;
   border-radius: 1rem;
-  z-index: 15;
+  z-index: 20;
   font-size: 2rem;
   transition: all 0.4s ease-in; }
   @media (max-width: 37.5em) {
@@ -749,11 +749,12 @@ input:-webkit-autofill {
     transform: translateX(-50%); }
     @media only screen and (max-width: 845px) {
       .car-card__charity-list {
-        height: 350px;
+        height: 370px;
         top: 12%; } }
     @media only screen and (max-width: 400px) {
       .car-card__charity-list {
-        width: 90%; } }
+        width: 90%;
+        height: 400px; } }
     .car-card__charity-list p {
       font-size: 1.3rem; }
     .car-card__charity-list .charity-ul {
@@ -1377,7 +1378,17 @@ input:-webkit-autofill {
   margin-top: 2rem; }
 
 #modal-content-charity {
-  padding: 0; }
+  padding: 0;
+  max-height: 80vh;
+  overflow-y: scroll; }
+  #modal-content-charity::-webkit-scrollbar {
+    width: 0.7rem; }
+  #modal-content-charity::-webkit-scrollbar-track {
+    background-color: #e2e2e2;
+    border-radius: 5px; }
+  #modal-content-charity::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, #520d0d, #7e1414);
+    border-radius: 5px; }
   #modal-content-charity .car-image {
     width: 40%; }
 
@@ -1589,7 +1600,7 @@ input:-webkit-autofill {
   @media (max-width: 85em) {
     .ticket-container {
       width: 94%;
-      margin: 0 auto 12vh; } }
+      margin: 0 auto 8vh; } }
   .ticket-container--secondary {
     box-shadow: none;
     height: 20rem;
@@ -2115,7 +2126,7 @@ input:-webkit-autofill {
   text-align: center; }
   .dashboard__title {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 8rem;
     padding: 5rem 0 0 0;
     font-size: 3.2rem;
     font-weight: 500;
@@ -2131,7 +2142,7 @@ input:-webkit-autofill {
     .dashboard__title--pool {
       width: 100%;
       margin: 1rem 0;
-      padding: 3rem 0 1rem 0;
+      padding: 3rem 0 0 0;
       font-size: 1.8rem;
       font-weight: 600;
       color: #000;

@@ -43,3 +43,27 @@ export const checkIfCharityIsEntered = (id, userCharities) => {
 
   return { pledged: matches.length > 0, name: matches[0].name };
 };
+
+export const charityOccurences = (charities) => {
+  let uniqueArr = [...new Set(charities)];
+
+  let finalArr = [];
+
+  for(let i = 0; i < uniqueArr.length; i++) {
+    let counter = 0;
+    for(let j = 0; j < charities.length; j++) {
+      if (charities[j] === uniqueArr[i]) {
+        counter++;
+      }
+    }
+    if(counter > 1) {
+      finalArr.push(`${uniqueArr[i]} x${counter}`);
+    } else {
+      finalArr.push(uniqueArr[i]);
+    }
+
+    counter = 0;
+  }
+
+  return finalArr;
+}
