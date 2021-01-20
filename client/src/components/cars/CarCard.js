@@ -9,6 +9,7 @@ import QuickEnter from "./QuickEnter";
 import formatNumber from "../../utils/formatNumber";
 import userTickets from "../../utils/userTickets";
 import progressBar from "../../utils/progressBar";
+import { charityOccurences } from "../../utils/charityEligible";
 
 import ticketSvg from "../../img/ticket.svg"
 
@@ -16,7 +17,6 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
   let { prizeTotal, ticketPool, car, _id, pictures, charityPool, charityAmount, charityPledgeAmount } = prize;
 
   const [showCharityList, setShowCharityList] = useState(false);
-  const [locked, setLocked] = useState(false);
 
   let charityNames = charityPool.map(c => c.name);
 
@@ -114,7 +114,7 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
 
         <Link
           to={`/cardetails/${_id}`}
-          className={`btn btn--primary u-margin-bottom-sm ${locked && "inactive"}`}
+          className='btn btn--primary u-margin-bottom-sm'
           onClick={() => window.scrollTo(0, 0)}
         >
           Details
@@ -127,7 +127,7 @@ const CarCard = ({ prize, user, showConfirmModal, setAlert }) => {
           </h2>
           <p className="u-margin-top-sm u-color-primary-dark">It takes <strong>{charityPledgeAmount}</strong> tickets entered to pledge a charity</p>
           <ul className="charity-ul">
-            {charityNames.length ? charityNames.map((name, i) =>  <li className="charity-ul__li" key={i}>{name}</li>) : <li className="charity-ul__li">No charites entered yet</li> }
+            {charityNames.length ? charityOccurences(charityNames).map((name, i) =>  <li className="charity-ul__li" key={i}>{name}</li>) : <li className="charity-ul__li">No charites entered yet</li> }
           </ul>
           <div className='exit-container' onClick={() => setShowCharityList(false)}>
             <i className='fas fa-times'></i>

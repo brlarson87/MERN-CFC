@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 //Components
 import TicketContainer from "./TicketContainer";
 
+import { checkIfCharityIsEntered } from "../../utils/charityEligible";
+
 import {
   atLeastOnePool,
   enteredPrizes,
@@ -21,6 +23,8 @@ const UserPool = (props) => {
             prize={prize}
             tickets={ticketsInCertainPool(props.tickets, prize._id)}
             userCharities={props.userCharities}
+            charityEntered={checkIfCharityIsEntered(prize._id, props.userCharities).pledged}
+            charityName={checkIfCharityIsEntered(prize._id, props.userCharities).name}
             key={prize._id}
           />
         ))
