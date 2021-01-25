@@ -7,7 +7,7 @@ import { formatTime } from "../../utils/formatNumber";
 
 export const Timer = (props) => {
   let [seconds, changeSeconds] = useState(
-    moment(props.time).add("83", "minutes").diff(Date.now(), "seconds")
+    moment(props.time).add("93", "minutes").diff(Date.now(), "seconds")
   );
 
   if (seconds > 0) {

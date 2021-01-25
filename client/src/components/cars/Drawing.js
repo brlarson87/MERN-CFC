@@ -29,6 +29,10 @@ const Drawing = ({
 }) => {
   const [resultData, setResultData] = useState({
     stopTimer: false,
+    winningDraw: true,
+    grandPrizeNumber: undefined,
+    secondaryPrizeNumbers: undefined,
+    ticketPrizeNumbers: undefined
   });
 
   useEffect(() => {
@@ -55,9 +59,10 @@ const Drawing = ({
                 <Link to='/cars' style={{ textDecoration: "none" }}>
                   <i className='fas fa-arrow-alt-circle-left drawing-back-arrow'></i>
                 </Link>
-                <div className='timer'>
+                
                   {/* <div className='timer__time'>{formatTime(time)}</div> */}
-                  {!resultData.stopTimer && (
+                  {!resultData.stopTimer ? (
+                    <div className='timer'>
                     <Fragment>
                       <div className='timer__title'>Winners are picked in</div>
                       <Timer
@@ -66,8 +71,18 @@ const Drawing = ({
                         isMounted={resultData.isMounted}
                       />
                     </Fragment>
-                  )}
-                </div>
+                    </div>
+                  ) :
+                    (
+                      <Fragment>
+                      <h3 className="u-text-center">{formatTicketNumber(
+                                result.grandPrizeTicketNumber,
+                                prize.prizeTotal
+                              )}</h3>
+                      </Fragment>
+                    )
+                  }
+                
                 <h1 className='car-title'>{prize.car}</h1>
                 <div className='drawing-flex'>
                   <div className='drawing-flex__box drawing-flex__box--car-image'>
@@ -120,7 +135,7 @@ const Drawing = ({
                     <h2 className='result-title result-title--gold'>
                       Grand Prize Winner
                     </h2>
-                    {resultData.stopTimer && (
+                    {resultData.stopTimer && resultData.winningDraw && (
                       <div className='ticket-container ticket-container--single'>
                         <div className='ticket-container__single-ticket ticket-container__single-ticket--single'>
                           <i className='fas fa-ticket-alt'>
