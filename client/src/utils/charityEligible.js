@@ -36,6 +36,9 @@ export const checkIfEligibleForPledge = (
   };
 };
 
+//
+// Checks if user has a charity entered for the given prize id. Can check in the component if the ticket amount is more than charityPledgeAmount on the prize object
+//
 export const checkIfCharityIsEntered = (id, userCharities) => {
   const matches = userCharities.filter(
     (charityObj) => charityObj.prizeId === id
@@ -44,6 +47,9 @@ export const checkIfCharityIsEntered = (id, userCharities) => {
   return { pledged: matches.length > 0, name: matches[0].name };
 };
 
+//
+// Takes an array of strings (charity names) and returns a string with the amount of times entered if more than once.
+//
 export const charityOccurences = (charities) => {
   let uniqueArr = [...new Set(charities)];
 
